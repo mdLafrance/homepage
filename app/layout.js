@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
             <body className={inter.className}>
                 <div className="background-gradient">
                     <div className="bg-gradient-to-bl from-default/10 to-default/50 ">
-                        <div className="h-screen w-screen opacity-100">
+                        <div className="h-screen w-screen opacity-100 flex items-center justify-center">
                             <Header />
-                            <div className="absolute top-24">
+                            <div className="absolute top-24 max-w-[75rem] mx-5 bg-red-500">
                                 {children}
                             </div>
                         </div>
