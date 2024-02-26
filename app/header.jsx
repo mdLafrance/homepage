@@ -34,7 +34,7 @@ export default function Header() {
     return (
         <div className="
             fixed top-8 flex flex-row justify-center items-center w-120 h-8 overflow-x-clip rounded-3xl z-10
-            backdrop-blur-lg bg-white bg-opacity-5
+            backdrop-blur-3xl bg-white bg-opacity-5
             drop-shadow-2xl
         ">
             <ul className="flex justify-center">
