@@ -1,9 +1,9 @@
-export default function Home() {
+export default function Work() {
     return (
         <main>
             <div>
-                <p>Homepage</p>
+                <p>WORK PAGE</p>
             </div>
         </main>
-    );
+    )
 }
