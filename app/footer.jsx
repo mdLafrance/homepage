@@ -3,11 +3,12 @@ import Image from 'next/image';
 import githubIcon from '../public/github.svg';
 import linkedinIcon from '../public/linkedin.svg';
 import emailIcon from '../public/email.svg';
+import linkIcon from '../public/link.svg';
 
 function FooterIconLink({ icon, link }) {
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">
-            <Image src={icon} width={25} />
+            <Image src={icon} width={25} alt={link} />
         </a >
     )
 }
@@ -27,6 +28,7 @@ function Rule() {
 export default function Footer() {
     return (
         <div className="min-h-32 mt-12 w-full">
+            {/** Horizontal rule with links **/}
             <div className='flex flex-row gap-4 items-center '>
                 <Rule />
                 <FooterIconLink icon={githubIcon} link={"https://github.com/mdLafrance"} />
@@ -35,6 +37,19 @@ export default function Footer() {
                 <FooterIconSpacer />
                 <FooterIconLink icon={emailIcon} link={"mailto:maxlafrance97@gmail.com"} />
                 <Rule />
+            </div>
+            {/** Credits section **/}
+            <div className='mt-4 flex justify-center'>
+                <a href="https://github.com/mdlafrance/homepage" target="_blank" rel="noopener noreferrer" className="
+                    transition-all duration-200 
+                    hover:backdrop-blur-xl hover:bg-white/20 hover:text-white
+                    rounded-3xl py-1 px-3
+                ">
+                    <div className="flex gap-1">
+                        <p className="text-center">Designed & built by me</p>
+                        <Image src={linkIcon} width={20} />
+                    </div>
+                </a>
             </div>
         </div>
     )
