@@ -32,25 +32,27 @@ export default function Header() {
     const current_path = usePathname().slice(1);
 
     return (
-        <div className="
-            fixed top-8 flex flex-row justify-center items-center w-120 h-8 overflow-x-clip rounded-3xl z-10
-            backdrop-blur-3xl bg-white bg-opacity-5
-            drop-shadow-2xl
+        <div className="w-screen fixed top-8 flex justify-center">
+            <div className="
+            w-120 h-8 overflow-x-clip rounded-3xl z-10
+            backdrop-blur-3xl bg-white bg-opacity-10
+            shadow-black/5 shadow-md
         ">
-            <ul className="flex justify-center">
-                <li>
-                    <HeaderItem name={"Home"} link={"/"} selected={current_path === ""} />
-                </li>
-                <li>
-                    <HeaderItem name={"About"} link={"/about"} selected={current_path === "about"} />
-                </li>
-                <li>
-                    <HeaderItem name={"Work"} link={"/work"} selected={current_path === "work"} />
-                </li>
-                <li>
-                    <HeaderItem name={"Contact"} link={"/contact"} selected={current_path === "contact"} />
-                </li>
-            </ul>
+                <ul className="flex justify-center">
+                    <li>
+                        <HeaderItem name={"Home"} link={"/"} selected={current_path === ""} />
+                    </li>
+                    <li>
+                        <HeaderItem name={"Work"} link={"/work"} selected={current_path === "work"} />
+                    </li>
+                    <li>
+                        <HeaderItem name={"About"} link={"/about"} selected={current_path === "about"} />
+                    </li>
+                    <li>
+                        <HeaderItem name={"Contact"} link={"/contact"} selected={current_path === "contact"} />
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 }

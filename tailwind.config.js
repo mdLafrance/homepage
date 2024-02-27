@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 module.exports = {
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -6,6 +8,10 @@ module.exports = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                Poppins: ["Poppins", ...defaultTheme.fontFamily.sans],
+                Bebas: ["Bebas Neue", ...defaultTheme.fontFamily.sans],
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic":
