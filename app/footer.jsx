@@ -15,13 +15,13 @@ function FooterIconLink({ icon, link }) {
 
 function FooterIconSpacer() {
     return (
-        <span className='text-3xl text-opacity-35 text-black'>/</span>
+        <span className='text-3xl  text-space_cadet'>/</span>
     )
 }
 
 function Rule() {
     return (
-        <hr className='flex-1 border-t-[2px] h-1 border-black/20' />
+        <hr className='flex-1 border-t-[2px] h-1 border-space_cadet/60' />
     )
 }
 
@@ -42,12 +42,13 @@ export default function Footer() {
             <div className='mt-4 flex justify-center'>
                 <a href="https://github.com/mdlafrance/homepage" target="_blank" rel="noopener noreferrer" className="
                     transition-all duration-200 
+                    text-default
                     hover:backdrop-blur-xl hover:bg-white/20 hover:text-white
                     rounded-3xl py-1 px-3
                 ">
                     <div className="flex gap-1">
-                        <p className="text-center">Designed & built by me</p>
-                        <Image src={linkIcon} width={20} />
+                        <p className="font-Lora font-semibold hover:font-bold text-center">Designed & built by me</p>
+                        <Image src={linkIcon} width={20} alt={"Link Icon"}/>
                     </div>
                 </a>
             </div>

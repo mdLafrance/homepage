@@ -1,6 +1,5 @@
 "use client";
 
-import { fontKanit } from "@/lib/font"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -11,12 +10,13 @@ import { usePathname } from "next/navigation"
 function HeaderItem({ name, link, selected = false }) {
     return (
         <Link href={link} className={`
-                ${fontKanit.className}
+                font-Kanit
+                font-semibold
                 text-white
                 transition-all
                 w-[6rem]  flex justify-center bg-opacity-15 items-center h-8
                 rounded-md
-                ${selected ? "bg-white bg-opacity-20" : "text-opacity-80"}
+                ${selected ? "bg-isabelline" : "text-opacity-80"}
             `}>
             {name}
         </Link>
