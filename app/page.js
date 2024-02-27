@@ -4,9 +4,9 @@ export default function Home() {
             {/** Central vertical flex **/}
             <div className="flex-col">
                 {/** Title section **/}
-                <div className="font-Poppins ">
-                    <p className=" text-white text-opacity-90 text-4xl">Hi,</p>
-                    <p className=" text-white text-7xl py-2">I'm Max</p>
+                <div className="font-Poppins invisible:opacity-0 visible:opacity-50 ">
+                    <p className=" text-white text-opacity-80 text-2xl">Hi, my name is</p>
+                    <p className=" text-white text-7xl py-2">Max Lafrance</p>
                 </div>
 
                 {/**   Brief about section **/}
