@@ -34,7 +34,7 @@ export default function Header() {
     return (
         <div className="w-screen fixed top-8 flex justify-center">
             <div className="
-            w-120 h-8 overflow-x-clip rounded-3xl z-10
+            w-120 h-8 overflow-x-clip rounded-3xl z-40
             backdrop-blur-3xl bg-white bg-opacity-10
             shadow-black/5 shadow-md
         ">

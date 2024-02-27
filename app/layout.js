@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
                     <div className="w-screen h-screen px-20 pt-20 overflow-y-scroll flex justify-center">
                         <div className="
                             h-full flex flex-col
-                            w-[85rem]
+                            w-[80rem]
                         ">
                             <div className="flex-1">
                                 {children}

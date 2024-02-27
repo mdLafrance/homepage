@@ -19,8 +19,30 @@ export default function Home() {
                 <div>
 
                 </div>
+                {/** Intro **/}
+                <div className="py-12">
+                    <div className="backdrop-blur-3xl bg-isabelline/40 rounded-xl p-6">
+                        <p className="font-Lora font-bold text-2xl text-white">
+                            I've been working in the field of Visual Effects as a Pipeline Engineer and TD.
+                        </p>
+                        <div className="
+                        font-Lora text-2xl text-white 
+                    ">
+                            <p >
+                                Developers at VFX houses (like me) help artists create their best work by creating plugins, and custom software to meet the specific needs of each unique production.
+                            </p>
+                            <br />
+                            <p>
+                                I have a deep love for coding, and am always getting lost in some new technological rabbit hole.
+                            </p>
+                            <br />
+                            <p>If you're a fellow tinkerer/nerd, please get in touch!</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-        </main>
+        </main >
     );
 }

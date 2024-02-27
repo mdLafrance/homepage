@@ -3,6 +3,8 @@ import bashIcon from "../../public/bash.svg";
 import githubActionsIcon from "../../public/github_actions.svg";
 import nukeIcon from "../../public/nuke.svg";
 import gitlabIcon from "../../public/gitlab.svg";
+import mayaIcon from "../../public/maya.svg";
+import qtIcon from "../../public/qt.svg";
 
 import Image from 'next/image';
 
@@ -48,6 +50,18 @@ export function GitlabChicklet() {
     )
 }
 
+export function MayaChicklet() {
+    return (
+        <WorkExperienceChicklet icon={mayaIcon} name={"Maya"} link={"https://www.autodesk.com/za/products/maya/overview-dts"} />
+    )
+}
+
+
+export function QtChicklet() {
+    return (
+        <WorkExperienceChicklet icon={qtIcon} name={"Qt"} link={"https://www.qt.io/product"} />
+    )
+}
 
 const work_experiences = [
     {
@@ -67,7 +81,53 @@ Advocated for and implemented better observability and maintainability patterns 
             BashChicklet,
             ActionsChicklet,
             NukeChicklet,
-            GitlabChicklet
+            GitlabChicklet,
+            QtChicklet
+        ]
+    },
+    {
+        title: "Software developer intern",
+        company: "Industrial Brothers",
+        date: "Summer 2019, Summer 2018",
+        summary: "Developed extension plugins for our digital content creation software including Autodesk Maya, and Nuke. These plugins leveraged third party apis, and the integration of the Qt graphics library to extend the functionality of these programs to better serve artist needs. \
+\
+Contributed to an R&D proposal for an overhaul of the studio’s asset organization system. This system included a small DSL and graphical interface. (Note: this was developed prior to USD) \
+\
+Implemented a novel algorithm for testing certain characteristics of 3d mesh quality. This algorithm was faster than its predecessor by a factor of a full O(n), and took the completion time for large sets of vertices down from minutes to seconds. \
+",
+        skills: [
+            PythonChicklet,
+            MayaChicklet,
+            QtChicklet,
+            NukeChicklet
+        ]
+    },
+    {
+        title: "Software developer intern",
+        company: "Awesometown Entertainment",
+        date: "Summer 2017",
+        summary: "Rewrote core studio DCC software extensions.\
+Audited studio code quality using our in-house testing software. Added updates to this software to increase ease of use and reliability.\
+Maintained the studio MySQL database. \
+",
+        skills: [
+            PythonChicklet,
+            MayaChicklet,
+            QtChicklet
+        ]
+    },
+    {
+        title: "Junior TD",
+        company: "Arc Productions",
+        date: "June 2015 - January 2016",
+        summary: "Worked directly with team leads to develop scripts and tools to increase artist efficiency.\
+Finalized various visual effects, including physics simulations, and character turntables.\
+Model retopology and uv’ing for show assets.\
+",
+        skills: [
+            PythonChicklet,
+            MayaChicklet,
+            NukeChicklet
         ]
     }
 ]
@@ -79,12 +139,13 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
             rounded-xl py-4 px-6
             hover:backdrop-blur-3xl hover:bg-white/10 transition-all
             hover:shadow-black/5 hover:shadow-md
-            w-[40rem]
+            w-[50rem]
+            z-0
         ">
             {/** Left/right div **/}
             <div className="flex gap-6">
                 {/** Date range side **/}
-                <div className="mt-1 w-24">
+                <div className="mt-1 min-w-40 max-w-40 flex-0">
                     <p className="text-white/80 font-Kanit font-light text-lg">{date}</p>
                 </div>
                 {/** Experience **/}
@@ -113,12 +174,8 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
 export default function Work() {
     return (
         <main>
-            {/** Intro **/}
-            <div>
-            </div>
-
             {/** Work history cards **/}
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center gap-4 z-10">
                 {
                     work_experiences.map((e) => {
                         return <WorkHistoryCard title={e.title} company={e.company} date={e.date} summary={e.summary} skills={e.skills} />
