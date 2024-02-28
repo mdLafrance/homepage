@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-import githubIcon from '../public/github.svg';
-import linkedinIcon from '../public/linkedin.svg';
-import emailIcon from '../public/email.svg';
-import linkIcon from '../public/link.svg';
+import githubIcon from '../public/icons/github.svg';
+import linkedinIcon from '../public/icons/linkedin.svg';
+import emailIcon from '../public/icons/email.svg';
+import linkIcon from '../public/icons/link.svg';
 
 function FooterIconLink({ icon, link }) {
     return (
@@ -39,18 +39,23 @@ export default function Footer() {
                 <Rule />
             </div>
             {/** Credits section **/}
-            <div className='mt-4 flex justify-center'>
-                <a href="https://github.com/mdlafrance/homepage" target="_blank" rel="noopener noreferrer" className="
+            <div className='font-Lora font-semibold text-default'>
+                <div className='my-2 flex justify-center'>
+                    <a href="https://github.com/mdlafrance/homepage" target="_blank" rel="noopener noreferrer" className="
                     transition-all duration-200 
-                    text-default
                     hover:backdrop-blur-xl hover:bg-white/20 hover:text-white
                     rounded-3xl py-1 px-3
                 ">
-                    <div className="flex gap-1">
-                        <p className="font-Lora font-semibold hover:font-bold text-center">Designed & built by me</p>
-                        <Image src={linkIcon} width={20} alt={"Link Icon"}/>
-                    </div>
-                </a>
+                        <div className="flex gap-1">
+                            <p className="hover:font-bold text-center">Designed & built by me</p>
+                            <Image src={linkIcon} width={20} alt={"Link Icon"} />
+                        </div>
+                    </a>
+
+                </div>
+                <div className='my-2 flex justify-center'>
+                    <p>Noise textures by <a href="https://www.freepik.com/free-vector/realistic-grainy-texture_21846587.htm#&position=5&from_view=collections&uuid=f05d5dc0-a05e-4fd3-9b1f-e0d55691b783">Freepik</a></p>
+                </div>
             </div>
         </div>
     )

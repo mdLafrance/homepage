@@ -15,21 +15,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} background-gradient`}>
-                <div className="bg-gradient-to-bl from-default/10 to-default/60 ">
-                    <Header />
-                    {/** Div for central content area **/}
-                    <div className="w-screen h-screen px-20 pt-20 overflow-y-scroll flex justify-center">
-                        <div className="
+            <body className={`${inter.className} background-gradient noise`}>
+                <Header />
+                {/** Div for central content area **/}
+                <div className="w-screen h-screen px-20 pt-20 overflow-y-scroll flex justify-center">
+                    <div className="
                             h-full flex flex-col
                             w-[80rem]
                         ">
-                            <div className="flex-1">
-                                {children}
-                            </div>
-
-                            <Footer />
+                        <div className="flex-1">
+                            {children}
                         </div>
+
+                        <Footer />
                     </div>
                 </div>
             </body>

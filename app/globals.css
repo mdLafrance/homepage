@@ -7,20 +7,36 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.background-gradient{
-    background-color: rgb(49, 46, 129);
-    background-image: radial-gradient(at 104.15% -5.50%, rgb(2, 132, 199) 0, transparent 41%), radial-gradient(at 88.33% 84.83%, rgb(79, 70, 229) 0, transparent 61%), radial-gradient(at 18.20% 8.50%, rgb(99, 102, 241) 0, transparent 98%), radial-gradient(at 0.94% 55.50%, rgb(229, 231, 235) 0, transparent 76%), radial-gradient(at 51.60% 47.00%, rgb(245, 158, 11) 0, transparent 100%);
-
-    background-color: #000000;
+.background-gradient {
+    background: #F2E9E4;
 }
 
-@keyframes grainy {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
+.noise {
+    position: absolute;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 90vw;
+        background-image: url('../public/images/noise_1_cleaned.jpg');
+        z-index: 0;
+        opacity: 0.4;
+    }
+
+    z-index: 0;
 }
 
+
+/* This breakpoint changes the width of the noise texture on ultrawide screens,
+ * to better align with the text */
+@media (min-width: 1700px) {
+    .noise {
+        background-size: 80vw;
+    }
+}

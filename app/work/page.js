@@ -1,10 +1,10 @@
-import pythonIcon from "../../public/python.svg";
-import bashIcon from "../../public/bash.svg";
-import githubActionsIcon from "../../public/github_actions.svg";
-import nukeIcon from "../../public/nuke.svg";
-import gitlabIcon from "../../public/gitlab.svg";
-import mayaIcon from "../../public/maya.svg";
-import qtIcon from "../../public/qt.svg";
+import pythonIcon from "../../public/icons/python.svg";
+import bashIcon from "../../public/icons/bash.svg";
+import githubActionsIcon from "../../public/icons/github_actions.svg";
+import nukeIcon from "../../public/icons/nuke.svg";
+import gitlabIcon from "../../public/icons/gitlab.svg";
+import mayaIcon from "../../public/icons/maya.svg";
+import qtIcon from "../../public/icons/qt.svg";
 
 import Image from 'next/image';
 
