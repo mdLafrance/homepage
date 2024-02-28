@@ -41,6 +41,7 @@ export default function Header() {
             shadow-black/20 shadow-sm
             hover:shadow-md hover:shadow-black/30
             transition-all duration-200
+            ring-1 ring-ultra_violet/10
         ">
                 <ul className="flex justify-center">
                     <li>

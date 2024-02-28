@@ -43,11 +43,12 @@ export default function Footer() {
                 <div className='my-2 flex justify-center'>
                     <a href="https://github.com/mdlafrance/homepage" target="_blank" rel="noopener noreferrer" className="
                     transition-all duration-200 
-                    hover:backdrop-blur-xl hover:bg-white/20 hover:text-white
+                    hover:backdrop-blur-xl hover:bg-pale_dogwood/40 hover:text-space_cadet hover:ring-1 hover:ring-ultra_violet/40
                     rounded-3xl py-1 px-3
+                    group
                 ">
                         <div className="flex gap-1">
-                            <p className="hover:font-bold text-center">Designed & built by me</p>
+                            <p className="group-hover:font-bold text-center">Designed & built by me</p>
                             <Image src={linkIcon} width={20} alt={"Link Icon"} />
                         </div>
                     </a>
