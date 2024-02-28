@@ -12,10 +12,11 @@ function WorkExperienceChicklet({ icon, name, link }) {
     return (
         <a href={link} target="_blank" rell="noopener noreferrer" className="
             h-8 px-3 flex items-center space-x-1 
-            ring-1 ring-white/25 rounded-xl backdrop-blur-3xl bg-white/10 hover:bg-white/25 transition-all
+            ring-1 ring-ultra_violet/25 rounded-xl backdrop-blur-3xl bg-ultra_violet/5 hover:bg-white/25 transition-all
+            drop-shadow-lg
         ">
             <Image src={icon} alt={name} width={23} height={23} />
-            <span className="font-Kanit font-regular text-white/80">{name}</span>
+            <span className="font-Kanit font-regular text-space_cadet/80">{name}</span>
         </a>
     )
 }
@@ -137,8 +138,9 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
         <div className="
             group
             rounded-xl py-4 px-6
-            hover:backdrop-blur-3xl hover:bg-white/10 transition-all
-            hover:shadow-black/5 hover:shadow-md
+            hover:backdrop-blur-3xl hover:bg-pale_dogwood/10 transition-all
+            hover:shadow-black/15 hover:shadow-md
+            hover:ring-1 hover:ring-rose_quartz/50
             w-[50rem]
             z-0
         ">
@@ -146,13 +148,13 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
             <div className="flex gap-6">
                 {/** Date range side **/}
                 <div className="mt-1 min-w-40 max-w-40 flex-0">
-                    <p className="text-white/80 font-Kanit font-light text-lg">{date}</p>
+                    <p className="text-space_cadet/80 font-Kanit font-light text-lg">{date}</p>
                 </div>
                 {/** Experience **/}
                 <div>
-                    <p className="font-Kanit font-bold text-white text-2xl">{title}</p>
-                    <p className="font-Kanit font-semibold text-white/80 text-xl">{company}</p>
-                    <p className="text-white/70 group-hover:text-white font-Lora font-regular text-lg transition-all">{summary}</p>
+                    <p className="font-Kanit font-bold text-space_cadet text-2xl">{title}</p>
+                    <p className="font-Kanit font-semibold text-space_cadet/80 text-xl">{company}</p>
+                    <p className="text-space_cadet/70 group-hover:text-space_cadet font-Lora font-regular text-lg transition-all">{summary}</p>
                     {/** Work experience chicklets **/}
                     <div className="flex flex-wrap gap-2 mt-2">
                         {

@@ -12,11 +12,13 @@ function HeaderItem({ name, link, selected = false }) {
         <Link href={link} className={`
                 font-Kanit
                 font-semibold
-                text-white
                 transition-all
                 w-[6rem]  flex justify-center bg-opacity-15 items-center h-8
                 rounded-md
-                ${selected ? "bg-isabelline" : "text-opacity-80"}
+                ${selected ? 
+                        "text-white bg-ultra_violet/70" : 
+                        "text-ultra_violet"
+                }
             `}>
             {name}
         </Link>
@@ -35,8 +37,10 @@ export default function Header() {
         <div className="w-screen fixed top-8 flex justify-center">
             <div className="
             w-120 h-8 overflow-x-clip rounded-3xl z-40
-            backdrop-blur-3xl bg-white bg-opacity-10
-            shadow-black/5 shadow-md
+            backdrop-blur-3xl bg-white/50
+            shadow-black/20 shadow-sm
+            hover:shadow-md hover:shadow-black/30
+            transition-all duration-200
         ">
                 <ul className="flex justify-center">
                     <li>

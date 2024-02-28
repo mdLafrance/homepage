@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} background-gradient noise`}>
+            <body className={`${inter.className} background-gradient`}>
                 <Header />
                 {/** Div for central content area **/}
                 <div className="w-screen h-screen px-20 pt-20 overflow-y-scroll flex justify-center">
@@ -29,6 +29,8 @@ export default function RootLayout({ children }) {
 
                         <Footer />
                     </div>
+                </div>
+                <div className="static-noise">
                 </div>
             </body>
         </html >
