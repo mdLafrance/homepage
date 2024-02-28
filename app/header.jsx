@@ -12,9 +12,9 @@ function HeaderItem({ name, link, selected = false }) {
         <Link href={link} className={`
                 font-Kanit
                 font-semibold
-                transition-all
+                transition-all duration-300
                 w-[6rem]  flex justify-center bg-opacity-15 items-center h-8
-                rounded-md
+                rounded-3xl
                 ${selected ? 
                         "text-white bg-ultra_violet/70" : 
                         "text-ultra_violet"

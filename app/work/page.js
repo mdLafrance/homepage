@@ -142,7 +142,7 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
             hover:shadow-black/15 hover:shadow-md
             hover:ring-1 hover:ring-rose_quartz/50
             w-[50rem]
-            z-0
+            z-1 hover:z-1
         ">
             {/** Left/right div **/}
             <div className="flex gap-6">
