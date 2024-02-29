@@ -27,7 +27,7 @@ function Rule() {
 
 export default function Footer() {
     return (
-        <div className="min-h-32 mt-12 w-full">
+        <div className="min-h-32 mt-12 mb-2 w-full">
             {/** Horizontal rule with links **/}
             <div className='flex flex-row gap-4 items-center '>
                 <Rule />
@@ -40,7 +40,7 @@ export default function Footer() {
             </div>
             {/** Credits section **/}
             <div className='font-Lora font-semibold text-default'>
-                <div className='my-2 flex justify-center'>
+                <div className='mt-2 flex justify-center'>
                     <a href="https://github.com/mdlafrance/homepage" target="_blank" rel="noopener noreferrer" className="
                     transition-all duration-200 
                     hover:backdrop-blur-xl hover:bg-pale_dogwood/40 hover:text-space_cadet hover:ring-1 hover:ring-ultra_violet/40
@@ -54,7 +54,7 @@ export default function Footer() {
                     </a>
 
                 </div>
-                <div className='my-2 flex justify-center'>
+                <div className='flex justify-center'>
                     <p>Noise textures by <a href="https://www.freepik.com/free-vector/realistic-grainy-texture_21846587.htm#&position=5&from_view=collections&uuid=f05d5dc0-a05e-4fd3-9b1f-e0d55691b783">Freepik</a></p>
                 </div>
             </div>
