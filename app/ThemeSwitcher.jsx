@@ -30,7 +30,7 @@ export default function ThemeSwitcher() {
     return (
         <div className="fixed top-2 right-5 p-4">
             <button className="rounded-md ring-blue-400 ring-2 p-2" onClick={switchTheme}>
-                <Image src={icon} width={40} alt={"Switch theme"} />
+                <Image src={icon} width={40} height={"auto"} alt={"Switch theme"} />
             </button>
         </div>
     )
