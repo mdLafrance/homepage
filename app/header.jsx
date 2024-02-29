@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react";
 
 
 /** Compontne HeaderItem provides a button which is part of the navigation bar,
@@ -15,10 +16,10 @@ function HeaderItem({ name, link, selected = false }) {
                 transition-all duration-300
                 w-[6rem]  flex justify-center bg-opacity-15 items-center h-8
                 rounded-3xl
-                ${selected ? 
-                        "text-white bg-ultra_violet/70" : 
-                        "text-ultra_violet"
-                }
+                ${selected ?
+                "text-white bg-ultra_violet/70" :
+                "text-ultra_violet"
+            }
             `}>
             {name}
         </Link>
@@ -32,6 +33,17 @@ export default function Header() {
     // However, since this website will only ever have 4 static
     // pages, this simple solution just works.
     const current_path = usePathname().slice(1);
+
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    })
+
+    const handleScroll = () => {
+        console.log('scroll event', window.scrollY)
+    }
 
     return (
         <div className="w-screen fixed top-8 flex justify-center">
