@@ -3,6 +3,8 @@ import Reveal from "./(components)/Reveal";
 export default function Home() {
     return (
         <main>
+
+
             {/** Central vertical flex **/}
             <div className="flex-col">
                 {/** Title section **/}

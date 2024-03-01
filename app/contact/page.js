@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react";
+import { Boxes } from "../(components)/background-boxes";
 
 const dropIn = {
     hidden: {
@@ -38,7 +39,7 @@ function Reveal({ children, delay }) {
         show: {
             opacity: 1,
             y: 0,
-            transition: {delay: delay, duration: 0.4,  ease: "easeOut" } // Use 'tween' type and 'linear' ease
+            transition: { delay: delay, duration: 0.4, ease: "easeOut" } // Use 'tween' type and 'linear' ease
         },
 
     }
@@ -54,22 +55,7 @@ export default function Contact() {
 
     return (
         <div>
-            <div className="flex flex-col gap-10 overflow-x-hidden">
-                <motion.section variants={dropIn} initial="hidden" animate="show" className="grid grid-cols-3 p-10 gap-10">
-                    <motion.div variants={squareVariants} className="bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10" ></motion.div>
-                    <motion.div variants={squareVariants} className="bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10" ></motion.div>
-                    <motion.div variants={squareVariants} className="bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10" ></motion.div>
-                    <motion.div variants={squareVariants} className="bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10" ></motion.div>
-
-                </motion.section>
-            </div>
-
-            <Reveal delay={0.2}>
-                <TestButton />
-            </Reveal>
-            <Reveal delay={1}>
-                <TestButton />
-            </Reveal>
+            <Boxes />
         </div>
     )
 }
