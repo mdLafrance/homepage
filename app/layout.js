@@ -4,7 +4,7 @@ import Header from "./header";
 import Footer from "./footer";
 import ThemeSwitcher from "./ThemeSwitcher";
 
-import Boxes from "./(components)/background-boxes"
+import NoisyPixels from "./(components)/NoisyPixels";
 
 import './globals.css';
 
@@ -21,27 +21,26 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={`${inter.className} `}>
-                <div className="">
-                    <Providers >
-                        <div className="h-full min-h-screen bg-isabelline bg-scroll dark:bg-space_cadet transition-colors duration-200">
-                            {/** Div for central content area **/}
-                            <div className="px-20 pt-20 flex h-full min-h-screen ring-2 ring-red-200 justify-center">
-                                <div className="
-                                    h-full flex flex-col
-                                    w-[80rem]
+                <Providers >
+                    <div className="h-full min-h-screen bg-isabelline bg-scroll transition-colors duration-200 dark:bg-space_cadet">
+                        {/** Div for central content area **/}
+                        <div className="flex h-full min-h-screen justify-center px-8 sm:px-20 pt-14 sm:pt-20 ring-2 ring-red-200">
+                            <div className="
+                                    flex h-full w-[80rem]
+                                    flex-col
                                 ">
-                                    <div className="flex-1">
-                                        {children}
-                                    </div>
-
-                                    <Footer />
+                                <div className="flex-1">
+                                    {children}
                                 </div>
+
+                                <Footer />
                             </div>
-                            <Header />
-                            <ThemeSwitcher />
                         </div>
-                    </Providers>
-                </div>
+                        <Header />
+                        <ThemeSwitcher />
+                        <div className="static-noise"></div>
+                    </div>
+                </Providers>
             </body>
         </html >
     );

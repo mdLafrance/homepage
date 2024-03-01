@@ -13,13 +13,13 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 function HeaderItem({ name, link, selected = false }) {
     return (
         <Link href={link} className={`
-                font-Kanit
-                font-semibold
-                transition-all duration-300
-                w-[6rem]  flex justify-center bg-opacity-15 items-center h-8
-                rounded-3xl
+                bg-opacity-15
+                flex
+                h-8 w-[5rem] sm:w-[6rem]
+                items-center  justify-center rounded-3xl font-Kanit font-semibold transition-all
+                duration-300
                 ${selected ?
-                "text-white bg-ultra_violet/70" :
+                "bg-ultra_violet/70 text-white" :
                 "text-ultra_violet"
             }
             `}>
@@ -38,24 +38,24 @@ export default function Header() {
 
     const [scrolled, setScrolled] = useState(false);
 
-    const {scrollY} = useScroll();
+    const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         console.log("Scroll!!!");
         setScrolled(latest > 0);
     })
-    
+
     return (
-        <div className="w-screen fixed top-8 flex justify-center">
+        <div className="fixed top-6 sm:top-8 flex w-screen justify-center">
             <div className={`
-            w-120 h-8 overflow-x-clip rounded-3xl z-40
-            backdrop-blur-3xl
-            shadow-black/20 shadow-sm
-            hover:shadow-md hover:shadow-black/30
-            transition-all duration-300
-            ring-1 ring-ultra_violet/10
-            ${scrolled ? "bg-white/80 ring-ultra_violet/40 shadow-lg backdrop-blur-lg" : "bg-white/50 z-1000"}
-        `}>
+                sm:w-120 w-[50wv] z-40 h-8 overflow-x-clip rounded-3xl
+                shadow-sm shadow-black/20
+                ring-1
+                ring-ultra_violet/10 backdrop-blur-3xl
+                transition-all duration-300
+                hover:shadow-md hover:shadow-black/30
+                ${scrolled ? "scale-105 bg-white/80 shadow-lg ring-ultra_violet/40 backdrop-blur-lg" : "z-1000 bg-white/50"}
+            `}>
                 <ul className="flex justify-center">
                     <li>
                         <HeaderItem name={"Home"} link={"/"} selected={current_path === ""} />
