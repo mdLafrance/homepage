@@ -32,7 +32,7 @@ export default function Home() {
                     <Reveal dy={0} delay={0.3}>
                         {/** About section **/}
                         <div className="
-                            mx-2  mb-8 mt-8
+                            mb-8 mt-8
                             backdrop-blur-3xl bg-pale_dogwood/10 transition-all
                             shadow-black/15 shadow-lg
                             ring-2 ring-rose_quartz/50
@@ -47,6 +47,11 @@ export default function Home() {
 
                                 Pipeline staff tend to wear many hats, quickly learning domain knowledge and stepping outside
                                 their usual responsibilities to contribute wherever is needed in the production.
+
+                                <br />
+                                <br />
+                                
+                                
                             </p>
                         </div>
                     </Reveal>

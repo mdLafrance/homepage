@@ -63,7 +63,7 @@ export default function Work() {
         <main className="">
 
             {/** Work history cards **/}
-            <div className="flex flex-col items-center ">
+            <div className="flex flex-col items-center mt-4">
                 <motion.ul
                     className="space-y-3"
                     variants={workCardTransitions}
