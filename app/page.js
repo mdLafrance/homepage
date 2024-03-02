@@ -24,7 +24,7 @@ export default function Home() {
                 {/**   Brief about section **/}
                 <div className="">
                     <Reveal delay={0.15}>
-                        <p className="font-Kanit max-w-[50%] font-semibold sm:text-3xl text-space_cadet/90">
+                        <p className="font-Kanit max-w-[50%] font-semibold dark:text-isabelline/90 sm:text-3xl text-space_cadet/90">
                             Software developer, artist, and all around nerd.
                         </p>
                     </Reveal>
@@ -33,7 +33,7 @@ export default function Home() {
                         {/** About section **/}
                         <div className="
                             mb-8 mt-8
-                            backdrop-blur-3xl bg-pale_dogwood/10 transition-all
+                            backdrop-blur-3xl bg-pale_dogwood/10 dark:bg-ultra_violet/80 transition-all
                             shadow-black/15 shadow-lg
                             ring-2 ring-rose_quartz/50
                             rounded-2xl p-6 
@@ -42,7 +42,7 @@ export default function Home() {
                                 I've been working in visual effects as a pipeline engineer. For non-vfx folks - pipeline engineers
                                 write internal applications, apis, and plugins to help data pass between clients and artists.
 
-                                <br />
+                 l              <br />
                                 <br />
 
                                 Pipeline staff tend to wear many hats, quickly learning domain knowledge and stepping outside
