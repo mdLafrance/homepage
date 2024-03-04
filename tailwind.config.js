@@ -19,6 +19,7 @@ module.exports = {
                 Kanit: ["Kanit", ...defaultTheme.fontFamily.sans],
                 Lora: ["Lora", ...defaultTheme.fontFamily.sans],
                 Fredoka: ["Fredoka", ...defaultTheme.fontFamily.sans],
+                Apercu: ['var(--font-apercu)', ...defaultTheme.fontFamily.sans]
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -35,17 +36,14 @@ module.exports = {
                 pale_dogwood: "#c9ada7",
                 isabelline: "#f5ebdf",
 
-                rich_black: '#0d1321ff',
-                prussian_blue: '#1d2d44ff',
-                paynes_gray: '#3e5c76ff',
-                silver_lake_blue: '#748cabff',
-                eggshell: '#f0ebd8ff',
+                dark: "22223b",
+                light: "#F8F8F8",
+                grey: {
+                    "DEFAULT":  "#222222",
+                    "light": "#e9e9e9",
+                    "med": "#3E3E3E"
+                }
 
-                yinmn_blue: "#355070",
-                chinese_violet: "#6d597a",
-                china_rose: "#b56576",
-                light_coral: "#e56b6f",
-                bu: "#eaac8b",
             }
         },
     },

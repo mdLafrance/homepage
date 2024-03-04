@@ -13,7 +13,7 @@ function WorkExperienceChicklet({ icon, name, link }) {
     return (
         <a href={link} target="_blank" rell="noopener noreferrer" className="
             h-8 px-3 flex items-center space-x-1 
-            ring-1 ring-ultra_violet/25 rounded-xl backdrop-blur-3xl bg-ultra_violet/5 hover:bg-white/25 transition-all
+            ring-1 ring-ultra_violet/25 rounded-md backdrop-blur-3xl bg-ultra_violet/5 hover:bg-white/25 transition-all
             drop-shadow-lg
         ">
             <Image src={icon} alt={name} width={23} height={"auto"} />

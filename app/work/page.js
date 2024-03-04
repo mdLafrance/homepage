@@ -11,7 +11,7 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
     return (
         <div className="
             group
-            rounded-xl py-4 px-6
+            rounded-lg py-4 px-6
             hover:backdrop-blur-3xl hover:bg-pale_dogwood/10 transition-all
             hover:shadow-black/15 hover:shadow-md
             hover:ring-1 hover:ring-rose_quartz/50

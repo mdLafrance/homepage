@@ -4,12 +4,24 @@ import Header from "./header";
 import Footer from "./footer";
 import ThemeSwitcher from "./ThemeSwitcher";
 
-import NoisyPixels from "./(components)/NoisyPixels";
+import localFont from '@next/font/local';
 
 import './globals.css';
 
-
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const apercu = localFont({
+    src: [
+        {
+            path: '../public/fonts/Apercu-Medium.otf',
+            weight: '400'
+        },
+        {
+            path: '../public/fonts/Apercu-Bold.otf.otf',
+            weight: '700'
+        },
+    ],
+    variable: '--font-apercu'
+})
 
 export const metadata = {
     title: "Max Lafrance",
@@ -20,9 +32,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} `}>
+            <body className={`${inter.className} ${apercu.className}`}>
                 <Providers >
-                    <div className="h-full min-h-screen bg-isabelline bg-scroll transition-colors duration-200 dark:bg-prussian_blue">
+                    <div className="h-full min-h-screen bg-light bg-scroll transition-colors duration-200 dark:bg-prussian_blue">
                         {/** Div for central content area **/}
                         <div className="flex h-full min-h-screen justify-center px-8 sm:px-20 pt-14 sm:pt-20 ring-2 ring-red-200">
                             <div className="
