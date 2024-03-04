@@ -8,7 +8,7 @@ export default function Home() {
             {/** Central vertical flex **/}
             <div className="flex-col">
                 {/** Title section **/}
-                <div className="mt-4 text-left font-Poppins">
+                <div className="mt-4 text-left ">
                     <Reveal>
                         <p className="
                         font-Kanit translate-y-2 translate-x-1 text-lg font-semibold text-ultra_violet
@@ -17,7 +17,7 @@ export default function Home() {
                     ">Hi! My name is</p>
                     </Reveal>
                     <Reveal delay={0.08}>
-                        <p className="text-4xl text-space_cadet dark:text-eggshell md:text-6xl xl:text-8xl">Max Lafrance</p>
+                        <p className="text-4xl font-Poppins text-space_cadet dark:text-eggshell md:text-6xl xl:text-8xl">Max Lafrance</p>
                     </Reveal>
                 </div>
 
@@ -42,7 +42,7 @@ export default function Home() {
                                 I've been working in visual effects as a pipeline engineer. For non-vfx folks - pipeline engineers
                                 write internal applications, apis, and plugins to help data pass between clients and artists.
 
-                 l              <br />
+                                l              <br />
                                 <br />
 
                                 Pipeline staff tend to wear many hats, quickly learning domain knowledge and stepping outside
@@ -50,8 +50,8 @@ export default function Home() {
 
                                 <br />
                                 <br />
-                                
-                                
+
+
                             </p>
                         </div>
                     </Reveal>

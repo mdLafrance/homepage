@@ -4,9 +4,11 @@ import Header from "./header";
 import Footer from "./footer";
 import ThemeSwitcher from "./ThemeSwitcher";
 
-import localFont from '@next/font/local';
+import localFont from "next/font/local";
 
 import './globals.css';
+
+import Dots from "./(components)/background-dots";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const apercu = localFont({
@@ -16,7 +18,7 @@ const apercu = localFont({
             weight: '400'
         },
         {
-            path: '../public/fonts/Apercu-Bold.otf.otf',
+            path: '../public/fonts/Apercu-Bold.otf',
             weight: '700'
         },
     ],
@@ -35,22 +37,22 @@ export default function RootLayout({ children }) {
             <body className={`${inter.className} ${apercu.className}`}>
                 <Providers >
                     <div className="h-full min-h-screen bg-light bg-scroll transition-colors duration-200 dark:bg-prussian_blue">
-                        {/** Div for central content area **/}
-                        <div className="flex h-full min-h-screen justify-center px-8 sm:px-20 pt-14 sm:pt-20 ring-2 ring-red-200">
-                            <div className="
+                            {/** Div for central content area **/}
+                            <div className="flex h-full min-h-screen justify-center px-8 sm:px-20 pt-14 sm:pt-20 ring-2 ring-red-200">
+                                <div className="
                                     flex h-full w-[80rem]
                                     flex-col
                                 ">
-                                <div className="flex-1">
-                                    {children}
-                                </div>
+                                    <div className="flex-1">
+                                        {children}
+                                    </div>
 
-                                <Footer />
+                                    <Footer />
+                                </div>
                             </div>
-                        </div>
-                        <Header />
-                        <ThemeSwitcher />
-                        <div className="static-noise"></div>
+                            <Header />
+                            <ThemeSwitcher />
+                            <div className="static-noise"></div>
                     </div>
                 </Providers>
             </body>
