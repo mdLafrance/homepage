@@ -19,7 +19,9 @@ module.exports = {
                 Kanit: ["Kanit", ...defaultTheme.fontFamily.sans],
                 Lora: ["Lora", ...defaultTheme.fontFamily.sans],
                 Fredoka: ["Fredoka", ...defaultTheme.fontFamily.sans],
-                Apercu: ['var(--font-apercu)', ...defaultTheme.fontFamily.sans]
+                Apercu: ['var(--font-apercu)', ...defaultTheme.fontFamily.sans],
+                NeueMachina: ['var(--font-neuemachina)', ...defaultTheme.fontFamily.sans],
+                Grandway: ['Grandway']
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

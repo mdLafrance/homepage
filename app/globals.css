@@ -29,3 +29,8 @@
 
     pointer-events: none;
 }
+
+@font-face {
+    font-family: "Grandway";
+    src: url("../public/fonts/Grandway-Black.otf"), url("../public/fonts/Grandway-Bold.otf")
+}

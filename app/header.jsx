@@ -16,7 +16,7 @@ function HeaderItem({ name, link, selected = false }) {
                 bg-opacity-15
                 flex
                 h-8 w-[5rem] sm:w-[6rem]
-                items-center  justify-center rounded-3xl font-Kanit font-semibold transition-all
+                items-center  justify-center rounded-sm font-Kanit font-semibold transition-all
                 duration-300
                 ${selected ?
                 "bg-ultra_violet/70 text-white" :
@@ -47,14 +47,14 @@ export default function Header() {
     return (
         <div className="fixed top-6 sm:top-8 flex w-screen justify-center">
             <div className={`
-                sm:w-120 w-[50wv] z-40 h-8 overflow-x-clip rounded-3xl
+                sm:w-120 w-[50wv] z-40 h-8 overflow-x-clip rounded-md
                 shadow-sm shadow-black/20
                 ring-1
                 ring-ultra_violet/10 backdrop-blur-3xl
                 transition-all duration-300
                 hover:shadow-md hover:shadow-black/30
                 ${scrolled ?
-                    "bg-white/80 dark:bg-light_coral shadow-lg ring-ultra_violet/80 backdrop-blur-lg" :
+                    "dark:bg-light_coral shadow-lg ring-ultra_violet/80 backdrop-blur-lg" :
                     "z-1000 bg-white/50 dark:bg-light_coral"
                 }
             `}>
