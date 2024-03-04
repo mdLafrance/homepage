@@ -53,7 +53,10 @@ export default function Header() {
                 ring-ultra_violet/10 backdrop-blur-3xl
                 transition-all duration-300
                 hover:shadow-md hover:shadow-black/30
-                ${scrolled ? " bg-white/80 shadow-lg ring-ultra_violet/80 backdrop-blur-lg" : "z-1000 bg-white/50"}
+                ${scrolled ?
+                    "bg-white/80 dark:bg-light_coral shadow-lg ring-ultra_violet/80 backdrop-blur-lg" :
+                    "z-1000 bg-white/50 dark:bg-light_coral"
+                }
             `}>
                 <ul className="flex justify-center">
                     <li>

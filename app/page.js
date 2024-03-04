@@ -17,7 +17,7 @@ export default function Home() {
                     ">Hi! My name is</p>
                     </Reveal>
                     <Reveal delay={0.08}>
-                        <p className="text-4xl text-space_cadet dark:text-isabelline md:text-6xl xl:text-8xl">Max Lafrance</p>
+                        <p className="text-4xl text-space_cadet dark:text-eggshell md:text-6xl xl:text-8xl">Max Lafrance</p>
                     </Reveal>
                 </div>
 

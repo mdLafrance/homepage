@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={`${inter.className} `}>
                 <Providers >
-                    <div className="h-full min-h-screen bg-isabelline bg-scroll transition-colors duration-200 dark:bg-space_cadet">
+                    <div className="h-full min-h-screen bg-isabelline bg-scroll transition-colors duration-200 dark:bg-prussian_blue">
                         {/** Div for central content area **/}
                         <div className="flex h-full min-h-screen justify-center px-8 sm:px-20 pt-14 sm:pt-20 ring-2 ring-red-200">
                             <div className="
