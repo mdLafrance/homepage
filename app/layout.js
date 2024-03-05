@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
             <body className={`${inter.className} ${apercu.className} ${neuemachina.className}`}>
                 <Providers >
                     <WavyBackground />
-                    <div className="h-full min-h-screen bg-light bg-scroll transition-colors duration-200 dark:bg-prussian_blue">
+                    <div className="h-full min-h-screen bg-light bg-scroll transition-colors duration-200 dark:bg-space_cadet">
                         {/** Div for central content area **/}
                         <div className="flex h-full min-h-screen justify-center px-8 sm:px-20 pt-14 sm:pt-20 ring-2 ring-red-200">
                             <div className="

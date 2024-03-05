@@ -86,14 +86,19 @@ export const WavyBackground = ({
 
         var imageData = ctx.createImageData(w, h);
 
+        for (let i = 0; i < w / blockSize; i++) {
+            for (let j = 0; j < h / blockSize; j++) {
+            }
+        }
+
         // Manipulate the pixel data in the ImageData object
         for (var i = 0; i < imageData.data.length; i += 4) {
-            const sample = noise((0.2* i) % w, (0.2 * i) / h, 0);
-            // Set pixel color to red
-            imageData.data[i] = 255;    // red
-            imageData.data[i + 1] = 50;  // green
-            imageData.data[i + 2] = 0;  // blue
-            imageData.data[i + 3] = 100 * sample;// alpha
+            // const sample = noise((0.2* i) % w, (0.2 * i) / h, 0);
+            // // Set pixel color to red
+            // imageData.data[i] = 255;    // red
+            // imageData.data[i + 1] = 50;  // green
+            // imageData.data[i + 2] = 0;  // blue
+            // imageData.data[i + 3] = 100 * sample;// alpha
         }
 
         // Use putImageData() to draw the modified image data onto the canvas

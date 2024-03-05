@@ -16,7 +16,11 @@ export default function Home() {
                     ">Hi! My name is</p>
                     </Reveal>
                     <Reveal delay={0.08}>
-                        <p className="sm:translate-x-[-4px]  text-4xl text-space_cadet font-Poppins font-extrabold dark:text-eggshell md:text-6xl xl:text-8xl">Max Lafrance</p>
+                        <p className="
+                            sm:translate-x-[-4px] 
+                            text-4xl text-space_cadet font-Poppins font-extrabold 
+                            dark:text-eggshell md:text-6xl xl:text-8xl
+                        ">Max Lafrance</p>
                     </Reveal>
                 </div>
 
@@ -27,7 +31,7 @@ export default function Home() {
                         {/** About section **/}
                         <div>
                             <p className="text-3xl text-space_cadet font-light font-Kanit">
-                                I'm a software engineer based in Canada
+                                I'm a software engineer based in Canada.
                             </p>
                         </div>
                     </Reveal>
