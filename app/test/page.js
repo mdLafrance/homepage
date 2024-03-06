@@ -16,17 +16,15 @@ function RightAngle({ className, delta = 15 }) {
 
 export default function Test() {
     return (
-        <div className="h-[100vh] w-full flex flex-col justify-start bg-black">
+        <div className="h-[100vh] w-full flex justify-start bg-black">
 
-            <div className="relative z-10 m-12 rounded-sm bg-[radial-gradient(ellipse_at_center)] from-blue to-black backdrop-blur-md grow-1 grow ">
+            <div className="relative z-10 m-12 rounded-sm max-w-[100rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black backdrop-blur-md grow-1 grow ring-1 ring-white/10 shadow-lg shadow-white/[3%]">
                 <RightAngle className="absolute -top-5 -right-5 transform" delta={25}></RightAngle>
                 <RightAngle className="absolute transform rotate-90" delta={25}></RightAngle>
                 <RightAngle className="absolute transform -rotate-90" delta={25}></RightAngle>
                 <RightAngle className="absolute transform rotate-180" delta={25}></RightAngle>
-                <p>asdf</p>
 
-                <div className="grow-1 text-5xl">
-                </div>
+                <p className="text-8xl text-white font-Apercu ">Max Lafrance</p>
 
             </div>
 

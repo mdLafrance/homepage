@@ -125,7 +125,8 @@ export const WavyBackground = ({
         // Quadratic Bézier curve
         //
 
-        const time = Math.round(performance.now()) / 50;
+        // const time = Math.round(performance.now()) / 50;
+        const time = 0;
 
 
         const k = 10;
