@@ -82,7 +82,7 @@ export const WavyBackground = ({
 
         ctx.globalAlpha = 0.5;
         ctx.fillStyle = "white"
-        ctx.strokeStyle = "white"
+        ctx.strokeStyle = "rgb(255, 255, 255)"
 
         // const blockSize = 20;
 
@@ -142,23 +142,42 @@ export const WavyBackground = ({
         // }
         //
 
-        const k = 60;
+        const scaleX = 0.001;
+        const scaleY = 0.01;
+        const amplitude = 30;
 
-        const offset = 15;
+        // Y offset from which the first wave will be drawn 
+        const dy0 = 30;
 
-        const time = Math.round(performance.now()) / 30000;
+        // How far apart the waves will be
+        const spacing = 12;
 
-        for (i = 0; i < k; i++) {
+        const numWaves = 70;
+
+        const time = Math.round(performance.now()) / 10000;
+
+        var yTotal = dy0;
+
+        for (i = 0; i < numWaves; i++) {
             ctx.beginPath();
-            ctx.lineWidth = 1;
-            ctx.globalAlpha = 0.3
-            ctx.moveTo(-2, 100 + offset * i);
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 0.4
 
+            const currentDY = dy0 + spacing * i;
+            ctx.moveTo(-2, currentDY);
+
+            const dyProgress = 40 +  255 * currentDY / h;
+
+            ctx.strokeStyle = `rgba(${dyProgress}, ${dyProgress}, ${dyProgress})`
+
+            console.log("Style:", ctx.strokeStyle)
 
             for (x = 0; x < w; x += 5) {
-                const jitter = Math.max(1, Math.abs(x - (w / 2)))
-                var dy = noise(x / 800, 0.05 * i, time) * 100 * jitter * 0.002;
-                ctx.lineTo(x, dy + offset * i); // adjust for height, currently at 50% of the container
+                const stepY = x * (spacing / w) * 20;
+
+                var dy = noise(x * scaleX, currentDY * scaleY, time) * amplitude;
+
+                ctx.lineTo(x - 5, currentDY + dy + stepY); // adjust for height, currently at 50% of the container
             }
             ctx.stroke();
             ctx.closePath();
