@@ -10,7 +10,7 @@ export const WavyBackground = ({
     colors,
     waveWidth,
     backgroundFill,
-    blur = 1,
+    blur = 0,
     speed = "fast",
     waveOpacity = 0.5,
     ...props
@@ -82,7 +82,7 @@ export const WavyBackground = ({
 
         ctx.globalAlpha = 1.0;
         ctx.fillStyle = "white"
-        ctx.strokeStyle = "white"
+        ctx.strokeStyle = "blue"
 
         // const blockSize = 20;
 
@@ -123,19 +123,13 @@ export const WavyBackground = ({
         // }
 
         // Quadratic Bézier curve
-        //
-
-        const time = Math.round(performance.now()) / 50;
-
 
         const k = 10;
 
-        for (let i = 0; i < 90; i++) {
-            const offset = (time + (k * i)) % h;
-
+        for (let i = 0; i < 25; i++) {
             ctx.beginPath();
             ctx.moveTo(0, k * i);
-            ctx.quadraticCurveTo(w / 2, h / 2, w, offset);
+            ctx.quadraticCurveTo(w / 2, h / 2, w, h + k * i);
             ctx.stroke();
         }
 

@@ -57,25 +57,10 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={`${inter.className} ${apercu.className} ${neuemachina.className}`}>
                 <Providers >
-                    <WavyBackground />
-                    <div className="h-full min-h-screen bg-light bg-scroll transition-colors duration-200 dark:bg-space_cadet">
-                        {/** Div for central content area **/}
-                        <div className="flex h-full min-h-screen justify-center px-8 sm:px-20 pt-14 sm:pt-20 ring-2 ring-red-200">
-                            <div className="
-                                    flex h-full w-[80rem]
-                                    flex-col
-                                ">
-                                <div className="flex-1">
-                                    {children}
-                                </div>
 
-                                <Footer />
-                            </div>
-                        </div>
-                        <Header />
-                        <ThemeSwitcher />
-                        <div className="static-noise"></div>
-                    </div>
+                    {children}
+
+                    <div className="static-noise"></div>
                 </Providers>
             </body>
         </html >
