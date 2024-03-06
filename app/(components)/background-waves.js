@@ -142,7 +142,7 @@ export const WavyBackground = ({
         // }
         //
 
-        const scaleX = 0.001;
+        const scaleX = 0.0017;
         const scaleY = 0.01;
         const amplitude = 30;
 
