@@ -126,20 +126,43 @@ export const WavyBackground = ({
         //
 
         // const time = Math.round(performance.now()) / 50;
-        const time = 0;
+        // //const time = 0;
 
 
-        const k = 10;
+        // const k = 10;
 
-        for (let i = 0; i < 90; i++) {
-            const offset = (time + (k * i)) % h;
 
+        // for (let i = 0; i < 90; i++) {
+        //     const offset = (time + (k * i)) % h;
+
+        //     ctx.beginPath();
+        //     ctx.moveTo(0, k * i);
+        //     ctx.quadraticCurveTo(w / 2, h / 2, w, offset);
+        //     ctx.stroke();
+        // }
+        //
+
+        const k = 60;
+
+        const offset = 15;
+
+        const time = Math.round(performance.now()) / 30000;
+
+        for (i = 0; i < k; i++) {
             ctx.beginPath();
-            ctx.moveTo(0, k * i);
-            ctx.quadraticCurveTo(w / 2, h / 2, w, offset);
-            ctx.stroke();
-        }
+            ctx.lineWidth = 1;
+            ctx.globalAlpha = 0.3
+            ctx.moveTo(-2, 100 + offset * i);
 
+
+            for (x = 0; x < w; x += 5) {
+                const jitter = Math.max(1, Math.abs(x - (w / 2)))
+                var dy = noise(x / 800, 0.05 * i, time) * 100 * jitter * 0.002;
+                ctx.lineTo(x, dy + offset * i); // adjust for height, currently at 50% of the container
+            }
+            ctx.stroke();
+            ctx.closePath();
+        }
 
         animationId = requestAnimationFrame(render);
     };
