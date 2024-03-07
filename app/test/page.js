@@ -21,7 +21,7 @@ function Pane({ children }) {
 
     return (
 
-        <div className={`relative z-10 min-h-full rounded-sm max-w-[100rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black backdrop-blur-sm grow-1 grow border border-solid border-white/20 shadow-lg shadow-white/[5%]`}>
+        <div className={`relative z-10 min-h-full rounded-sm max-w-[85rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black  grow border border-solid border-white/20 shadow-lg shadow-white/[5%] flex`}>
             {children}
         </div>
     )
@@ -79,8 +79,20 @@ export default function Test() {
             <div className="h-full p-16 w-full relative overflow-y-auto">
                 <Pane>
                     <WaveShapeModifiers></WaveShapeModifiers>
-                    <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 pt-1 pl-1">Hi, my name is</p>
-                    <p className="text-8xl text-light font-Apercu p-1">Max Lafrance</p>
+                    <div className="flex grow grow-1">
+                        <div className="w-3/5 grow grow-1 backdrop-blur-sm ">
+                            <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 pt-1 pl-1">Hi, my name is</p>
+                            <p className="text-8xl font-Apercu text-light">Max Lafrance</p>
+                        </div>
+                        <div className="w-2/5 flex flex-col grow grow-1">
+                            <div className="h-3/5 bg-green-200">
+                            </div>
+                            <div className="h-2/5 bg-blue-200">
+                            </div>
+                        </div>
+                    </div>
+                    );
+
                 </Pane>
             </div>
 

@@ -53,7 +53,6 @@ export default function RootLayout({ children }) {
                 <Providers>
                     {children}
                 </Providers>
-
                 <div className="static-noise"></div>
             </body>
         </html >
