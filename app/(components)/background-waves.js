@@ -75,6 +75,7 @@ export const WavyBackground = ({
         const scaleX = 0.0017;
         const scaleY = 0.01;
         const amplitude = 30;
+        const stepX = 15;
 
         // Y offset from which the first wave will be drawn 
         const dy0 = 30;
@@ -87,6 +88,10 @@ export const WavyBackground = ({
         const time = Math.round(performance.now()) / 10000;
 
         const calculateJitter = (x, y) => {
+            if (mouse.x === undefined) {
+                return 0
+            }
+
             const jitterFactor = 2;
             const dist = Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
             return jitterFactor * (1 / (1 + 0.01 *dist))
@@ -99,7 +104,7 @@ export const WavyBackground = ({
 
             // currentDY is the vertical offset that this wave will begin drawing from
             const currentDY = dy0 + spacing * i;
-            ctx.moveTo(-2, currentDY);
+            ctx.moveTo(-20, currentDY);
 
             // dyProgress calculates a perrentage of the screen completed, that is used
             // for incrementing transparency
@@ -107,7 +112,8 @@ export const WavyBackground = ({
             ctx.strokeStyle = `rgba(${dyProgress}, ${dyProgress}, ${dyProgress})`
             // ctx.strokeStyle = "rgb(50, 80, 255)"
 
-            for (x = 0; x < w; x += 5) {
+            for (x = 0; x < w + stepX; x += stepX) {
+
                 // Stepy adds an additional differential step downwards, which will cause
                 // a downward slope
                 const stepY = x * (spacing / w) * 20;

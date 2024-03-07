@@ -19,7 +19,7 @@ function Pane({ children }) {
 
     return (
 
-        <div className={`relative z-10 min-h-full rounded-sm max-w-[100rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black backdrop-blur-sm grow-1 grow ring-1 ring-${lineColor} shadow-lg shadow-white/[5%]`}>
+        <div className={`relative z-10 min-h-full rounded-sm max-w-[100rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black backdrop-blur-sm grow-1 grow ring-1 ring-white/20 shadow-lg shadow-white/[5%]`}>
             {children}
         </div>
     )

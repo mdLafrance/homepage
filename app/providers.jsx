@@ -1,11 +1,15 @@
-"use client";
+"use client"
 
 import { ThemeProvider } from "next-themes";
 
-export function Providers({ children }) {
+import { WaveContextProvider } from "./(context)/WaveContext";
+
+export default function Providers({ children }) {
     return (
         <ThemeProvider attribute="class" defaultTheme="system">
-            {children}
+            <WaveContextProvider>
+                {children}
+            </WaveContextProvider>
         </ThemeProvider>
     )
 }

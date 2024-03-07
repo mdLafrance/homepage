@@ -1,16 +1,10 @@
-import { Inter } from "next/font/google";
-import { Providers } from "./providers";
-import Header from "./header";
-import Footer from "./footer";
-import ThemeSwitcher from "./ThemeSwitcher";
 
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
+import Providers from "./providers"
+
 import './globals.css';
-
-import Dots from "./(components)/background-dots";
-
-import { WavyBackground } from "./(components)/background-waves.js"
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const apercu = localFont({
@@ -56,12 +50,11 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={`${inter.className} ${apercu.className} ${neuemachina.className}`}>
-                <Providers >
-
+                <Providers>
                     {children}
-
-                    <div className="static-noise"></div>
                 </Providers>
+
+                <div className="static-noise"></div>
             </body>
         </html >
     );
