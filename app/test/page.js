@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Cursor from "../(components)/Cursor";
 import { WavyBackground } from "../(components)/background-waves"
 import { WaveSmoothSvg, WaveJaggedSvg } from "../(components)/controls/ShapeControls";
@@ -27,18 +28,29 @@ function Pane({ children }) {
 }
 
 function WaveShapeModifiers() {
-    const buttonStyle = "m-1 hover:backdrop-blur-sm hover:bg-white/20 grow grow-1 p-1 transition-all duration-200"
+    const [selectedButton, setSelectedButton] = useState("smooth")
+
+    const buttonStyle = "mx-1 hover:backdrop-blur-sm hover:bg-white/20 grow grow-1 p-1 transition-all duration-200 active:bg-blue-800/40"
+    const selectedStyle = "ring-1 ring-white/20"
+
+    const changeWaveStyle = (style) => {
+        if (style == "jagged") {
+            setSelectedButton("jagged")
+        } else {
+            setSelectedButton("smooth")
+        }
+    }
 
     return (
         <div className="
-            absolute w-7 h-16 bottom-20 -left-7
+            absolute w-7 h-13 bottom-20 -left-7
             border-white/20 border-l border-t border-b
-            flex flex-col justify-center items-stretch
+            flex flex-col justify-center items-stretch gap-1
         ">
-            <button className={buttonStyle}>
-                <WaveSmoothSvg className="ring-1 ring-white/20"></WaveSmoothSvg>
+            <button className={`${buttonStyle} ${selectedButton == "smooth" ? selectedStyle : ""} mt-1`} onClick={() => changeWaveStyle("smooth")}>
+                <WaveSmoothSvg className=""></WaveSmoothSvg>
             </button>
-            <button className={buttonStyle}>
+            <button className={`${buttonStyle} ${selectedButton == "jagged" ? selectedStyle : ""} mb-1`} onClick={() => changeWaveStyle("jagged")}>
                 <WaveJaggedSvg></WaveJaggedSvg>
             </button>
         </div>
