@@ -3,38 +3,19 @@ import { cn } from "./cn";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 
-export const WavyBackground = ({
-    children,
-    className,
-    containerClassName,
-    colors,
-    waveWidth,
-    backgroundFill,
-    blur = 1,
-    speed = "fast",
-    waveOpacity = 0.5,
-    ...props
-}) => {
+import { useWaveContext } from "../(context)/WaveContext";
+
+export function WavyBackground({ className, children, ...props }) {
+    const [waveSettings, _] = useWaveContext();
+
+    let w, h, ctx, canvas, animationId;
+
     const noise = createNoise3D();
-    let w,
-        h,
-        nt,
-        i,
-        x,
-        ctx,
-        canvas,
-        mouse
     const canvasRef = useRef(null);
-    const getSpeed = () => {
-        switch (speed) {
-            case "slow":
-                return 0.001;
-            case "fast":
-                return 0.002;
-            default:
-                return 0.001;
-        }
-    };
+    const blur = 1;
+
+    // Track mouse position
+    var mouse = useRef({ x: 0, y: 0 })
 
     useEffect(() => {
         const updateMousePosition = (ev) => {
@@ -45,45 +26,45 @@ export const WavyBackground = ({
             window.removeEventListener('mousemove', updateMousePosition);
         };
     }, []);
-    mouse = useRef({ x: 0, y: 0 })
 
-    const init = () => {
+    const [isSafari, setIsSafari] = useState(false);
+
+    // Check for safari
+    useEffect(() => {
+        setIsSafari(
+            typeof window !== "undefined" &&
+            navigator.userAgent.includes("Safari") &&
+            !navigator.userAgent.includes("Chrome")
+        );
+    }, []);
+
+    // Setup canvas
+    useEffect(() => {
         canvas = canvasRef.current;
         ctx = canvas.getContext("2d");
         w = ctx.canvas.width = window.innerWidth;
         h = ctx.canvas.height = window.innerHeight;
-        ctx.filter = `blur(${blur}px)`;
-        nt = 0;
         window.onresize = function() {
             w = ctx.canvas.width = window.innerWidth;
             h = ctx.canvas.height = window.innerHeight;
-            ctx.filter = `blur(${blur}px)`;
         };
         render();
-    };
+    }, []);
 
-    let animationId;
+    // Render call
     const render = () => {
-        ctx.fillStyle = backgroundFill || "white";
-        ctx.globalAlpha = waveOpacity || 0.5;
+        ctx.globalAlpha = 0.5;
         ctx.fillRect(0, 0, w, h);
         ctx.clearRect(0, 0, w, h)
 
         ctx.globalAlpha = 0.5;
         ctx.fillStyle = "white"
 
-        const scaleX = 0.0017;
-        const scaleY = 0.01;
-        const amplitude = 30;
-        const stepX = 15;
-
         // Y offset from which the first wave will be drawn 
         const dy0 = 30;
 
         // How far apart the waves will be
         const spacing = 11;
-
-        const numWaves = 70;
 
         const time = Math.round(performance.now()) / 10000;
 
@@ -94,12 +75,12 @@ export const WavyBackground = ({
 
             const jitterFactor = 2;
             const dist = Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
-            return jitterFactor * (1 / (1 + 0.01 *dist))
+            return jitterFactor * (1 / (1 + 0.03 * dist))
         }
 
-        for (i = 0; i < numWaves; i++) {
+        for (let i = 0; i < waveSettings.numWaves; i++) {
             ctx.beginPath();
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 2.5;
             ctx.globalAlpha = 0.6
 
             // currentDY is the vertical offset that this wave will begin drawing from
@@ -112,7 +93,7 @@ export const WavyBackground = ({
             ctx.strokeStyle = `rgba(${dyProgress}, ${dyProgress}, ${dyProgress})`
             // ctx.strokeStyle = "rgb(50, 80, 255)"
 
-            for (x = 0; x < w + stepX; x += stepX) {
+            for (let x = 0; x < w + waveSettings.stepX; x += waveSettings.stepX) {
 
                 // Stepy adds an additional differential step downwards, which will cause
                 // a downward slope
@@ -120,7 +101,7 @@ export const WavyBackground = ({
 
                 const yPos = currentDY + stepY;
 
-                var dy = (1 +  calculateJitter(x, yPos)) * noise(x * scaleX, currentDY * scaleY, time) * amplitude;
+                var dy = (1 + calculateJitter(x, yPos)) * noise(x * waveSettings.scaleX, currentDY * waveSettings.scaleY, time) * waveSettings.amplitude;
 
                 ctx.lineTo(x, yPos + dy); // adjust for height, currently at 50% of the container
             }
@@ -128,34 +109,13 @@ export const WavyBackground = ({
             ctx.closePath();
         }
 
-
         animationId = requestAnimationFrame(render);
     };
-
-    useEffect(() => {
-        init();
-        return () => {
-            cancelAnimationFrame(animationId);
-        };
-    }, []);
-
-    const [isSafari, setIsSafari] = useState(false);
-
-
-    useEffect(() => {
-        // I'm sorry but i have got to support it on safari.
-        setIsSafari(
-            typeof window !== "undefined" &&
-            navigator.userAgent.includes("Safari") &&
-            !navigator.userAgent.includes("Chrome")
-        );
-    }, []);
 
     return (
         <div
             className={cn(
-                "fixed h-screen flex flex-col items-center justify-center z-0",
-                containerClassName
+                "fixed h-screen flex flex-col items-center justify-center z-0 blur-[1px]",
             )}
         >
             <canvas
@@ -172,4 +132,3 @@ export const WavyBackground = ({
         </div>
     );
 };
-

@@ -2,6 +2,7 @@
 
 import Cursor from "../(components)/Cursor";
 import { WavyBackground } from "../(components)/background-waves"
+import { WaveSmoothSvg, WaveJaggedSvg } from "../(components)/controls/ShapeControls";
 
 function RightAngle({ className, delta = 15 }) {
     return (
@@ -25,12 +26,32 @@ function Pane({ children }) {
     )
 }
 
+function WaveShapeModifiers() {
+    const buttonStyle = "w-6 h-8 hover:backdrop-blur-sm hover:bg-white/20 grow grow-1 p-1 transition-all duration-200"
+
+    return (
+        <div className="
+            absolute w-6 h-16 bottom-20 -left-6
+            border-white/20 border-l border-t border-b
+            flex flex-col justify-center items-center
+        ">
+            <button className={buttonStyle}>
+                <WaveSmoothSvg></WaveSmoothSvg>
+            </button>
+            <button className={buttonStyle}>
+                <WaveSmoothSvg></WaveSmoothSvg>
+            </button>
+        </div>
+    )
+}
+
 
 export default function Test() {
     return (
         <div className="h-[100vh] w-full flex justify-start bg-black ">
             <div className="h-full p-16 w-full relative overflow-y-auto">
                 <Pane>
+                    <WaveShapeModifiers></WaveShapeModifiers>
                     <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 pt-1 pl-1">Hi, my name is</p>
                     <p className="text-8xl text-light font-Apercu p-1">Max Lafrance</p>
                 </Pane>
