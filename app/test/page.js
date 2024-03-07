@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Cursor from "../(components)/Cursor";
 import { WavyBackground } from "../(components)/background-waves"
 import { WaveSmoothSvg, WaveJaggedSvg } from "../(components)/controls/ShapeControls";
+import { useWaveContext } from "../(context)/WaveContext";
 
 function RightAngle({ className, delta = 15 }) {
     return (
@@ -29,15 +29,30 @@ function Pane({ children }) {
 
 function WaveShapeModifiers() {
     const [selectedButton, setSelectedButton] = useState("smooth")
+    const [waveSettings, setWaveSettings] = useWaveContext();
 
-    const buttonStyle = "mx-1 hover:backdrop-blur-sm hover:bg-white/20 grow grow-1 p-1 transition-all duration-200 active:bg-blue-800/40"
+    const buttonStyle = "mx-1 hover:backdrop-blur-sm hover:bg-white/20 grow grow-1 p-1 transition-all duration-200 active:bg-space_cadet"
     const selectedStyle = "ring-1 ring-white/20"
 
     const changeWaveStyle = (style) => {
         if (style == "jagged") {
             setSelectedButton("jagged")
+            setWaveSettings(
+                {
+                    ...waveSettings,
+                    stepX: 40,
+                    scaleX: 0.01,
+                }
+            )
         } else {
             setSelectedButton("smooth")
+            setWaveSettings(
+                {
+                    ...waveSettings,
+                    stepX: 15,
+                    scaleX: 0.0017,
+                }
+            )
         }
     }
 

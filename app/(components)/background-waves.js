@@ -6,7 +6,18 @@ import { createNoise3D } from "simplex-noise";
 import { useWaveContext } from "../(context)/WaveContext";
 
 export function WavyBackground({ className, children, ...props }) {
-    const [waveSettings, _] = useWaveContext();
+    const [inboundWaveSettings, _] = useWaveContext();
+    const [test, setTest] = useState("smooth")
+
+    var waveSettings = useRef({})
+
+    useEffect(
+        () => {
+            waveSettings.current = inboundWaveSettings;
+            console.log("Updating wave settings:", waveSettings)
+        },
+        [inboundWaveSettings]
+    )
 
     let w, h, ctx, canvas, animationId;
 
@@ -53,6 +64,7 @@ export function WavyBackground({ className, children, ...props }) {
 
     // Render call
     const render = () => {
+        const s = waveSettings.current;
         ctx.globalAlpha = 0.5;
         ctx.fillRect(0, 0, w, h);
         ctx.clearRect(0, 0, w, h)
@@ -78,7 +90,7 @@ export function WavyBackground({ className, children, ...props }) {
             return jitterFactor * (1 / (1 + 0.03 * dist))
         }
 
-        for (let i = 0; i < waveSettings.numWaves; i++) {
+        for (let i = 0; i < s.numWaves; i++) {
             ctx.beginPath();
             ctx.lineWidth = 2.5;
             ctx.globalAlpha = 0.6
@@ -93,7 +105,7 @@ export function WavyBackground({ className, children, ...props }) {
             ctx.strokeStyle = `rgba(${dyProgress}, ${dyProgress}, ${dyProgress})`
             // ctx.strokeStyle = "rgb(50, 80, 255)"
 
-            for (let x = 0; x < w + waveSettings.stepX; x += waveSettings.stepX) {
+            for (let x = 0; x < w + s.stepX; x += s.stepX) {
 
                 // Stepy adds an additional differential step downwards, which will cause
                 // a downward slope
@@ -101,7 +113,7 @@ export function WavyBackground({ className, children, ...props }) {
 
                 const yPos = currentDY + stepY;
 
-                var dy = (1 + calculateJitter(x, yPos)) * noise(x * waveSettings.scaleX, currentDY * waveSettings.scaleY, time) * waveSettings.amplitude;
+                var dy = (1 + calculateJitter(x, yPos)) * noise(x * s.scaleX, currentDY * s.scaleY, time) * s.amplitude;
 
                 ctx.lineTo(x, yPos + dy); // adjust for height, currently at 50% of the container
             }
