@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { WavyBackground } from "../(components)/background-waves"
 import { WaveSmoothSvg, WaveJaggedSvg } from "../(components)/controls/ShapeControls";
-import { useWaveContext } from "../(context)/WaveContext";
+import { defaultWaveSettings, useWaveContext } from "../(context)/WaveContext";
 
 function RightAngle({ className, delta = 15 }) {
     return (
@@ -49,8 +49,8 @@ function WaveShapeModifiers() {
             setWaveSettings(
                 {
                     ...waveSettings,
-                    stepX: 15,
-                    scaleX: 0.0017,
+                    stepX: defaultWaveSettings.stepX,
+                    scaleX: defaultWaveSettings.scaleX,
                 }
             )
         }

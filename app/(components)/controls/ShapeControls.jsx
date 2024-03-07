@@ -16,10 +16,4 @@ export const WaveJaggedSvg = ({ className }) => {
     )
 }
 
-export function WaveShapeModifiers() {
-    return (
-        <div className="absolute bg-white text-white">
-        <p>asdf</p>
-        </div>
-    )
-}
+
