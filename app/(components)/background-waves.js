@@ -22,7 +22,8 @@ export const WavyBackground = ({
         i,
         x,
         ctx,
-        canvas
+        canvas,
+        mouse
     const canvasRef = useRef(null);
     const getSpeed = () => {
         switch (speed) {
@@ -35,6 +36,16 @@ export const WavyBackground = ({
         }
     };
 
+    useEffect(() => {
+        const updateMousePosition = (ev) => {
+            mouse = { x: ev.clientX, y: ev.clientY }
+        };
+        window.addEventListener('mousemove', updateMousePosition);
+        return () => {
+            window.removeEventListener('mousemove', updateMousePosition);
+        };
+    }, []);
+    mouse = useRef({ x: 0, y: 0 })
 
     const init = () => {
         canvas = canvasRef.current;
@@ -51,28 +62,6 @@ export const WavyBackground = ({
         render();
     };
 
-    const waveColors = colors ?? [
-        "#38bdf8",
-        "#818cf8",
-        "#c084fc",
-        "#e879f9",
-        "#22d3ee",
-    ];
-    const drawWave = (n) => {
-        nt += getSpeed();
-        for (i = 0; i < n; i++) {
-            ctx.beginPath();
-            ctx.lineWidth = waveWidth || 50;
-            ctx.strokeStyle = waveColors[i % waveColors.length];
-            for (x = 0; x < w; x += 5) {
-                var y = noise(x / 800, 0.3 * i, nt) * 100;
-                ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
-            }
-            ctx.stroke();
-            ctx.closePath();
-        }
-    };
-
     let animationId;
     const render = () => {
         ctx.fillStyle = backgroundFill || "white";
@@ -82,65 +71,6 @@ export const WavyBackground = ({
 
         ctx.globalAlpha = 0.5;
         ctx.fillStyle = "white"
-        ctx.strokeStyle = "rgb(255, 255, 255)"
-
-        // const blockSize = 20;
-
-        // const time = Math.round(performance.now()) / 8000;
-
-        // var imageData = ctx.createImageData(w, h);
-
-        // for (let i = 0; i < w / blockSize; i++) {
-        //     for (let j = 0; j < h / blockSize; j++) {
-        //     }
-        // }
-
-        const lineWidth = 2;
-        const lineSpacing = 10;
-        const numLines = 20;
-
-        // Manipulate the pixel data in the ImageData object
-        // for (var i = 0; i < imageData.data.length; i += 4) {
-        //     // const sample = noise((0.2* i) % w, (0.2 * i) / h, 0);
-        //     // // Set pixel color to red
-        //     imageData.data[i] = 255;    // red
-        //     imageData.data[i + 1] = 50;  // green
-        //     imageData.data[i + 2] = 0;  // blue
-        //     imageData.data[i + 3] = 100;// alpha
-        // }
-
-        // Use putImageData() to draw the modified image data onto the canvas
-        // ctx.putImageData(imageData, 0, 0);
-
-        // for (let i = 0; i < w / blockSize ; i++) {
-        //     for (let j = 0; j < h / (2 *blockSize); j++) {
-        //         const noiseSample = noise(i,j,time)*0.5 + 0.5;
-        //         if (true) {
-        //             ctx.fillStyle = `rgb(0 0 0 / ${100 * noiseSample}%`
-        //             ctx.fillRect(i * blockSize,h/2 +  j * blockSize, blockSize, blockSize)
-        //         }
-        //     }
-        // }
-
-        // Quadratic Bézier curve
-        //
-
-        // const time = Math.round(performance.now()) / 50;
-        // //const time = 0;
-
-
-        // const k = 10;
-
-
-        // for (let i = 0; i < 90; i++) {
-        //     const offset = (time + (k * i)) % h;
-
-        //     ctx.beginPath();
-        //     ctx.moveTo(0, k * i);
-        //     ctx.quadraticCurveTo(w / 2, h / 2, w, offset);
-        //     ctx.stroke();
-        // }
-        //
 
         const scaleX = 0.0017;
         const scaleY = 0.01;
@@ -150,38 +80,48 @@ export const WavyBackground = ({
         const dy0 = 30;
 
         // How far apart the waves will be
-        const spacing = 12;
+        const spacing = 11;
 
         const numWaves = 70;
 
         const time = Math.round(performance.now()) / 10000;
 
-        var yTotal = dy0;
+        const calculateJitter = (x, y) => {
+            const jitterFactor = 2;
+            const dist = Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
+            return jitterFactor * (1 / (1 + 0.01 *dist))
+        }
 
         for (i = 0; i < numWaves; i++) {
             ctx.beginPath();
             ctx.lineWidth = 2;
-            ctx.globalAlpha = 0.4
+            ctx.globalAlpha = 0.6
 
+            // currentDY is the vertical offset that this wave will begin drawing from
             const currentDY = dy0 + spacing * i;
             ctx.moveTo(-2, currentDY);
 
-            const dyProgress = 40 +  255 * currentDY / h;
-
+            // dyProgress calculates a perrentage of the screen completed, that is used
+            // for incrementing transparency
+            const dyProgress = 40 + 255 * currentDY / h;
             ctx.strokeStyle = `rgba(${dyProgress}, ${dyProgress}, ${dyProgress})`
-
-            console.log("Style:", ctx.strokeStyle)
+            // ctx.strokeStyle = "rgb(50, 80, 255)"
 
             for (x = 0; x < w; x += 5) {
+                // Stepy adds an additional differential step downwards, which will cause
+                // a downward slope
                 const stepY = x * (spacing / w) * 20;
 
-                var dy = noise(x * scaleX, currentDY * scaleY, time) * amplitude;
+                const yPos = currentDY + stepY;
 
-                ctx.lineTo(x - 5, currentDY + dy + stepY); // adjust for height, currently at 50% of the container
+                var dy = (1 +  calculateJitter(x, yPos)) * noise(x * scaleX, currentDY * scaleY, time) * amplitude;
+
+                ctx.lineTo(x, yPos + dy); // adjust for height, currently at 50% of the container
             }
             ctx.stroke();
             ctx.closePath();
         }
+
 
         animationId = requestAnimationFrame(render);
     };
@@ -194,6 +134,8 @@ export const WavyBackground = ({
     }, []);
 
     const [isSafari, setIsSafari] = useState(false);
+
+
     useEffect(() => {
         // I'm sorry but i have got to support it on safari.
         setIsSafari(
@@ -206,7 +148,7 @@ export const WavyBackground = ({
     return (
         <div
             className={cn(
-                "fixed h-screen flex flex-col items-center justify-center pointer-events-none z-0",
+                "fixed h-screen flex flex-col items-center justify-center z-0",
                 containerClassName
             )}
         >

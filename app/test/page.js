@@ -31,8 +31,8 @@ export default function Test() {
         <div className="h-[100vh] w-full flex justify-start bg-black ">
             <div className="h-full p-16 w-full relative overflow-y-auto">
                 <Pane>
-                    <p className="text-4xl text-white font-Apercu font-thin border-b border-white/15 pt-1 pl-1">Hi, my name is</p>
-                    <p className="text-8xl text-white font-Apercu p-1">Max Lafrance</p>
+                    <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 pt-1 pl-1">Hi, my name is</p>
+                    <p className="text-8xl text-light font-Apercu p-1">Max Lafrance</p>
                 </Pane>
             </div>
 
