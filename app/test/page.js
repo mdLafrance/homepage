@@ -20,26 +20,26 @@ function Pane({ children }) {
 
     return (
 
-        <div className={`relative z-10 min-h-full rounded-sm max-w-[100rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black backdrop-blur-sm grow-1 grow ring-1 ring-white/20 shadow-lg shadow-white/[5%]`}>
+        <div className={`relative z-10 min-h-full rounded-sm max-w-[100rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black backdrop-blur-sm grow-1 grow border border-solid border-white/20 shadow-lg shadow-white/[5%]`}>
             {children}
         </div>
     )
 }
 
 function WaveShapeModifiers() {
-    const buttonStyle = "w-6 h-8 hover:backdrop-blur-sm hover:bg-white/20 grow grow-1 p-1 transition-all duration-200"
+    const buttonStyle = "m-1 hover:backdrop-blur-sm hover:bg-white/20 grow grow-1 p-1 transition-all duration-200"
 
     return (
         <div className="
-            absolute w-6 h-16 bottom-20 -left-6
+            absolute w-7 h-16 bottom-20 -left-7
             border-white/20 border-l border-t border-b
-            flex flex-col justify-center items-center
+            flex flex-col justify-center items-stretch
         ">
             <button className={buttonStyle}>
-                <WaveSmoothSvg></WaveSmoothSvg>
+                <WaveSmoothSvg className="ring-1 ring-white/20"></WaveSmoothSvg>
             </button>
             <button className={buttonStyle}>
-                <WaveSmoothSvg></WaveSmoothSvg>
+                <WaveJaggedSvg></WaveJaggedSvg>
             </button>
         </div>
     )
