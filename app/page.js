@@ -7,16 +7,8 @@ import { defaultWaveSettings, useWaveContext } from "./(context)/WaveContext";
 import Reveal from "./(components)/Reveal"
 import { ContactSection } from "./(components)/contact/Contact"
 
-function RightAngle({ className, delta = 15 }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" className={`${className} scale-[15%] z-20`}>
-            <line x1="0" y1="0" x2="100" y2="0" stroke="black" stroke-width="8" />
-            <line x1="100" y1="0" x2="100" y2="100" stroke="black" stroke-width="8" />
-            <line x1={delta} y1={delta} x2={100 - delta} y2={delta} stroke="black" stroke-width="3" />
-            <line x1={100 - delta} y1={delta} x2={100 - delta} y2={100 - delta} stroke="black" stroke-width="3" />
-        </svg>
-    )
-}
+import Footer from "./(components)/Footer"
+
 
 function WaveColorModifier() {
     const [currentColorIdx, setCurrentColorIdx] = useState(0)
@@ -44,32 +36,32 @@ function WaveColorModifier() {
                 b: colors[idx][2],
             }
         )
-}
+    }
 
-return (
-    <div className="flex flex-col w-5 h-full justify-center">
-        {
-            colors.map((c, idx) => {
-                return (
-                    <button
-                        key={idx}
-                        style={{ backgroundColor: `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.3)` }}
-                        className={`w-5 h-5 flex justify-center items-center border border-solid border-white/10`}
-                        onMouseUp={() => updateColor(idx)}
-                    >
-                        {
-                            idx == currentColorIdx ? (
-                                <div className="border border-dotted border-white/30 w-3 h-3  ">
-                                </div>
-                            ) : null
-                        }
-                    </button>
-                )
-            })
-        }
+    return (
+        <div className="flex flex-col w-5 h-full justify-center">
+            {
+                colors.map((c, idx) => {
+                    return (
+                        <button
+                            key={idx}
+                            style={{ backgroundColor: `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.3)` }}
+                            className={`w-5 h-5 flex justify-center items-center border border-solid border-white/10`}
+                            onMouseUp={() => updateColor(idx)}
+                        >
+                            {
+                                idx == currentColorIdx ? (
+                                    <div className="border border-dotted border-white/30 w-3 h-3  ">
+                                    </div>
+                                ) : null
+                            }
+                        </button>
+                    )
+                })
+            }
 
-    </div>
-)
+        </div>
+    )
 }
 
 function WaveShapeModifiers() {
@@ -136,9 +128,7 @@ export default function Page() {
                     bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black 
                     grow border border-solid border-white/20 shadow-lg shadow-white/[5%] flex
                 `}>
-                    <Reveal dy={0} delay={1} duration={1.5}>
-                        <WaveShapeModifiers></WaveShapeModifiers>
-                    </Reveal>
+                    <Footer />
                     <div className="flex flex-col grow grow-1">
                         <div className="h-2/5 flex">
                             {/** Top left section **/}
@@ -176,7 +166,6 @@ export default function Page() {
 
                 </div>
             </div>
-
 
             <WavyBackground />
 

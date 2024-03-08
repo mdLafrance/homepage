@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useWaveContext } from "../../(context)/WaveContext"
 import LinkSvg from "../controls/Link"
 
-function ContactItem({ name, footerText, link }) {
+
+export function ContactItem({ name, footerText, link, className }) {
     const [waveSettings, _] = useWaveContext();
     const [formattedColor, setFormattedColor] = useState("rgb(255, 255, 255)");
 
@@ -16,14 +17,15 @@ function ContactItem({ name, footerText, link }) {
     }, [waveSettings])
 
     return (
-        <a 
-            className="
-                flex gap-1 items-end pt-1 px-2
+        <a
+            className={`
+                flex gap-1 items-end pt-1 px-2 justify-start
                 hover:ring-1 hover:ring-white/30 hover:bg-white/10
                 active:bg-white/20
                 transition-all duration-[80ms]
-                "
-            
+                ${className}
+                `}
+
             href={link}
             rel="noopener noreferrer"
             target="_blank"
