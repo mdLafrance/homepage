@@ -8,7 +8,12 @@ function ContactItem({ name, footerText }) {
     const [formattedColor, setFormattedColor] = useState("rgb(255, 255, 255)");
 
     useEffect(() => {
-        setFormattedColor(`rgba(${waveSettings.r}, ${waveSettings.g}, ${waveSettings.b}, 0.8)`)
+        const lerpColor = (c) => {
+            const factor = 0.6;
+            return factor * 255 + (1 - factor) * c
+        }
+
+        setFormattedColor(`rgba(${lerpColor(waveSettings.r)}, ${lerpColor(waveSettings.g)}, ${lerpColor(waveSettings.b)}, 0.8)`)
     }, [waveSettings])
 
     return (
