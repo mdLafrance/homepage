@@ -17,15 +17,6 @@ function RightAngle({ className, delta = 15 }) {
     )
 }
 
-function Pane({ children }) {
-    return (
-
-        <div className={`relative z-10 min-h-full rounded-sm max-w-[85rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black  grow border border-solid border-white/20 shadow-lg shadow-white/[5%] flex`}>
-            {children}
-        </div>
-    )
-}
-
 function WaveShapeModifiers() {
     const [selectedButton, setSelectedButton] = useState("smooth")
     const [waveSettings, setWaveSettings] = useWaveContext();
@@ -72,35 +63,62 @@ function WaveShapeModifiers() {
 }
 
 
-export default function Test() {
+function Pane({ children, className }) {
+    return (
+        <div className={`${className} grow grow-1 backdrop-blur-sm border border-solid border-white/20`}>
+            {children}
+        </div>
+    )
+}
+
+
+export default function Page() {
     return (
         <div className="h-[100vh] w-full flex justify-start bg-black ">
             <div className="h-full p-16 w-full relative overflow-y-auto">
-                <Pane>
+                <div className={`
+                    relative z-10 min-h-full rounded-sm max-w-[85rem] 
+                    bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black 
+                    grow border border-solid border-white/20 shadow-lg shadow-white/[5%] flex
+                `}>
                     <Reveal dy={0} delay={1} duration={1.5}>
                         <WaveShapeModifiers></WaveShapeModifiers>
                     </Reveal>
-                    <div className="flex grow ">
-                        <div className="w-3/5 grow grow-1 backdrop-blur-sm ">
-                            <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 pt-1 pl-1">Hi, my name is</p>
-                            <p className="text-8xl font-Apercu text-light">Max Lafrance</p>
-                        </div>
-                        <div className="w-2/5 flex flex-col grow grow-1">
-                            <div className="h-2/5 border border-solid border-white/20 flex justify-center items-center">
-                                <p className="
-                                    text-white/70 hover:text-white text-3xl rounded-sm border border-dotted border-white/40 py-2 px-4 bg-white/5 backdrop-blur-sm
-                                    transition-all duration-100
-                                ">
-                                    Contact <span className="hover:text-blue-200">+</span>
-                                </p>
+                    <div className="flex flex-col grow grow-1">
+                        <div className="h-2/5 flex">
+                            {/** Top left section **/}
+                            <Pane className="w-3/5">
+                                <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 ">Hi, my name is</p>
+                                <p className="text-8xl font-Apercu text-light -translate-x-1">Max Lafrance</p>
+                            </Pane>
+                            {/** Top right section **/}
+                            <div className="w-2/5 flex flex-col">
+                                {/** Contact **/}
+                                <Pane className="h-3/5 ">
+                                    <p className="text-white text-3xl">Contact</p>
+                                    <div className="flex gap-1 items-end">
+                                        <span className="text-white">Email</span>
+                                        <div className="grow grow-1  border-b border-dotted border-white/40"></div>
+                                        <span>???</span>
+                                    </div>
+                                </Pane>
+                                {/** Mini section **/}
+                                <div className="h-2/5 flex">
+                                    {/** Unknown **/}
+                                    <div className="w-2/5 bg-green-200">
+                                    </div>
+                                    {/** Controls **/}
+                                    <div className="w-3/5 bg-blue-200">
+                                    </div>
+                                </div>
                             </div>
-                            <div className="h-3/5 bg-blue-200">
-                            </div>
                         </div>
+                        <Pane className="h-3/5">
+                            <p className=" text-white h-full">asdf</p>
+                        </Pane>
                     </div>
-                    );
 
-                </Pane>
+                </div>
             </div>
 
 

@@ -80,13 +80,16 @@ export function WavyBackground({ className, children, ...props }) {
 
         const time = Math.round(performance.now()) / 10000;
 
-        const calculateJitter = (x, y) => {
+        const calculateMouseDistance = (x, y) => {
+            return Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
+        }
+
+        const calculateJitter = (dist) => {
             if (mouse.x === undefined) {
                 return 0
             }
 
             const jitterFactor = 2;
-            const dist = Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
             return jitterFactor * (1 / (1 + 0.03 * dist))
         }
 
@@ -113,7 +116,9 @@ export function WavyBackground({ className, children, ...props }) {
 
                 const yPos = currentDY + stepY;
 
-                var dy = (1 + calculateJitter(x, yPos)) * noise(x * s.scaleX, currentDY * s.scaleY, time) * s.amplitude;
+                const mouseDistance = calculateMouseDistance(x, yPos);
+
+                var dy = (1 + calculateJitter(mouseDistance)) * noise(x * s.scaleX, currentDY * s.scaleY, time) * s.amplitude;
 
                 ctx.lineTo(x, yPos + dy); // adjust for height, currently at 50% of the container
             }

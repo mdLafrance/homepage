@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { WavyBackground } from "../(components)/background-waves"
 import { WaveSmoothSvg, WaveJaggedSvg } from "../(components)/controls/ShapeControls";
+import { EyeOpenSvg, EyeClosedSvg } from "../(components)/controls/VisibilityControls";
 import { defaultWaveSettings, useWaveContext } from "../(context)/WaveContext";
 
 function RightAngle({ className, delta = 15 }) {
@@ -23,6 +24,18 @@ function Pane({ children }) {
 
         <div className={`relative z-10 min-h-full rounded-sm max-w-[85rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black  grow border border-solid border-white/20 shadow-lg shadow-white/[5%] flex`}>
             {children}
+        </div>
+    )
+}
+
+function PanelVisibilityModifier() {
+    return (
+        <div className="
+            absolute w-7 h-12 bottom-40 -left-7
+            border-white/20 border-l border-t border-b
+            flex justify-center items-stretch
+        ">
+            <EyeOpenSvg></EyeOpenSvg>
         </div>
     )
 }
@@ -78,7 +91,8 @@ export default function Test() {
         <div className="h-[100vh] w-full flex justify-start bg-black ">
             <div className="h-full p-16 w-full relative overflow-y-auto">
                 <Pane>
-                    <WaveShapeModifiers></WaveShapeModifiers>
+                    <WaveShapeModifiers />
+                    <PanelVisibilityModifier />
                     <div className="flex grow grow-1">
                         <div className="w-3/5 grow grow-1 backdrop-blur-sm ">
                             <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 pt-1 pl-1">Hi, my name is</p>
