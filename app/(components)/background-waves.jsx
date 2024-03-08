@@ -62,6 +62,20 @@ export function WavyBackground({ className, children, ...props }) {
         render();
     }, []);
 
+    const calculateMouseDistance = (x, y) => {
+        return Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
+    }
+
+    const calculateJitter = (dist) => {
+        if (mouse.x === undefined) {
+            return 0
+        }
+
+        const jitterFactor = 2;
+        return jitterFactor * (1 / (1 + 0.03 * dist))
+    }
+
+
     // Render call
     const render = () => {
         const s = waveSettings.current;
@@ -76,22 +90,9 @@ export function WavyBackground({ className, children, ...props }) {
         const dy0 = 30;
 
         // How far apart the waves will be
-        const spacing = 11;
+        const spacing = h * 0.6 / s.numWaves;
 
         const time = Math.round(performance.now()) / 10000;
-
-        const calculateMouseDistance = (x, y) => {
-            return Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
-        }
-
-        const calculateJitter = (dist) => {
-            if (mouse.x === undefined) {
-                return 0
-            }
-
-            const jitterFactor = 2;
-            return jitterFactor * (1 / (1 + 0.03 * dist))
-        }
 
         for (let i = 0; i < s.numWaves; i++) {
             ctx.beginPath();
@@ -104,15 +105,14 @@ export function WavyBackground({ className, children, ...props }) {
 
             // dyProgress calculates a perrentage of the screen completed, that is used
             // for incrementing transparency
-            const dyProgress = 40 + 255 * currentDY / h;
-            ctx.strokeStyle = `rgba(${dyProgress}, ${dyProgress}, ${dyProgress})`
-            // ctx.strokeStyle = "rgb(50, 80, 255)"
+            const dyProgress = 0.15 + currentDY / h;
+            ctx.strokeStyle = `rgba(${s.rgb.x * dyProgress}, ${s.rgb.y * dyProgress}, ${s.rgb.z * dyProgress})`
 
             for (let x = 0; x < w + s.stepX; x += s.stepX) {
 
                 // Stepy adds an additional differential step downwards, which will cause
                 // a downward slope
-                const stepY = x * (spacing / w) * 20;
+                const stepY = x * 0.15;
 
                 const yPos = currentDY + stepY;
 

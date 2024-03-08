@@ -65,7 +65,7 @@ function WaveShapeModifiers() {
 
 function Pane({ children, className }) {
     return (
-        <div className={`${className} grow grow-1 backdrop-blur-sm border border-solid border-white/20`}>
+        <div className={`${className} grow grow-1 backdrop-blur-sm border-4 border-double border-white/20`}>
             {children}
         </div>
     )
@@ -87,19 +87,35 @@ export default function Page() {
                     <div className="flex flex-col grow grow-1">
                         <div className="h-2/5 flex">
                             {/** Top left section **/}
-                            <Pane className="w-3/5">
-                                <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 ">Hi, my name is</p>
-                                <p className="text-8xl font-Apercu text-light -translate-x-1">Max Lafrance</p>
-                            </Pane>
+                            <Reveal className="w-3/5 flex flex-col justify-start" duration={1}>
+                                <Pane >
+                                    <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 ">Hi, my name is</p>
+                                    <p className="text-8xl font-Apercu text-light -translate-y-1">Max Lafrance</p>
+                                    <div className="grow grow-1 border-t border-solid border-white/20">
+                                        <p className="text-white text-3xl">I'm a software engineer</p>
+                                    </div>
+                                </Pane>
+                            </Reveal>
                             {/** Top right section **/}
                             <div className="w-2/5 flex flex-col">
                                 {/** Contact **/}
                                 <Pane className="h-3/5 ">
-                                    <p className="text-white text-3xl">Contact</p>
-                                    <div className="flex gap-1 items-end">
+                                    <p className="text-white text-3xl border-b border-solid border-white/20">Contact</p>
+                                    <div className="flex gap-1 items-end mx-2">
                                         <span className="text-white">Email</span>
-                                        <div className="grow grow-1  border-b border-dotted border-white/40"></div>
-                                        <span>???</span>
+                                        <div className="grow grow-1 ">
+                                            <div className="border-b border-dotted -translate-y-1 border-white/40">
+                                            </div>
+                                        </div>
+                                        <span className="text-white">???</span>
+                                    </div>
+                                    <div className="flex gap-1 items-end mx-2">
+                                        <span className="text-white">Linkedin</span>
+                                        <div className="grow grow-1 ">
+                                            <div className="border-b border-dotted -translate-y-1 border-white/40">
+                                            </div>
+                                        </div>
+                                        <span className="text-white">???</span>
                                     </div>
                                 </Pane>
                                 {/** Mini section **/}

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function Reveal({ children, delay, duration, dy }) {
+export default function Reveal({ className, children, delay, duration, dy }) {
     if (duration === undefined) {
         duration = 0.3;
     }
@@ -14,7 +14,6 @@ export default function Reveal({ children, delay, duration, dy }) {
     const reveal_states = {
         hidden: {
             opacity: 0,
-            y: dy,
         },
         show: {
             opacity: 1,
@@ -25,7 +24,7 @@ export default function Reveal({ children, delay, duration, dy }) {
     }
 
     return (
-        <motion.div variants={reveal_states} initial="hidden" animate="show" >
+        <motion.div variants={reveal_states} initial="hidden" animate="show" className={className}>
             {children}
         </motion.div>
     )
