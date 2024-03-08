@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "./cn";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
@@ -14,7 +15,6 @@ export function WavyBackground({ className, children, ...props }) {
     useEffect(
         () => {
             waveSettings.current = inboundWaveSettings;
-            console.log("Updating wave settings:", waveSettings)
         },
         [inboundWaveSettings]
     )

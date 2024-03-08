@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { WavyBackground } from "./(components)/background-waves"
+import { WavyBackground } from "./(components)/BackgroundWaves"
 import { WaveSmoothSvg, WaveJaggedSvg, EyeSvg } from "./(components)/controls/ShapeControls";
 import { defaultWaveSettings, useWaveContext } from "./(context)/WaveContext";
 import Reveal from "./(components)/Reveal"
+import WavyCircle from "./(components)/WavyCircle";
 
 function RightAngle({ className, delta = 15 }) {
     return (
@@ -177,8 +178,8 @@ export default function Page() {
                                 {/** Mini section **/}
                                 <div className="h-2/5 flex">
                                     {/** Unknown **/}
-                                    <div className="w-2/5">
-                                    </div>
+                                    <Pane className="w-2/5">
+                                    </Pane>
                                     {/** Controls **/}
                                     <Pane className="w-3/5 flex justify-end">
                                         <WaveColorModifier></WaveColorModifier>
