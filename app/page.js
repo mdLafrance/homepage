@@ -17,6 +17,62 @@ function RightAngle({ className, delta = 15 }) {
     )
 }
 
+function WaveColorModifier() {
+    const [currentColorIdx, setCurrentColorIdx] = useState(0)
+    const [waveSettings, setWaveSettings] = useWaveContext();
+
+    const colors = [
+        [255, 255, 255],
+        [255, 38, 0],
+        [247, 134, 5],
+        [57, 255, 18],
+        [13, 255, 247],
+        [13, 49, 255],
+        [104, 30, 232],
+        [232, 12, 155]
+    ]
+
+    const updateColor = (idx) => {
+        setCurrentColorIdx(idx);
+
+        setWaveSettings(
+            {
+                ...waveSettings,
+                rgb: {
+                    x: colors[idx][0],
+                    y: colors[idx][1],
+                    z: colors[idx][2],
+                }
+            }
+        )
+    }
+
+    return (
+        <div className="flex flex-col w-5 h-full justify-center">
+            {
+                colors.map((c, idx) => {
+                    return (
+                        <button
+                            key={idx}
+                            style={{ backgroundColor: `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.3)` }}
+                            className={`w-5 h-5 flex justify-center items-center border border-solid border-white/10`}
+                            onMouseUp={() => updateColor(idx)}
+                        >
+                            {
+                                idx == currentColorIdx ? (
+                                    <div className="border border-dotted border-white/30 w-3 h-3  ">
+                                    </div>
+                                ) : null
+                            }
+                        </button>
+                    )
+                })
+            }
+
+        </div>
+    )
+}
+
 function WaveShapeModifiers() {
     const [selectedButton, setSelectedButton] = useState("smooth")
     const [waveSettings, setWaveSettings] = useWaveContext();
@@ -121,11 +177,12 @@ export default function Page() {
                                 {/** Mini section **/}
                                 <div className="h-2/5 flex">
                                     {/** Unknown **/}
-                                    <div className="w-2/5 bg-green-200">
+                                    <div className="w-2/5">
                                     </div>
                                     {/** Controls **/}
-                                    <div className="w-3/5 bg-blue-200">
-                                    </div>
+                                    <Pane className="w-3/5 flex justify-end">
+                                        <WaveColorModifier></WaveColorModifier>
+                                    </Pane>
                                 </div>
                             </div>
                         </div>
