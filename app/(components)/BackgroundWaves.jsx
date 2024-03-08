@@ -106,7 +106,7 @@ export function WavyBackground({ className, children, ...props }) {
             // dyProgress calculates a perrentage of the screen completed, that is used
             // for incrementing transparency
             const dyProgress = 0.15 + currentDY / h;
-            ctx.strokeStyle = `rgba(${s.rgb.x * dyProgress}, ${s.rgb.y * dyProgress}, ${s.rgb.z * dyProgress})`
+            ctx.strokeStyle = `rgba(${s.r * dyProgress}, ${s.g * dyProgress}, ${s.b * dyProgress})`
 
             for (let x = 0; x < w + s.stepX; x += s.stepX) {
 

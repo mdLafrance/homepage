@@ -8,11 +8,9 @@ export const defaultWaveSettings = {
     amplitude: 30,
     stepX: 15,
     numWaves: 90,
-    rgb: {
-        x: 255,
-        y: 255,
-        z: 255
-    }
+    r: 255,
+    g: 255,
+    b: 255
 }
 
 const WaveContext = createContext(null);
