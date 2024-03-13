@@ -24,7 +24,7 @@ export function ContactItem({ name, footerText, link, className }) {
                 active:bg-white/20
                 transition-all duration-[80ms]
                 ${className}
-                `}
+            `}
 
             href={link}
             rel="noopener noreferrer"
@@ -45,7 +45,7 @@ export function ContactSection() {
     return (
         <div>
             <div className="border-b border-solid border-white/20">
-                <p className="text-white text-3xl translate-y-1 translate-x-1">Contact</p>
+                <p className="text-white text-3xl translate-y-1 translate-x-1 p-1">Contact</p>
             </div>
             <div className="flex flex-col justify-start gap-1 p-1 ">
                 <ContactItem name={'github'} footerText={"github.com/mdLafrance"} link={"https://github.com/mdLafrance"} />

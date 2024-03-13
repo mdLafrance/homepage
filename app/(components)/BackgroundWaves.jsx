@@ -23,7 +23,6 @@ export function WavyBackground({ className, children, ...props }) {
 
     const noise = createNoise3D();
     const canvasRef = useRef(null);
-    const blur = 1;
 
     // Track mouse position
     var mouse = useRef({ x: 0, y: 0 })
@@ -71,8 +70,8 @@ export function WavyBackground({ className, children, ...props }) {
             return 0
         }
 
-        const jitterFactor = 2;
-        return jitterFactor * (1 / (1 + 0.03 * dist))
+        const jitterFactor = 1.5;
+        return (jitterFactor * (1 / (1 + 0.007 * dist))) ** 2
     }
 
 
@@ -132,7 +131,7 @@ export function WavyBackground({ className, children, ...props }) {
     return (
         <div
             className={cn(
-                "fixed h-screen flex flex-col items-center justify-center z-0 blur-[1px]",
+                `fixed h-screen flex flex-col items-center justify-center z-0 blur-[1px]`,
             )}
         >
             <canvas

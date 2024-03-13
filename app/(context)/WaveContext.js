@@ -7,10 +7,10 @@ export const defaultWaveSettings = {
     scaleY: 0.01,
     amplitude: 30,
     stepX: 15,
-    numWaves: 90,
+    numWaves: 400,
     r: 255,
     g: 255,
-    b: 255
+    b: 255,
 }
 
 const WaveContext = createContext(null);

@@ -4,8 +4,8 @@ import { useState } from "react";
 import { WavyBackground } from "./(components)/BackgroundWaves"
 import { WaveSmoothSvg, WaveJaggedSvg, EyeSvg } from "./(components)/controls/ShapeControls";
 import { defaultWaveSettings, useWaveContext } from "./(context)/WaveContext";
-import Reveal from "./(components)/Reveal"
 import { ContactSection } from "./(components)/contact/Contact"
+import IntroSection from "./(components)/intro/Intro"
 
 import Footer from "./(components)/Footer"
 
@@ -46,7 +46,12 @@ function WaveColorModifier() {
                         <button
                             key={idx}
                             style={{ backgroundColor: `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.3)` }}
-                            className={`w-5 h-5 flex justify-center items-center border border-solid border-white/10`}
+                            className={`
+                                w-3 h-3
+                                flex justify-center items-center 
+                                border border-solid border-white/10
+                                transform rotate-45
+                            `}
                             onMouseUp={() => updateColor(idx)}
                         >
                             {
@@ -129,18 +134,13 @@ export default function Page() {
                     grow border border-solid border-white/20 shadow-lg shadow-white/[5%] flex
                 `}>
                     <Footer />
+                    <WaveShapeModifiers />
                     <div className="flex flex-col grow grow-1">
                         <div className="h-2/5 flex">
                             {/** Top left section **/}
-                            <Reveal className="w-3/5 flex flex-col justify-start" duration={1}>
-                                <Pane >
-                                    <p className="text-4xl text-light font-Apercu font-thin border-b border-white/15 ">Hi, my name is</p>
-                                    <p className="text-8xl font-Apercu text-light ">Max Lafrance</p>
-                                    <div className="grow grow-1 border-t border-solid border-white/20">
-                                        <p className="text-white text-3xl">I'm a software engineer</p>
-                                    </div>
-                                </Pane>
-                            </Reveal>
+                            <Pane>
+                                <IntroSection />
+                            </Pane>
                             {/** Top right section **/}
                             <div className="w-2/5 flex flex-col">
                                 {/** Contact **/}
