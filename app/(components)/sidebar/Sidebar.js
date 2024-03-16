@@ -29,7 +29,7 @@ export default function Sidebar() {
 
     return (
         <aside className={`
-            flex flex-col h-full w-[350px] justify-start bg-black/30 
+            flex flex-col h-full w-[350px] justify-start bg-black/40 backdrop-blur-sm
             border-r border-solid border-white/20
         `}>
             <nav className="flex flex-col">

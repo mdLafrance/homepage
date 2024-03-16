@@ -21,7 +21,7 @@ export function ContactItem({ name, footerText, link, className }) {
             className={`
                 flex gap-1 items-end pt-1 justify-start
                 px-2
-                opacity-80 hover:opacity-100
+                opacity-95 hover:opacity-100
                 hover:ring-1 hover:ring-white/30 hover:bg-white/10
                 active:bg-white/20
                 transition-all duration-[100ms]
@@ -47,7 +47,7 @@ export function ContactSection() {
                 <figure className="grow grow-1 -translate-y-2.5  border-b border-white/30 border-solid" />
             </div>
             <address>
-                <ul className="flex flex-col justify-start pt-1 gap-1">
+                <ul className="flex flex-col justify-start  gap-1 not-italic">
                     <li>
                         <ContactItem name={'email'} footerText={"maxlafrance97@gmail.com"} link={"mailto: maxlafrance97@gmail.com"} />
                     </li>

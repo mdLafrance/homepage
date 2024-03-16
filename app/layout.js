@@ -2,6 +2,8 @@
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
+import { WavyBackground } from "./(components)/BackgroundWaves"
+
 import Providers from "./providers"
 
 import './globals.css';
@@ -52,8 +54,8 @@ export default function RootLayout({ children }) {
             <body className={`${inter.className} ${apercu.className} ${neuemachina.className}`}>
                 <Providers>
                     {children}
+                    <div className="static-noise"></div>
                 </Providers>
-                <div className="static-noise"></div>
             </body>
         </html >
     );

@@ -128,6 +128,7 @@ function Pane({ children, className }) {
 export default function Page() {
     return (
         <div className="h-[100vh] w-full flex justify-start bg-black ">
+            <WavyBackground />
             <div className="h-full p-16 w-full relative overflow-y-auto">
                 <div className={`
                     relative z-10 min-h-full rounded-sm max-w-[85rem] 
@@ -136,7 +137,7 @@ export default function Page() {
                 `}>
                     <Footer />
                     <WaveShapeModifiers />
-                    <div className="flex  grow grow-1">
+                    <div className="flex grow grow-1">
                         <div className="w-[400px] h-full">
                             <Sidebar />
                         </div>
@@ -149,8 +150,6 @@ export default function Page() {
 
                 </div>
             </div>
-
-            <WavyBackground />
 
         </div>
     )
