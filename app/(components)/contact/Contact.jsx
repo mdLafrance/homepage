@@ -20,9 +20,10 @@ export function ContactItem({ name, footerText, link, className }) {
         <a
             className={`
                 flex gap-1 items-end pt-1 px-2 justify-start
+                opacity-80 hover:opacity-100
                 hover:ring-1 hover:ring-white/30 hover:bg-white/10
                 active:bg-white/20
-                transition-all duration-[80ms]
+                transition-all duration-[100ms]
                 ${className}
             `}
 
@@ -43,11 +44,11 @@ export function ContactItem({ name, footerText, link, className }) {
 
 export function ContactSection() {
     return (
-        <div>
-            <div className="border-b border-solid border-white/20">
-                <p className="text-white text-3xl translate-y-1 translate-x-1 p-1">Contact</p>
+        <div className="">
+            <div className="border-b border-solid border-white/20 p-1">
+                <p className="text-white text-right text-4xl">Contact</p>
             </div>
-            <div className="flex flex-col justify-start gap-1 p-1 ">
+            <div className="flex flex-col justify-start pt-1 gap-1">
                 <ContactItem name={'github'} footerText={"github.com/mdLafrance"} link={"https://github.com/mdLafrance"} />
                 <ContactItem name={'linkedin'} footerText={"linkedin.com/in/max-lafrance"} link={"https://linkedin.com/in/max-lafrance"} />
                 <ContactItem name={'email'} footerText={"maxlafrance97@gmail.com"} link={"mailto: maxlafrance97@gmail.com"} />

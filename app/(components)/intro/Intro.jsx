@@ -29,8 +29,8 @@ export default function IntroSection() {
     return (
         <>
             <p className="text-4xl text-light p-1 font-Apercu font-thin border-b border-white/15 ">Hi, my name is</p>
-            <p className="text-8xl  translate-y-2 font-Apercu text-light ">Max Lafrance</p>
-            <div className="grow grow-1 border-t border-solid border-white/15 p-1 flex gap-1">
+            <p className="text-8xl translate-y-2 font-Apercu text-light ">Max Lafrance</p>
+            <div className="grow grow-1 p-1 flex gap-1">
                 <span className="text-white text-3xl">I'm a Software Engineer from Canada</span>
                 <MapleLeafSVG className="w-6 h-6 stroke-white translate-y-1" />
             </div>

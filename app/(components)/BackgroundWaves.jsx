@@ -131,7 +131,7 @@ export function WavyBackground({ className, children, ...props }) {
     return (
         <div
             className={cn(
-                `fixed h-screen flex flex-col items-center justify-center z-0 blur-[1px]`,
+                `fixed h-screen flex flex-col items-center justify-center z-0 blur-[1px] opacity-50`,
             )}
         >
             <canvas

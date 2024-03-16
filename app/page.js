@@ -117,7 +117,7 @@ function WaveShapeModifiers() {
 
 function Pane({ children, className }) {
     return (
-        <div className={`${className} grow grow-1 border-4 border-double border-white/20 backdrop-blur-sm`}>
+        <div className={`${className} grow grow-1 border-1 border-solid border-white/20 backdrop-blur-sm bg-black/10 p-4`}>
             {children}
         </div>
     )

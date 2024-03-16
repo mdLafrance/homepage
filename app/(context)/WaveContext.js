@@ -3,7 +3,7 @@
 import { useContext, useState, createContext } from "react";
 
 export const defaultWaveSettings = {
-    scaleX: 0.0017,
+    scaleX: 0.002,
     scaleY: 0.01,
     amplitude: 30,
     stepX: 15,

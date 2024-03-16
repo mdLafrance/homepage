@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="absolute -bottom-12 flex w-full justify-center items-center">
             <ContactItem
                 footerText={"Designed & built by me"}
-                className="pr-4 rounded-full opacity-80 hover:opacity-90 transition-none duration-[50ms]"
+                className="pr-4 rounded-full"
                 link="https://github.com/mdLafrance/homepage"
             />
         </div>
