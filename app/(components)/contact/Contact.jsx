@@ -44,7 +44,7 @@ export function ContactItem({ name, footerText, link, className }) {
 
 export function ContactSection() {
     return (
-        <div className="">
+        <div className="opacity-70 hover:opacity-100 transition-opacity duration-[400ms]">
             <div className="border-b border-solid border-white/20 p-1">
                 <p className="text-white text-right text-4xl">Contact</p>
             </div>
