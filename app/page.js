@@ -6,6 +6,7 @@ import { WaveSmoothSvg, WaveJaggedSvg, EyeSvg } from "./(components)/controls/Sh
 import { defaultWaveSettings, useWaveContext } from "./(context)/WaveContext";
 import { ContactSection } from "./(components)/contact/Contact"
 import IntroSection from "./(components)/intro/Intro"
+import Sidebar from './(components)/sidebar/Sidebar'
 
 import Footer from "./(components)/Footer"
 
@@ -135,33 +136,15 @@ export default function Page() {
                 `}>
                     <Footer />
                     <WaveShapeModifiers />
-                    <div className="flex flex-col grow grow-1">
-                        <div className="h-2/5 flex">
-                            {/** Top left section **/}
-                            <Pane>
-                                <IntroSection />
-                            </Pane>
-                            {/** Top right section **/}
-                            <div className="w-2/5 flex flex-col">
-                                {/** Contact **/}
-                                <Pane className="h-3/5 ">
-                                    <ContactSection />
-                                </Pane>
-                                {/** Mini section **/}
-                                <div className="h-2/5 flex">
-                                    {/** Unknown **/}
-                                    <Pane className="w-2/5">
-                                    </Pane>
-                                    {/** Controls **/}
-                                    <Pane className="w-3/5 flex justify-end">
-                                        <WaveColorModifier></WaveColorModifier>
-                                    </Pane>
-                                </div>
-                            </div>
+                    <div className="flex  grow grow-1">
+                        <div className="w-[400px] h-full">
+                            <Sidebar />
                         </div>
-                        <Pane className="h-3/5">
-                            <p className=" text-white h-full">asdf</p>
-                        </Pane>
+                        <div className="w-full ">
+                            <p className="text-white text-3xl">
+                                asdf
+                            </p>
+                        </div>
                     </div>
 
                 </div>
