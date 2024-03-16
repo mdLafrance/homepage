@@ -12,6 +12,7 @@ function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
             px-4 pt-2 pb-1
             flex w-full gap-2
             opacity-80 hover:opacity-100 transition-all duration-200
+            border-solid border-b border-light/15
             ${isSelected ? selectedStyle : unselectedStyle}
         `}>
                 <span className={`
