@@ -1,4 +1,10 @@
+"use client";
+
+import { useTheme } from "next-themes"
+
 export default function Page() {
+    const {theme} = useTheme();
+
     return (
         <section className="p-8">
             <header className="text-light flex flex-col w-full h-full">
@@ -8,7 +14,7 @@ export default function Page() {
                 <h1 className="text-8xl">
                     Max Lafrance
                 </h1>
-                <figure className="border-b border-solid border-light"/>
+                <figure className="border-b border-solid border-light/20"/>
 
             </header>
         </section>

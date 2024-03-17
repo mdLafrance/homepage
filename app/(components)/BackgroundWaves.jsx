@@ -79,7 +79,7 @@ export function WavyBackground({ className, children, ...props }) {
     const render = () => {
         const s = waveSettings.current;
         ctx.globalAlpha = 0.5;
-        ctx.fillRect(0, 0, w, h);
+
         ctx.clearRect(0, 0, w, h)
 
         ctx.globalAlpha = 0.5;

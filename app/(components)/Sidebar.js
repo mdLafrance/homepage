@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ContactSection } from "./contact/Contact"
 import Link from "next/link"
+import { useTheme } from "next-themes"
 
 function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
 
@@ -28,6 +29,8 @@ function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
 }
 
 export default function Sidebar() {
+    const { theme } = useTheme()
+
     const pageNames = [
         ["About", "/"],
         ["Work", "/work"],
@@ -39,8 +42,10 @@ export default function Sidebar() {
     return (
         <aside className={`
             fixed top-0 left-0
-            flex flex-col h-full w-[350px] justify-start bg-black/20 backdrop-blur-sm
+            flex flex-col h-full w-[350px] justify-start backdrop-blur-sm
             border-r border-solid border-white/10
+            ${theme === "light" ? "bg-black/50" : "bg-black/20"
+            }
         `}>
             <nav className="flex flex-col">
                 <ul>
