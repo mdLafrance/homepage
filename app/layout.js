@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
                             <div className={`
                                 relative z-10 min-h-full rounded-sm max-w-[85rem] 
                                 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black 
-                                grow border border-solid border-white/20 shadow-lg shadow-white/[5%] flex
+                                grow border-solid border-white/20 shadow-white/[6%] flex
                             `}>
                                 <Footer />
                                 <WaveShapeModifiers />
