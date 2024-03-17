@@ -2,18 +2,19 @@
 
 import { useState } from "react"
 import { ContactSection } from "./contact/Contact"
+import { useThemeContext } from "../(context)/ThemeContext"
 import Link from "next/link"
 
 function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
 
-    const selectedStyle = "bg-light/75 text-dark opacity-100 "
-    const unselectedStyle = "text-light/90 hover:bg-light/15 "
+    const selectedStyle = "bg-light/80 text-black opacity-100 "
+    const unselectedStyle = "text-light/90 hover:bg-light/15 opacity-80 "
 
     return (
         <Link href={linkTarget} onClick={onClick} className={`
             px-4 pt-2 pb-1
             flex w-full gap-2
-            opacity-80 hover:opacity-100 transition-all duration-200
+            hover:opacity-100 transition-all duration-200
             border-solid border-b border-light/15
             ${isSelected ? selectedStyle : unselectedStyle}
         `}>
@@ -28,6 +29,8 @@ function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
 }
 
 export default function Sidebar() {
+    const [theme, _] = useThemeContext();
+
     const pageNames = [
         ["About", "/"],
         ["Work", "/work"],
@@ -39,8 +42,10 @@ export default function Sidebar() {
     return (
         <aside className={`
             fixed top-0 left-0
-            flex flex-col h-full w-[350px] justify-start bg-black/20 backdrop-blur-sm
-            border-r border-solid border-white/10
+            flex flex-col h-full w-[350px] justify-start backdrop-blur-sm
+            border-r border-solid 
+            ${theme === "light" ? "bg-black/60 border-black/5" : "bg-black/20 border-white/10"
+            }
         `}>
             <nav className="flex flex-col">
                 <ul>

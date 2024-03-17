@@ -3,12 +3,13 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import { WavyBackground } from "./(components)/BackgroundWaves"
-import {WaveShapeModifiers } from "./(components)/controls/WaveControls"
+import BackgroundFill from "./(components)/BackgroundFill"
 import Sidebar from "./(components)/Sidebar"
 import Footer from "./(components)/Footer"
 import Providers from "./providers"
 
 import './globals.css';
+import Reveal from "./(components)/Reveal";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const apercu = localFont({
@@ -52,28 +53,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body className={`${inter.className} ${apercu.className} ${neuemachina.className}`}>
+        <html lang="en" suppressHydrationWarning className={`${inter.className} ${apercu.className} ${neuemachina.className}`}>
+            <body>
                 <Providers>
-                    <div className="h-[100vh] w-full flex justify-start bg-black ">
+                    <BackgroundFill />
+                    <Reveal duration={3} delay={1.5}>
                         <WavyBackground />
-                        <div className="h-full p-16 w-full relative overflow-y-auto">
-                            <div className={`
+                    </Reveal>
+                    <Footer />
+                    <div className="h-full p-16 w-full relative overflow-y-auto">
+                        <div className={`
                                 relative z-10 min-h-full rounded-sm max-w-[85rem] 
                                 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black 
                                 grow border-solid border-white/20 shadow-white/[6%] flex
                             `}>
-                                <Footer />
-                                <WaveShapeModifiers />
-                                <div className="flex grow grow-1">
-                                    <div className="w-[400px] h-full">
-                                        <Sidebar />
-                                    </div>
-                                    <div className="w-full ">
-                                        {children}
-                                    </div>
+                            <div className="flex grow grow-1">
+                                <div className="w-[400px] h-full">
+                                    <Sidebar />
                                 </div>
-
+                                <div className="w-full ">
+                                    {children}
+                                </div>
                             </div>
                         </div>
                     </div>

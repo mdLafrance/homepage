@@ -5,7 +5,7 @@ export const EyeOpenSvg = ({ className }) => {
             <path d="M25 30 L15 15" fill="none" stroke="white" />
             <path d="M50 25 L50 10" fill="none" stroke="white" />
             <path d="M75 30 L85 15" fill="none" stroke="white" />
-            <circle cx="50" cy="40" r="15" stroke="white" stroke-width="1" fill="none" />
+            <circle cx="50" cy="40" r="15" stroke="white" strokeWidth="1" fill="none" />
 
         </svg>
 
@@ -20,7 +20,7 @@ export const EyeClosedSvg = ({ className }) => {
             <path d="M25 30 L15 15" fill="none" stroke="white" />
             <path d="M50 25 L50 10" fill="none" stroke="white" />
             <path d="M75 30 L85 15" fill="none" stroke="white" />
-            <circle cx="50" cy="40" r="15" stroke="white" stroke-width="1" fill="none" />
+            <circle cx="50" cy="40" r="15" stroke="white" strokeWidth="1" fill="none" />
 
         </svg>
 
