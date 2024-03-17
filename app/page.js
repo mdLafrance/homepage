@@ -12,12 +12,12 @@ export default function Page() {
                 flex flex-col w-full h-full
                 ${theme == "light" ? "text-grey" : "text-light"}
             `}>
-                <Reveal duration={1}>
+                <Reveal duration={2}>
                     <h2 className="text-4xl translate-x-1 ">
                         Hi, my name is
                     </h2>
                 </Reveal>
-                <Reveal duration={1} delay={0.8}>
+                <Reveal duration={2} delay={0.5}>
                     <h1 className="text-8xl">
                         Max Lafrance
                     </h1>

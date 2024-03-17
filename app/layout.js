@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
             <body>
                 <Providers>
                     <BackgroundFill />
-                    <Reveal duration={3} delay={1.5}>
+                    <Reveal duration={4} delay={0.1}>
                         <WavyBackground />
                     </Reveal>
                     <Footer />
