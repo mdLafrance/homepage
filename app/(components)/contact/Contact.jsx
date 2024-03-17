@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { useWaveContext } from "../../(context)/WaveContext"
 import LinkSvg from "../controls/Link"

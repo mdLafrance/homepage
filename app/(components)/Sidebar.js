@@ -1,5 +1,8 @@
+"use client"
+
 import { useState } from "react"
-import { ContactSection } from "../contact/Contact"
+import { ContactSection } from "./contact/Contact"
+import Link from "next/link"
 
 function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
 
@@ -7,7 +10,7 @@ function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
     const unselectedStyle = "text-light/90 hover:bg-light/15 "
 
     return (
-        <button onClick={onClick} className={`
+        <Link href={linkTarget} onClick={onClick} className={`
             px-4 pt-2 pb-1
             flex w-full gap-2
             opacity-80 hover:opacity-100 transition-all duration-200
@@ -20,12 +23,18 @@ function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
             `}>
                 {name}
             </span>
-        </button>
+        </Link>
     )
 }
 
 export default function Sidebar() {
-    const [currentPageName, setCurrentPageName] = useState("About")
+    const pageNames = [
+        ["About", "/"],
+        ["Work", "/work"],
+        ["More", "/more"],
+    ]
+
+    const [currentPageName, setCurrentPageName] = useState(pageNames[0][0])
 
     return (
         <aside className={`
@@ -34,15 +43,18 @@ export default function Sidebar() {
         `}>
             <nav className="flex flex-col">
                 <ul>
-                    <li>
-                        <PageSelectionItem name={"About"} isSelected={currentPageName == "About"} onClick={() => setCurrentPageName("About")} />
-                    </li>
-                    <li>
-                        <PageSelectionItem name={"Work"} isSelected={currentPageName == "Work"} onClick={() => setCurrentPageName("Work")} />
-                    </li>
-                    <li>
-                        <PageSelectionItem name={"More"} isSelected={currentPageName == "More"} onClick={() => setCurrentPageName("More")} />
-                    </li>
+                    {
+                        pageNames.map(([name, route], idx) => (
+                            <li key={idx}>
+                                <PageSelectionItem
+                                    name={name}
+                                    isSelected={currentPageName == name}
+                                    linkTarget={route}
+                                    onClick={() => setCurrentPageName(name)}
+                                />
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav>
 
