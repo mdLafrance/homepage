@@ -10,7 +10,7 @@ export default function Page() {
         <section className="p-8">
             <header className={`
                 flex flex-col w-full h-full
-                ${theme == "light" ? "text-grey" : "text-light"}
+                ${theme == "dark" ? "text-light" : "text-grey"}
             `}>
                 <Reveal duration={2}>
                     <h2 className="text-4xl translate-x-1 ">

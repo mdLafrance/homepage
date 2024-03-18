@@ -7,7 +7,7 @@ import { defaultWaveSettings, useWaveContext } from "../../(context)/WaveContext
 
 export const WaveSmoothSvg = ({ className }) => {
     return (
-        <svg viewBox="0 0 100 100" strokeWidth={4} xmlns="http://www.w3.org/2000/svg" className={className}>
+        <svg viewBox="0 0 100 100" strokeWidth={5} xmlns="http://www.w3.org/2000/svg" className={className}>
             <path d="M0 25 Q25 0 50 25 T100 25" fill="none" stroke="white" />
             <path d="M0 75 Q25 50 50 75 T100 75" fill="none" stroke="white" />
         </svg>
@@ -52,14 +52,14 @@ function WaveShapeBase({ ShapeSvg, setTo }) {
     return (
         <button
             className={`
-                w-6 h-6 
+                w-7 h-7 
                 transition-all duration-[40ms]
                 hover:bg-white/10 active:bg-white/20
                 ${waveSettings.style == setTo ? "ring-1 ring-light/30" : null}
             `}
             onClick={() => changeWaveStyle(setTo)}
         >
-            <ShapeSvg className="stroke-white w-6 h-6 p-1" />
+            <ShapeSvg className="stroke-white w-7 h-7 p-1" />
         </button>
     )
 }

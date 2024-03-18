@@ -91,7 +91,7 @@ export function WavyBackground({ className, children, ...props }) {
         // How far apart the waves will be
         const spacing = h * 0.6 / s.numWaves;
 
-        const time = Math.round(performance.now()) / 10000;
+        const time = Math.round(performance.now()) / 15000;
 
         for (let i = 0; i < s.numWaves; i++) {
             ctx.beginPath();

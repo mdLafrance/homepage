@@ -30,18 +30,18 @@ export default function VisibilityToggle() {
 
     return (
         <button
-            className="w-6 h-6 transition-all duration-80 hover:bg-white/10 active:bg-white/20"
+            className="w-7 h-7 transition-all duration-70 hover:bg-white/10 active:bg-white/20"
             onClick={toggleVisibility}
         >
             <svg
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                strokeWidth="1"
+                strokeWidth="0.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 stroke="white"
-                className="scale-110 opacity-60"
+                className="scale-110"
             >
                 {
                     waveSettings.visible ? eyeOpenSVGPath : eyeClosedSVGPath

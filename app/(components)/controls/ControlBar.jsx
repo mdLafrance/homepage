@@ -1,5 +1,6 @@
 import VisibilityToggle from "./VisibilityControls"
 import { WaveJaggedButton, WaveSmoothButton } from "./WaveControls"
+import ThemeSwitcher from "./ThemeControl"
 
 
 export default function ControlBar() {
@@ -8,6 +9,7 @@ export default function ControlBar() {
             <WaveSmoothButton />
             <WaveJaggedButton />
             <VisibilityToggle />
+            <ThemeSwitcher />
         </div>
     )
 }
