@@ -1,6 +1,11 @@
+"use client";
+
 import { ContactItem } from "./contact/Contact";
+import { useThemeContext } from "../(context)/ThemeContext";
 
 export default function Footer() {
+    const [theme, _] = useThemeContext();
+
     return (
         <footer className="fixed bottom-4 right-4 flex justify-center items-center">
             <ContactItem

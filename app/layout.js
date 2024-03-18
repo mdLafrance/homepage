@@ -6,6 +6,7 @@ import { WavyBackground } from "./(components)/BackgroundWaves"
 import BackgroundFill from "./(components)/BackgroundFill"
 import Sidebar from "./(components)/Sidebar"
 import Footer from "./(components)/Footer"
+import ControlBar from "./(components)/controls/ControlBar"
 import Providers from "./providers"
 
 import './globals.css';
@@ -77,7 +78,8 @@ export default function RootLayout({ children }) {
                             </div>
                         </div>
                     </div>
-                    <div className="static-noise"></div>
+                    <div className="static-noise pointer-events-none"></div>
+                    <ControlBar />
                 </Providers>
             </body>
         </html >

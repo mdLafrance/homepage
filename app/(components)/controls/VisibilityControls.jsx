@@ -1,29 +1,52 @@
-export const EyeOpenSvg = ({ className }) => {
+"use client";
+
+import { useEffect, useState } from 'react'
+import { useWaveContext } from '../../(context)/WaveContext';
+
+const eyeOpenSVGPath = (
+    <path d="M4 12C4 12 5.6 7 12 7M12 7C18.4 7 20 12 20 12M12 7V4M18 5L16 7.5M6 5L8 7.5M15 13C15 14.6569 13.6569 16 12 16C10.3431 16 9 14.6569 9 13C9 11.3431 10.3431 10 12 10C13.6569 10 15 11.3431 15 13Z" />
+)
+
+const eyeClosedSVGPath = (
+    <path d="M4 12C4 12 5.6 7 12 7M12 7C18.4 7 20 12 20 12M12 7V4M18 5L16 7.5M6 5L8 7.5M15 13C15 14.6569 13.6569 16 12 16C10.3431 16 9 14.6569 9 13C9 11.3431 10.3431 10 12 10C13.6569 10 15 11.3431 15 13Z M4 22 L20 2" />
+)
+
+
+export default function VisibilityToggle() {
+    const [waveSettings, setWaveSettings] = useWaveContext();
+
+    useEffect(() => {
+        console.log("Wave visible?", waveSettings.visible)
+    }, [waveSettings])
+
+    const toggleVisibility = () => {
+        setWaveSettings(
+            {
+                ...waveSettings,
+                visible: !waveSettings.visible
+            }
+        )
+    }
+
     return (
-        <svg viewBox="0 0 100 100" strokeWidth={3} xmlns="http://www.w3.org/2000/svg" className={className}>
-            <path d="M5 45 L25 30 L50 25 L75 30 L95 45" fill="none" stroke="white" />
-            <path d="M25 30 L15 15" fill="none" stroke="white" />
-            <path d="M50 25 L50 10" fill="none" stroke="white" />
-            <path d="M75 30 L85 15" fill="none" stroke="white" />
-            <circle cx="50" cy="40" r="15" stroke="white" strokeWidth="1" fill="none" />
-
-        </svg>
-
-    )
-}
-
-
-export const EyeClosedSvg = ({ className }) => {
-    return (
-        <svg viewBox="0 0 100 100" strokeWidth={3} xmlns="http://www.w3.org/2000/svg" className={className}>
-            <path d="M5 45 L25 30 L50 25 L75 30 L95 45" fill="none" stroke="white" />
-            <path d="M25 30 L15 15" fill="none" stroke="white" />
-            <path d="M50 25 L50 10" fill="none" stroke="white" />
-            <path d="M75 30 L85 15" fill="none" stroke="white" />
-            <circle cx="50" cy="40" r="15" stroke="white" strokeWidth="1" fill="none" />
-
-        </svg>
-
+        <button
+            className="w-8 h-8 flex justify-center transition-all duration-300"
+            onClick={toggleVisibility}
+        >
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                stroke="white"
+            >
+                {
+                    waveSettings.visible ? eyeOpenSVGPath : eyeClosedSVGPath
+                }
+            </svg>
+        </button>
     )
 }
 
