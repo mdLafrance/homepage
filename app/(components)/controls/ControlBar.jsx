@@ -1,16 +1,12 @@
-import VisibilityToggle, { EyeOpenSvg, EyeClosedSvg } from "./VisibilityControls"
+import VisibilityToggle from "./VisibilityControls"
+import { WaveJaggedButton, WaveSmoothButton } from "./WaveControls"
 
-function ShowWaveButton() {
-    return (
-        <button className="ring-1 ring-red-200">
-            <EyeOpenSvg className="w-12 h-12" />
-        </button>
-    )
-}
 
 export default function ControlBar() {
     return (
-        <div className="fixed top-2 right-2 flex gap-2 justify-end">
+        <div className="fixed top-2 right-2 flex gap-2 justify-end items-center">
+            <WaveSmoothButton />
+            <WaveJaggedButton />
             <VisibilityToggle />
         </div>
     )

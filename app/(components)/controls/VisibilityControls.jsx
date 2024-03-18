@@ -30,7 +30,7 @@ export default function VisibilityToggle() {
 
     return (
         <button
-            className="w-8 h-8 flex justify-center transition-all duration-300"
+            className="w-6 h-6 transition-all duration-300"
             onClick={toggleVisibility}
         >
             <svg
@@ -41,6 +41,7 @@ export default function VisibilityToggle() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 stroke="white"
+                className="scale-110 opacity-60"
             >
                 {
                     waveSettings.visible ? eyeOpenSVGPath : eyeClosedSVGPath

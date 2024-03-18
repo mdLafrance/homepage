@@ -23,19 +23,55 @@ export const WaveJaggedSvg = ({ className }) => {
     )
 }
 
-const EyeSvg = ({ className }) => {
+
+function WaveShapeBase({ ShapeSvg, setTo }) {
+    const [waveSettings, setWaveSettings] = useWaveContext();
+
+    const changeWaveStyle = (style) => {
+        if (style == "jagged") {
+            setWaveSettings(
+                {
+                    ...waveSettings,
+                    style: "jagged",
+                    stepX: 40,
+                    scaleX: 0.01,
+                }
+            )
+        } else {
+            setWaveSettings(
+                {
+                    ...waveSettings,
+                    style: "smooth",
+                    stepX: defaultWaveSettings.stepX,
+                    scaleX: defaultWaveSettings.scaleX,
+                }
+            )
+        }
+    }
+
     return (
-        <svg viewBox="0 0 100 100" strokeWidth={3} xmlns="http://www.w3.org/2000/svg" className={className}>
-            <path d="M5 45 L25 30 L50 25 L75 30 L95 45" fill="none" stroke="white" />
-            <path d="M25 30 L15 15" fill="none" stroke="white" />
-            <path d="M50 25 L50 10" fill="none" stroke="white" />
-            <path d="M75 30 L85 15" fill="none" stroke="white" />
-            <circle cx="50" cy="40" r="15" stroke="white" strokeWidth="1" fill="none" />
-
-        </svg>
-
+        <button
+            className={`w-6 h-6 ${waveSettings.style == setTo ? "ring-1 ring-light/30" : null}`}
+            onClick={() => changeWaveStyle(setTo)}
+        >
+            <ShapeSvg className="stroke-white w-6 h-6 p-1" />
+        </button>
     )
 }
+
+export function WaveSmoothButton() {
+    return (
+        <WaveShapeBase ShapeSvg={WaveSmoothSvg} setTo={"smooth"} />
+    )
+}
+
+export function WaveJaggedButton() {
+    return (
+        <WaveShapeBase ShapeSvg={WaveJaggedSvg} setTo={"jagged"} />
+    )
+}
+
+
 
 export function WaveShapeModifiers() {
     const [selectedButton, setSelectedButton] = useState("smooth")
