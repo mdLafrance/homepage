@@ -51,7 +51,12 @@ function WaveShapeBase({ ShapeSvg, setTo }) {
 
     return (
         <button
-            className={`w-6 h-6 ${waveSettings.style == setTo ? "ring-1 ring-light/30" : null}`}
+            className={`
+                w-6 h-6 
+                transition-all duration-[40ms]
+                hover:bg-white/10 active:bg-white/20
+                ${waveSettings.style == setTo ? "ring-1 ring-light/30" : null}
+            `}
             onClick={() => changeWaveStyle(setTo)}
         >
             <ShapeSvg className="stroke-white w-6 h-6 p-1" />

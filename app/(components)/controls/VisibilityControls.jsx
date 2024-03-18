@@ -30,7 +30,7 @@ export default function VisibilityToggle() {
 
     return (
         <button
-            className="w-6 h-6 transition-all duration-300"
+            className="w-6 h-6 transition-all duration-80 hover:bg-white/10 active:bg-white/20"
             onClick={toggleVisibility}
         >
             <svg
