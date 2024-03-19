@@ -20,7 +20,7 @@ function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
             ${isSelected ? selectedStyle : unselectedStyle}
         `}>
             <span className={`
-                text-3xl py-1 underline underline-offset-[5px] translate-y-0
+                text-3xl py-1 underline underline-offset-[5px] -translate-y-1
                 decoration-1 ${isSelected ? "decoration-black/50" : "decoration-black/0"}
             `}>
                 {name}
