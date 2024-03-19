@@ -4,7 +4,6 @@ import { useState } from "react"
 import { ContactSection } from "./contact/Contact"
 import { useThemeContext } from "../(context)/ThemeContext"
 import Link from "next/link"
-import { useTheme } from "next-themes"
 
 function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
 
