@@ -28,7 +28,7 @@ function PageSelectionItem({ name, linkTarget, isSelected, onClick }) {
     )
 }
 
-export default function Sidebar() {
+export default function Sidebar({className}) {
     const [theme, _] = useThemeContext();
 
     const pageNames = [
@@ -41,11 +41,10 @@ export default function Sidebar() {
 
     return (
         <aside className={`
-            fixed top-0 left-0
-            flex flex-col h-full w-[350px] justify-start backdrop-blur-sm
+            flex flex-col justify-start backdrop-blur-sm
             border-r border-solid 
-            ${theme === "light" ? "bg-black/60 border-black/5" : "bg-black/20 border-white/10"
-            }
+            ${theme === "light" ? "bg-black/60 border-black/5" : "bg-black/20 border-white/10"}
+            ${className}
         `}>
             <nav className="flex flex-col">
                 <ul>

@@ -36,7 +36,7 @@ function ControlBarItem({ children }) {
 
 export default function ControlBar() {
     return (
-        <ul className="fixed top-2 right-2 h-7 flex gap-2 justify-end align-center">
+        <ul className="fixed top-2 right-2 h-7 flex gap-2 justify-end align-center z-200">
             <ControlBarItem>
                 <WaveSmoothButton />
             </ControlBarItem>

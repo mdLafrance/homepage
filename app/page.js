@@ -7,7 +7,7 @@ export default function Page() {
     const [theme, _] = useThemeContext();
 
     return (
-        <section className="p-8">
+        <section className="">
             <header className={`
                 flex flex-col w-full h-full
                 ${theme == "dark" ? "text-light" : "text-grey"}

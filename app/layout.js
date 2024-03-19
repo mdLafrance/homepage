@@ -61,25 +61,16 @@ export default function RootLayout({ children }) {
                     <Reveal duration={4} delay={0.1}>
                         <WavyBackground />
                     </Reveal>
-                    <Footer />
-                    <div className="h-full p-16 w-full relative overflow-y-auto">
-                        <div className={`
-                                relative z-10 min-h-full rounded-sm max-w-[85rem] 
-                                bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue to-black 
-                                grow border-solid border-white/20 shadow-white/[6%] flex
-                            `}>
-                            <div className="flex grow grow-1">
-                                <div className="w-[400px] h-full">
-                                    <Sidebar />
-                                </div>
-                                <div className="w-full ">
-                                    {children}
-                                </div>
-                            </div>
+                    <div className="flex">
+                        <Sidebar className="w-[450px] h-screen" />
+                        {/** Main content section **/}
+                        <div className="h-screen w-full p-8 overflow-y-auto z-10">
+                            {children}
+                            <ControlBar />
+                            <Footer />
                         </div>
                     </div>
                     <div className="static-noise pointer-events-none"></div>
-                    <ControlBar />
                 </Providers>
             </body>
         </html >
