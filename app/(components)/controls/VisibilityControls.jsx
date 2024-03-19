@@ -15,6 +15,7 @@ const eyeClosedSVGPath = (
 
 export default function VisibilityToggle() {
     const [waveSettings, setWaveSettings] = useWaveContext();
+    const [theme, _] = useThemeContext();
 
     const toggleVisibility = () => {
         setWaveSettings(
@@ -36,6 +37,7 @@ export default function VisibilityToggle() {
                 strokeWidth="0.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                stroke={theme == "light" ? "black" : "white"}
                 className="scale-110 translate-y-0.5 w-7 h-7"
             >
                 {

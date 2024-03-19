@@ -21,8 +21,6 @@ export default function ThemeSwitcher() {
         <button
             className={`
                 w-7 h-7 
-                transition-all duration-[40ms]
-                hover:bg-white/10 active:bg-white/20
                 p-1
             `}
             onMouseUp={switchTheme}
