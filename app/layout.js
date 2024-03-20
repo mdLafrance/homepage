@@ -66,7 +66,7 @@ export default function RootLayout({ children }) {
                         {/** Main content section **/}
                         <div className="h-screen w-full p-8 overflow-y-auto z-10">
                             {children}
-                            <ControlBar />
+                            <ControlBar className="fixed top-2 right-6" />
                             <Footer />
                         </div>
                     </div>
