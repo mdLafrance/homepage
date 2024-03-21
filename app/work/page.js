@@ -2,8 +2,6 @@
 
 import { work_experiences } from "../(data)/work"
 
-import Reveal from "../(components)/Reveal"
-
 import { motion } from "framer-motion"
 
 function WorkHistoryCard({ title, company, summary, date, skills }) {
@@ -11,8 +9,9 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
     return (
         <div className="
             group
-            rounded-md py-4 px-6
-            hover:backdrop-blur-3xl hover:bg-pale_dogwood/10 transition-all duration-100
+            rounded-sm py-4 px-6
+            backdrop-blur-md ring-1 ring-black/10
+            hover:backdrop-blur-3xl hover:bg-light/10 transition-all duration-100
             hover:shadow-black/15 hover:shadow-md
             hover:ring-1 hover:ring-grey/40
             sm:w-[45rem] w-[80vw]

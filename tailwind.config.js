@@ -33,7 +33,7 @@ module.exports = {
                 transparent: 'transparent',
                 current: 'currentColor',
                 default: '#1e1e2f',
-                space_cadet: "#22223b",
+                space_cadet: "#1d1d26",
                 ultra_violet: "#4a4e69",
                 rose_quartz: "#9a8c98",
                 pale_dogwood: "#c9ada7",

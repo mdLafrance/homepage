@@ -43,7 +43,7 @@ export default function Sidebar({className}) {
         <aside className={`
             flex flex-col justify-start backdrop-blur-sm
             border-r border-solid 
-            ${theme === "light" ? "bg-black/60 border-black/5" : "bg-black/20 border-white/10"}
+            ${theme === "light" ? "bg-space_cadet/40 border-black/5" : "bg-black/20 border-white/10"}
             ${className}
         `}>
             <nav className="flex flex-col">

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Reveal from "./(components)/Reveal"
 import { useThemeContext } from "./(context)/ThemeContext";
 
@@ -29,51 +30,46 @@ function MapleLeafSVG({ className }) {
     )
 }
 
-export default function IntroSection() {
-    return (
-        <>
-            <p className="text-4xl text-light p-1 font-Apercu font-thin border-b border-white/15 ">Hi, my name is</p>
-            <p className="text-8xl translate-y-2 font-Apercu text-light ">Max Lafrance</p>
-            <div className="grow grow-1 p-1 flex gap-1">
-                <span className="text-white text-3xl">I'm a Software Engineer from Canada</span>
-                <MapleLeafSVG className="w-6 h-6 stroke-white translate-y-1" />
-            </div>
-        </>
-    )
+const transitions = {
+    hidden: {
+        opacity: 0
+    },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
 }
 
 export default function Page() {
     const [theme, _] = useThemeContext();
 
     return (
-        <section className={`
-            p-16 max-w-[85rem] flex flex-col gap-8
-            ${theme == "light" ? "text-dark stroke-black" : "text-light stroke-light"}
-        `}>
+        <motion.section
+            variants={transitions}
+            initial="hidden"
+            animate="show"
+            className={`
+                p-16 max-w-[85rem] flex flex-col gap-8
+                ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
+            `}
+        >
             <header className={`
                 flex flex-col w-full h-full
             `}>
-                <Reveal duration={1.2}>
-                    <h2 className="text-4xl translate-x-1 ">
-                        Hi, my name is
-                    </h2>
-                </Reveal>
-                <Reveal duration={1.2} delay={0.5}>
-                    <h1 className="text-8xl">
-                        Max Lafrance
-                    </h1>
-                </Reveal>
+                <motion.h2 variants={transitions} className="text-4xl translate-x-1 ">
+                    Hi, my name is
+                </motion.h2>
+                <motion.h1 variants={transitions} className="text-8xl">
+                    Max Lafrance
+                </motion.h1>
             </header>
-            <Reveal duration={1.2} delay={1}>
-                <h3 className="flex gap-2 pt-4">
-                    <span className="text-3xl  ">I'm a Software Engineer from Canada</span>
-                    <MapleLeafSVG className={`w-6 h-6 translate-y-1 stroke-[1px]`} />
-                </h3>
-            </Reveal>
-            <Reveal>
-                <p>
-                </p>
-            </Reveal>
-        </section>
+            <motion.h3 variants={transitions} className="flex gap-2 pt-4">
+                <span className="text-3xl font-Kanit font-light">I'm a Software Engineer from Canada</span>
+                <MapleLeafSVG className={`w-6 h-6 translate-y-1 stroke-[1px]`} />
+            </motion.h3>
+
+        </motion.section>
     )
 }
