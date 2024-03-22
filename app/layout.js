@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
                         <WavyBackground />
                     </Reveal>
                     <div className="flex">
-                        <Sidebar className="w-[450px] h-screen" />
+                        <Sidebar className="w-[300px] h-screen" />
                         {/** Main content section **/}
                         <div className="h-screen w-full p-8 overflow-y-auto z-10">
                             {children}

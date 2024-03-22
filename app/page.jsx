@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Reveal from "./(components)/Reveal"
 import { useThemeContext } from "./(context)/ThemeContext";
 
 
@@ -51,13 +50,11 @@ export default function Page() {
             initial="hidden"
             animate="show"
             className={`
-                p-16 max-w-[85rem] flex flex-col gap-8
+                p-4 max-w-[85rem] flex flex-col gap-12
                 ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
             `}
         >
-            <header className={`
-                flex flex-col w-full h-full
-            `}>
+            <header className={`flex flex-col`}>
                 <motion.h2 variants={transitions} className="text-4xl translate-x-1 ">
                     Hi, my name is
                 </motion.h2>
@@ -69,6 +66,9 @@ export default function Page() {
                 <span className="text-3xl font-Kanit font-light">I'm a Software Engineer from Canada</span>
                 <MapleLeafSVG className={`w-6 h-6 translate-y-1 stroke-[1px]`} />
             </motion.h3>
+            <motion.p>
+                asdf
+            </motion.p>
 
         </motion.section>
     )

@@ -133,7 +133,7 @@ export function WavyBackground({ className, children, ...props }) {
             className={cn(`
                 fixed h-screen flex flex-col items-center justify-center z-0 blur-[1px] pointer-events-none
                 transition-opacity duration-200
-                ${inboundWaveSettings.visible ? "opacity-50" : "opacity-0"}
+                ${inboundWaveSettings.visible ? "opacity-30" : "opacity-0"}
             `)}
         >
             <canvas

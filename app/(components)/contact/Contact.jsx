@@ -34,7 +34,7 @@ export function ContactItem({ name, footerText, link, className }) {
             rel="noopener noreferrer"
             target="_blank"
         >
-            <span style={{ color: formattedColor }} className="">{footerText}</span>
+            <span style={{ color: formattedColor }} className="-translate-y-1">{name}</span>
             <figure className="grow grow-1 border-b border-dotted -translate-y-2 border-white/40" />
             <LinkSvg color={formattedColor} weight={6} className="w-3 h-3 -translate-y-[2px] self-center" />
         </a>
