@@ -11,6 +11,7 @@ import Providers from "./providers"
 
 import './globals.css';
 import Reveal from "./(components)/Reveal";
+import { ContactSection } from "./(components)/contact/Contact";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const apercu = localFont({
@@ -54,7 +55,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" suppressHydrationWarning className={`${inter.className} ${apercu.className} ${neuemachina.className}`}>
+        <html 
+            lang="en" 
+            suppressHydrationWarning className={`${inter.className} ${apercu.className} ${neuemachina.className}`}
+            style={{scrollBehavior: 'smooth'}}
+        >
             <body>
                 <Providers>
                     <BackgroundFill />
@@ -62,11 +67,12 @@ export default function RootLayout({ children }) {
                         <WavyBackground />
                     </Reveal>
                     <div className="flex">
-                        <Sidebar className="w-[300px] h-screen" />
                         {/** Main content section **/}
-                        <div className="h-screen w-full p-8 overflow-y-auto z-10">
-                            {children}
-                            <ControlBar className="fixed top-2 right-6" />
+                        <div className="h-screen w-full p-4 overflow-y-auto z-10 flex flex-col items-center ">
+                            <div className="">
+                                {children}
+                            </div>
+                            <ControlBar className="fixed  right-6" />
                             <Footer />
                         </div>
                     </div>

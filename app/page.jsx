@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useThemeContext } from "./(context)/ThemeContext";
+import Link from "next/link";
+import { ContactSection } from "./(components)/contact/Contact";
 
 
 function MapleLeafSVG({ className }) {
@@ -36,9 +38,22 @@ const transitions = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1
+            duration: 0.6,
+            staggerChildren: 0.2
         }
     }
+}
+
+function PageSection({ name }) {
+    return (
+        <section id="section1" className="flex flex-col group">
+            <div className="flex justify-start mb-4">
+                <p className="text-8xl">.</p>
+                <p className="text-8xl transition-all duration-200 group-hover:underline decoration-1 underline-offset-[6px]">{name}</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+        </section>
+    )
 }
 
 export default function Page() {
@@ -50,26 +65,35 @@ export default function Page() {
             initial="hidden"
             animate="show"
             className={`
-                p-4 max-w-[85rem] flex flex-col gap-12
+                flex flex-col z-20
                 ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
             `}
         >
-            <header className={`flex flex-col`}>
-                <motion.h2 variants={transitions} className="text-4xl translate-x-1 ">
-                    Hi, my name is
-                </motion.h2>
-                <motion.h1 variants={transitions} className="text-8xl">
-                    Max Lafrance
-                </motion.h1>
-            </header>
-            <motion.h3 variants={transitions} className="flex gap-2 pt-4">
-                <span className="text-3xl font-Kanit font-light">I'm a Software Engineer from Canada</span>
-                <MapleLeafSVG className={`w-6 h-6 translate-y-1 stroke-[1px]`} />
-            </motion.h3>
-            <motion.p>
-                asdf
-            </motion.p>
+            <section className="h-screen flex flex-col ">
+                <header className={`flex flex-col items-start`}>
+                    <motion.h2 variants={transitions} className="text-5xl ">
+                        Hi, my name is
+                    </motion.h2>
+                    <motion.h1 variants={transitions} className="text-9xl -translate-x-2 ">
+                        Max Lafrance.
+                    </motion.h1>
+                </header>
+                <section className="text-3xl font-light font-Kanit">
+                    <motion.h3 variants={transitions} className="flex gap-2 items-center">
+                        <span >I'm a Software Engineer from Canada</span>
+                        <MapleLeafSVG className={`w-6 h-6 stroke-[1px]`} />
+                    </motion.h3>
+                    <motion.p variants={transitions} className="">
+                        I design and build cutting edge solutions for the VFX industry.
+                    </motion.p>
+                </section>
+            </section>
+            <div className="flex flex-col gap-[4rem]">
+                <PageSection name="ABOUT" />
+                <PageSection name="WORK" />
+                <PageSection name="PROJECTS" />
+            </div>
 
-        </motion.section>
+        </motion.section >
     )
 }
