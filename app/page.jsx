@@ -65,12 +65,13 @@ export default function Page() {
             initial="hidden"
             animate="show"
             className={`
+                
                 flex flex-col z-20
                 ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
             `}
         >
-            <section className="h-screen flex flex-col ">
-                <header className={`flex flex-col items-start`}>
+            <section className="h-screen flex flex-col">
+                <header className={`flex flex-col items-start p-8`} dark>
                     <motion.h2 variants={transitions} className="text-5xl ">
                         Hi, my name is
                     </motion.h2>
@@ -78,13 +79,13 @@ export default function Page() {
                         Max Lafrance.
                     </motion.h1>
                 </header>
-                <section className="text-3xl font-light font-Kanit">
+                <section className="text-3xl font-light font-Kanit p-8">
                     <motion.h3 variants={transitions} className="flex gap-2 items-center">
                         <span >I'm a Software Engineer from Canada</span>
                         <MapleLeafSVG className={`w-6 h-6 stroke-[1px]`} />
                     </motion.h3>
                     <motion.p variants={transitions} className="">
-                        I design and build cutting edge solutions for the VFX industry.
+                        I design and build solutions for the VFX industry.
                     </motion.p>
                 </section>
             </section>
@@ -92,6 +93,7 @@ export default function Page() {
                 <PageSection name="ABOUT" />
                 <PageSection name="WORK" />
                 <PageSection name="PROJECTS" />
+                <PageSection name="CONTACT" />
             </div>
 
         </motion.section >

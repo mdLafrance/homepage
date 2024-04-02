@@ -68,11 +68,11 @@ export default function RootLayout({ children }) {
                     </Reveal>
                     <div className="flex">
                         {/** Main content section **/}
-                        <div className="h-screen w-full p-4 overflow-y-auto z-10 flex flex-col items-center ">
+                        <div className="h-screen w-full overflow-y-auto z-10 flex flex-col items-center ">
                             <div className="">
                                 {children}
                             </div>
-                            <ControlBar className="fixed  right-6" />
+                            <ControlBar className="fixed right-6 p-4" />
                             <Footer />
                         </div>
                     </div>

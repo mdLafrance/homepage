@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
 function ControlBarItem({ children }) {
 
     const darkInteractionTheme =  "stroke-white hover:bg-light/10 active:bg-light/20"
-    const lightInteractionTheme = "stroke-black hover:bg-space_cadet/50 active:bg-black/20"
+    const lightInteractionTheme = "stroke-black hover:bg-space_cadet/10 active:bg-black/20"
 
     const [theme, _] = useThemeContext();
     const [interactionTheme, setInteractionTheme] = useState("")
@@ -25,7 +25,7 @@ function ControlBarItem({ children }) {
 
     return (
         <li className={`
-            h-7 w-7 rounded-sm
+            h-7 w-7 
             transition-all duration-[80ms]
             ${interactionTheme}
         `}>
