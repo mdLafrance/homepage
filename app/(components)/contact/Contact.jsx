@@ -35,20 +35,19 @@ export function ContactItem({ name, footerText, link, className }) {
             target="_blank"
         >
             <span>{name}</span>
-            <figure className="grow grow-1 border-b border-dotted -translate-y-1 border-white/40" />
+            <figure className="grow grow-1 border-b border-dotted -translate-y-2 border-white/40" />
             <span style={{ color: formattedColor }} className="">{footerText}</span>
             <LinkSvg color={formattedColor} weight={6} className="w-3 h-3 -translate-y-[1px] self-center" />
         </a>
     )
 }
 
-export function ContactSection() {
+export function ContactSection({className}) {
     return (
-        <section className="opacity-85 hover:opacity-100 transition-opacity duration-[400ms]">
-            <div className="flex flex-row w-full gap-2 px-2">
-                <h2 className="text-white text-2xl ">Contact</h2>
-                <figure className="grow grow-1 -translate-y-2.5  border-b border-white/30 border-solid" />
-            </div>
+        <section className={`
+            opacity-85 hover:opacity-100 transition-opacity duration-[400ms]
+            ${className}
+        `}>
             <address>
                 <ul className="flex flex-col justify-start  gap-1 not-italic">
                     <li>

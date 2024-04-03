@@ -69,10 +69,9 @@ export default function RootLayout({ children }) {
                     </Reveal>
                     <div className="flex">
                         {/** Main content section **/}
-                        <div className="h-screen overflow-y-auto z-10 flex flex-col">
-                            <NewNav />
+                        <div className="h-screen w-screen overflow-y-auto z-10 flex flex-col">
+                            <ControlBar className="fixed top-0 right-0 m-6"/>
                             {children}
-                            <Footer />
                         </div>
                     </div>
                     <div className="static-noise pointer-events-none"></div>
