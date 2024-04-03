@@ -71,7 +71,7 @@ export default function Page() {
         >
             {/** Vertical content area **/}
             <div className="h-full flex flex-col w-[65rem] p-12">
-                <div className="grow grow-1" />
+                <div className="grow grow-[2]" />
                 <header className="">
                     <p className="text-5xl">Hi, my name is</p>
                     <p className="text-9xl -translate-x-2">
@@ -88,44 +88,10 @@ export default function Page() {
                         I design and build solutions for the VFX industry.
                     </p>
                 </div>
-                <div className="grow grow-1" />
+                <div className="grow grow-[3]" />
                 <ContactSection />
             </div>
         </motion.div>
     )
 }
 
-// export default function Page() {
-//     const [theme, _] = useThemeContext();
-// 
-//     return (
-//         <motion.section
-//             variants={transitions}
-//             initial="hidden"
-//             animate="show"
-//             className={`
-//                 ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
-//             `}
-//         >
-//             <section className="h-full flex flex-col p-8 justify-between">
-//                 <header className={`flex flex-col p-[0rem] pb-2`} dark>
-//                     <motion.h2 variants={transitions} className="text-5xl ">
-//                         Hi, my name is
-//                     </motion.h2>
-//                     <motion.h1 variants={transitions} className="text-9xl ">
-//                         Max Lafrance.
-//                     </motion.h1>
-//                 </header>
-//                 <section className="text-4xl font-light font-Kanit ">
-//                     <motion.h3 variants={transitions} className="flex gap-2 items-center">
-//                         <span >I'm a Software Engineer from Canada</span>
-//                         <MapleLeafSVG className={`w-6 h-6 stroke-[1px]`} />
-//                     </motion.h3>
-//                     <motion.p variants={transitions} className="">
-//                         I design and build solutions for the VFX industry.
-//                     </motion.p>
-//                 </section>
-//             </section>
-//         </motion.section >
-//     )
-// }
