@@ -24,18 +24,17 @@ export default function NewNav() {
         ["ABOUT", "/"],
         ["WORK", "/work"],
         ["MORE", "/more"],
-        ["CONTACT", "/contact"],
     ]
 
     const [currentPageName, setCurrentPageName] = useState(pageNames[0][0])
 
     return (
         <nav className={`
-            sticky top-0 
+            sticky top-0 p-4
             z-100
             flex justify-start items-center gap-4
-            bg-white shadow-md shadow-space_cadet/[4%] ring-1 ring-black/10 rounded-sm p-4
             h-[3rem]
+
         `}>
         {
             pageNames.map(([name, route], idx) => (
