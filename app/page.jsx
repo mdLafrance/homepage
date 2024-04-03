@@ -71,7 +71,7 @@ export default function Page() {
             <div
                 className="h-full flex flex-col w-[65rem] p-12"
             >
-                <div className="grow grow-[2]" />
+                <div className="grow-[2]" />
                 <header>
                     <Reveal duration={0.5}>
                         <p className="text-5xl">
@@ -89,14 +89,14 @@ export default function Page() {
                     <Reveal duration={0.5} delay={0.5}>
                         <div className="flex gap-2 items-center text-3xl justify-start">
                             <span >I'm a Software Engineer from Canada</span>
-                            <MapleLeafSVG className={`w-6 h-6 stroke-[1px]`} />
+                            <MapleLeafSVG className={`w-7 h-7 stroke-[1px] -translate-y-1`} />
                         </div>
                         <p className="text-3xl">
                             I design and build solutions for the VFX industry.
                         </p>
                     </Reveal>
                 </div>
-                <div className="grow grow-[3]" />
+                <div className="grow-[3]" />
                 <Reveal delay={0.5} duration={1}>
                     <ContactSection />
                 </Reveal>
