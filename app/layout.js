@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
                     <div className="flex">
                         {/** Main content section **/}
                         <div className="h-screen w-screen overflow-y-auto z-10 flex flex-col">
-                            <ControlBar className="fixed top-0 right-0 m-6"/>
+                            <ControlBar className="fixed top-0 right-0 m-6" />
                             {children}
                         </div>
                     </div>

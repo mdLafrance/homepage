@@ -65,7 +65,7 @@ export default function Page() {
             initial="hidden"
             animate="show"
             className={`
-                flex justify-center items-center w-full h-full ring-2 ring-blue-500
+                flex justify-center items-center w-full h-full
                 ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
             `}
         >
