@@ -74,7 +74,7 @@ export default function Work() {
                         work_experiences.map((e, idx) => {
                             return (
                                 <motion.li key={idx} variants={workCardTransitions}>
-                                    <WorkHistoryCard title={e.title} company={e.company} date={e.date} summary={e.summary} skills={e.skills} />
+                                    <WorkHistoryCard key={idx} title={e.title} company={e.company} date={e.date} summary={e.summary} skills={e.skills} />
                                 </motion.li>
                             )
 
