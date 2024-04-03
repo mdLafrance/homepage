@@ -3,20 +3,14 @@
 import { useEffect, useState } from "react";
 import { useWaveContext } from "../../(context)/WaveContext"
 import LinkSvg from "../controls/Link"
+import { useThemeContext } from "../../(context)/ThemeContext";
 
 
 export function ContactItem({ name, footerText, link, className }) {
-    const [waveSettings, _] = useWaveContext();
-    const [formattedColor, setFormattedColor] = useState("rgb(255, 255, 255)");
+    const [theme, _] = useThemeContext();
 
-    useEffect(() => {
-        const lerpColor = (c) => {
-            const factor = 0.6;
-            return factor * 255 + (1 - factor) * c
-        }
-
-        setFormattedColor(`rgba(${lerpColor(waveSettings.r)}, ${lerpColor(waveSettings.g)}, ${lerpColor(waveSettings.b)}, 0.8)`)
-    }, [waveSettings])
+    const darkTheme = "hover:ring-white/30 hover:bg-white/10 active:bg-white/20 text-light"
+    const lightTheme = "hover:ring-space_cadet/30 hover:bg-space_cadet/5 active:bg-space_cadet/10 text-space_cadet"
 
     return (
         <a
@@ -24,10 +18,10 @@ export function ContactItem({ name, footerText, link, className }) {
                 flex gap-1 items-end pt-1 justify-start
                 px-2
                 opacity-95 hover:opacity-100
-                hover:ring-1 hover:ring-white/30 hover:bg-white/10
-                active:bg-white/20
+                hover:ring-1 
                 transition-all duration-[100ms]
                 ${className}
+                ${theme == "dark" ? darkTheme : lightTheme}
             `}
 
             href={link}
@@ -35,9 +29,9 @@ export function ContactItem({ name, footerText, link, className }) {
             target="_blank"
         >
             <span>{name}</span>
-            <figure className="grow grow-1 border-b border-dotted -translate-y-2 border-white/40" />
-            <span style={{ color: formattedColor }} className="">{footerText}</span>
-            <LinkSvg color={formattedColor} weight={6} className="w-3 h-3 -translate-y-[1px] self-center" />
+            <figure className={`grow grow-1 border-b border-dotted -translate-y-2 ${theme == "dark" ? "border-white/40" : "border-space_cadet/40"}`} />
+            <span style={{ }} className="">{footerText}</span>
+            <LinkSvg  weight={6} className="w-3 h-3 -translate-y-[1px] self-center" />
         </a>
     )
 }

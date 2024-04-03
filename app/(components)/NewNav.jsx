@@ -11,16 +11,17 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
             font-NeueMachina text-2xl 
             opacity-85 hover:opacity-100 
             transition-all
+            p-1 rounded-sm
             ${className}
         `}>
-            {name}
+            <span className={`${isSelected ? "underline decoration-1 underline-offset-[3px] decoration-dotted" : null}`}>{name}</span>
         </Link>
     )
 }
 
 export default function NewNav() {
-    const darkInteractionTheme =  "text-light hover:bg-light/10 active:bg-light/20"
-    const lightInteractionTheme = "text-space_cadet hover:bg-space_cadet/10 active:bg-black/20"
+    const darkInteractionTheme = "text-light"
+    const lightInteractionTheme = "text-space_cadet"
 
     const [theme, _] = useThemeContext();
     const [interactionTheme, setInteractionTheme] = useState("")
@@ -48,17 +49,18 @@ export default function NewNav() {
             flex justify-start items-center gap-4
             h-[3rem]
         `}>
-        {
-            pageNames.map(([name, route], idx) => (
-                <NavItem
-                    name={name}
-                    isSelected={currentPageName === name}
-                    linkTarget={route}
-                    onClick={() => setCurrentPageName(name)}
-                    className={interactionTheme}
-                />
-            ))
-        }
+            {
+                pageNames.map(([name, route], idx) => (
+                    <NavItem
+                        key={idx}
+                        name={name}
+                        isSelected={currentPageName === name}
+                        linkTarget={route}
+                        onClick={() => setCurrentPageName(name)}
+                        className={interactionTheme}
+                    />
+                ))
+            }
             <div className="grow-1 w-screen" />
             <ControlBar />
         </nav>
