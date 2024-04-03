@@ -46,7 +46,7 @@ const transitions = {
 
 function PageSection({ name }) {
     return (
-        <section id="section1" className="flex flex-col group">
+        <section id="section1" className="flex flex-col group p-4">
             <div className="flex justify-start mb-4">
                 <p className="text-8xl">.</p>
                 <p className="text-8xl transition-all duration-200 group-hover:underline decoration-1 underline-offset-[6px]">{name}</p>
@@ -65,21 +65,19 @@ export default function Page() {
             initial="hidden"
             animate="show"
             className={`
-                
-                flex flex-col z-20
                 ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
             `}
         >
-            <section className="h-screen flex flex-col">
-                <header className={`flex flex-col items-start p-8`} dark>
+            <section className="flex flex-col p-8">
+                <header className={`flex flex-col p-[0rem] pb-2`} dark>
                     <motion.h2 variants={transitions} className="text-5xl ">
                         Hi, my name is
                     </motion.h2>
-                    <motion.h1 variants={transitions} className="text-9xl -translate-x-2 ">
+                    <motion.h1 variants={transitions} className="text-9xl ">
                         Max Lafrance.
                     </motion.h1>
                 </header>
-                <section className="text-3xl font-light font-Kanit p-8">
+                <section className="text-4xl font-light font-Kanit ">
                     <motion.h3 variants={transitions} className="flex gap-2 items-center">
                         <span >I'm a Software Engineer from Canada</span>
                         <MapleLeafSVG className={`w-6 h-6 stroke-[1px]`} />
@@ -88,14 +86,12 @@ export default function Page() {
                         I design and build solutions for the VFX industry.
                     </motion.p>
                 </section>
+        <div className="text-4xl">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</div>
+        <div className="text-4xl">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</div>
+        <div className="text-4xl">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</div>
+        <div className="text-4xl">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</div>
+        <div className="text-4xl">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</div>
             </section>
-            <div className="flex flex-col gap-[4rem]">
-                <PageSection name="ABOUT" />
-                <PageSection name="WORK" />
-                <PageSection name="PROJECTS" />
-                <PageSection name="CONTACT" />
-            </div>
-
         </motion.section >
     )
 }

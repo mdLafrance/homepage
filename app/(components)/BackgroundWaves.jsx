@@ -86,7 +86,7 @@ export function WavyBackground({ className, children, ...props }) {
         ctx.fillStyle = "white"
 
         // Y offset from which the first wave will be drawn 
-        const dy0 = 30;
+        const dy0 = 50;
 
         // How far apart the waves will be
         const spacing = h * 0.6 / s.numWaves;

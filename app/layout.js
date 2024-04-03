@@ -8,6 +8,7 @@ import Sidebar from "./(components)/Sidebar"
 import Footer from "./(components)/Footer"
 import ControlBar from "./(components)/controls/ControlBar"
 import Providers from "./providers"
+import NewNav from "./(components)/NewNav"
 
 import './globals.css';
 import Reveal from "./(components)/Reveal";
@@ -55,10 +56,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html 
-            lang="en" 
+        <html
+            lang="en"
             suppressHydrationWarning className={`${inter.className} ${apercu.className} ${neuemachina.className}`}
-            style={{scrollBehavior: 'smooth'}}
+            style={{ scrollBehavior: 'smooth' }}
         >
             <body>
                 <Providers>
@@ -68,11 +69,9 @@ export default function RootLayout({ children }) {
                     </Reveal>
                     <div className="flex">
                         {/** Main content section **/}
-                        <div className="h-screen w-full overflow-y-auto z-10 flex flex-col items-center ">
-                            <div className="">
-                                {children}
-                            </div>
-                            <ControlBar className="fixed right-6 p-4" />
+                        <div className="h-screen overflow-y-auto z-10">
+                            <NewNav />
+                            {children}
                             <Footer />
                         </div>
                     </div>
