@@ -8,6 +8,7 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
 
     return (
         <div className="
+            z-10
             group
             rounded-sm py-4 px-6
             backdrop-blur-md ring-1 ring-black/10

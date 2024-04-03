@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
                     </Reveal>
                     <div className="flex">
                         {/** Main content section **/}
-                        <div className="h-screen overflow-y-auto z-10">
+                        <div className="h-screen overflow-y-auto z-10 flex flex-col">
                             <NewNav />
                             {children}
                             <Footer />
