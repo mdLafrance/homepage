@@ -4,8 +4,7 @@ import { work_experiences } from "../(data)/work"
 
 import { motion } from "framer-motion"
 
-function WorkHistoryCard({ title, company, summary, date, skills }) {
-
+function WorkHistoryCard_OLD({ title, company, summary, date, skills }) {
     return (
         <div className="
             z-10
@@ -46,6 +45,21 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
     )
 }
 
+function WorkHistoryCard({ title, company, summary, date, skills }) {
+    return (
+        <div className="w-[85rem] flex">
+            {/** Title section **/}
+            <div className="w-2/5 flex ">
+                <span className="text-7xl text-space_cadet ">.{title}</span>
+            </div>
+            <div className="w-3/5">
+                <p>{summary}</p>
+            </div>
+        </div>
+    )
+
+}
+
 const workCardTransitions = {
     hidden: {
         opacity: 0
@@ -63,9 +77,9 @@ export default function Work() {
         <main className="">
 
             {/** Work history cards **/}
-            <div className="flex flex-col items-center mt-4">
+            <div className="flex flex-col items-center p-12">
                 <motion.ul
-                    className="space-y-3"
+                    className="flex flex-col gap-[4rem]"
                     variants={workCardTransitions}
                     initial="hidden"
                     animate="show"

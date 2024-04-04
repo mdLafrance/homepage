@@ -46,8 +46,11 @@ export default function NewNav() {
         <nav className={`
             sticky top-0 p-4
             z-100
-            flex justify-start items-center gap-4
+            flex justify-start items-center gap-8
             h-[3rem]
+            shadow-sm
+            bg-opacity-50 backdrop-blur-lg
+            ${theme == "dark" ? "bg-black" : "bg-white"}
         `}>
             {
                 pageNames.map(([name, route], idx) => (
