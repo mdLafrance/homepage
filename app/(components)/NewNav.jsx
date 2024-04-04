@@ -66,7 +66,7 @@ export default function NewNav() {
             h-[3rem]
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
-            ${theme == "dark" ? "bg-black" : "bg-white"}
+            ${theme == "dark" ? "bg-black shadow-light/10" : "bg-white"}
         `}>
             {
                 pageNames.map(([name, route], idx) => (
