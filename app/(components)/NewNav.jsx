@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useThemeContext } from "../(context)/ThemeContext";
 import ControlBar from "./controls/ControlBar"
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 function NavItem({ name, linkTarget, isSelected, onClick, className }) {
     return (
@@ -20,11 +22,12 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
 }
 
 export default function NewNav() {
-    const darkInteractionTheme = "text-light"
-    const lightInteractionTheme = "text-space_cadet"
-
+    // Theme context
     const [theme, _] = useThemeContext();
     const [interactionTheme, setInteractionTheme] = useState("")
+
+    const darkInteractionTheme = "text-light"
+    const lightInteractionTheme = "text-space_cadet"
 
     useEffect(() => {
         if (theme == "light") {
@@ -34,13 +37,26 @@ export default function NewNav() {
         }
     }, [theme])
 
+    // Path context
     const pageNames = [
         ["ABOUT", "/"],
         ["WORK", "/work"],
         ["MORE", "/more"],
     ]
 
-    const [currentPageName, setCurrentPageName] = useState(pageNames[0][0])
+    const [currentPageName, setCurrentPageName] = useState("not_a_page")
+
+    const pathName = usePathname();
+
+    useEffect(() => {
+        const pageName = pageNames.find(([n, p]) => {
+            return p == pathName
+        })[0]
+
+        setCurrentPageName(pageName);
+
+        console.log("Path name is:", pageName)
+    }, [])
 
     return (
         <nav className={`
@@ -57,7 +73,7 @@ export default function NewNav() {
                     <NavItem
                         key={idx}
                         name={name}
-                        isSelected={currentPageName === name}
+                        isSelected={currentPageName == name}
                         linkTarget={route}
                         onClick={() => setCurrentPageName(name)}
                         className={interactionTheme}
