@@ -1,5 +1,6 @@
 "use client"
 
+import { useThemeContext } from "../(context)/ThemeContext";
 import { work_experiences } from "../(data)/work"
 
 import { motion } from "framer-motion"
@@ -46,12 +47,21 @@ function WorkHistoryCard_OLD({ title, company, summary, date, skills }) {
 }
 
 function WorkHistoryCard({ title, company, summary, date, skills }) {
+    const [theme, _] = useThemeContext();
+
+    const darkTheme = "text-light"
+    const lightTheme = "text-space_cadet"
+
     return (
-        <div className="flex gap-4">
+        <div className={`w-[100rem] flex gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
             {/** Title section **/}
-            <div className="w-2/5 flex flex-col items-end pr-4 border-r border-solid border-space_cadet/50">
-                <p className="text-6xl text-space_cadet">.{company}</p>
-                <p className="text-4xl text-space_cadet font-Kanit font-light">{title}</p>
+            <div className={`
+                w-2/5 pr-4 
+                flex flex-col items-end 
+                border-r border-solid ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}
+            `}>
+                <p className="text-6xl">.{company}</p>
+                <p className="text-4xl  font-Kanit font-light">{title}</p>
             </div>
             <div className="w-3/5">
                 <p className="font-Kanit font-light text-2xl">{summary}</p>
@@ -77,7 +87,9 @@ export default function Work() {
     return (
         <main className="">
             {/** Work history cards **/}
-            <div className="flex flex-col items-center p-12 m-8">
+            <div className={`
+                flex flex-col items-center p-12 m-8
+            `}>
                 <motion.ul
                     className="flex flex-col gap-[4rem]"
                     variants={workCardTransitions}
