@@ -9,7 +9,7 @@ export default function Footer() {
     return (
         <footer className="flex justify-center items-center mt-[4rem] mb-[1rem]">
             <ContactItem
-                footerText={" Designed & built by me"}
+                footerText={"Designed & built by me"}
                 className="pr-4 rounded-full whitespace-pre"
                 link="https://github.com/mdLafrance/homepage"
             />
