@@ -53,7 +53,7 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
     const lightTheme = "text-space_cadet"
 
     return (
-        <div className={`w-[100rem] flex gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
+        <div className={`max-w-[120rem] flex gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
             {/** Title section **/}
             <div className={`
                 w-2/5 pr-4 
