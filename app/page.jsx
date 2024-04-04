@@ -71,7 +71,7 @@ export default function Page() {
             <div
                 className="h-full flex flex-col w-[65rem] p-12"
             >
-                <div className="grow-[2]" />
+                <div className="grow-[3]" />
                 <header>
                     <Reveal duration={0.5}>
                         <p className="text-5xl">
