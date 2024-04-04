@@ -47,13 +47,14 @@ function WorkHistoryCard_OLD({ title, company, summary, date, skills }) {
 
 function WorkHistoryCard({ title, company, summary, date, skills }) {
     return (
-        <div className="w-[85rem] flex">
+        <div className="flex gap-4">
             {/** Title section **/}
-            <div className="w-2/5 flex ">
-                <span className="text-7xl text-space_cadet ">.{title}</span>
+            <div className="w-2/5 flex flex-col items-end pr-4 border-r border-solid border-space_cadet/50">
+                <p className="text-6xl text-space_cadet">.{company}</p>
+                <p className="text-4xl text-space_cadet font-Kanit font-light">{title}</p>
             </div>
             <div className="w-3/5">
-                <p>{summary}</p>
+                <p className="font-Kanit font-light text-2xl">{summary}</p>
             </div>
         </div>
     )
@@ -75,9 +76,8 @@ const workCardTransitions = {
 export default function Work() {
     return (
         <main className="">
-
             {/** Work history cards **/}
-            <div className="flex flex-col items-center p-12">
+            <div className="flex flex-col items-center p-12 m-8">
                 <motion.ul
                     className="flex flex-col gap-[4rem]"
                     variants={workCardTransitions}
