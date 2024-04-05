@@ -67,9 +67,10 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
             <div className={`
                 w-2/5 pr-4 
                 flex flex-col items-end 
+                text-right
                 border-r border-solid ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}
             `}>
-                <p className="text-5xl text-right">{company}</p>
+                <p className="text-5xl">{company}</p>
                 <p className="text-3xl font-Kanit font-light">{title}</p>
                 <p className="text-xl font-Kanit font-light opacity-80">{date}</p>
             </div>
