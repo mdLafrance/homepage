@@ -57,7 +57,7 @@ export default function NewNav() {
         setCurrentPageName(pageName);
 
         console.log("Path name is:", pageName)
-    }, [])
+    }, [pathName])
 
     return (
         <nav className={`
