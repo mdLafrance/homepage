@@ -8,7 +8,6 @@ import { useWaveContext } from "../(context)/WaveContext";
 
 export function WavyBackground({ className, children, ...props }) {
     const [inboundWaveSettings, _] = useWaveContext();
-    const [test, setTest] = useState("smooth")
 
     var waveSettings = useRef({})
 
