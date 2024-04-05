@@ -40,9 +40,9 @@ export default function NewNav() {
 
     // Path context
     const pageNames = [
-        ["ABOUT", "/"],
+        ["HOME", "/"],
         ["WORK", "/work"],
-        ["MORE", "/more"],
+        ["ABOUT", "/about"]
     ]
 
     const [currentPageName, setCurrentPageName] = useState("not_a_page")
@@ -50,7 +50,7 @@ export default function NewNav() {
     const pathName = usePathname();
 
     useEffect(() => {
-        const pageName = pageNames.find(([n, p]) => {
+        const pageName = pageNames.find(([_, p]) => {
             return p == pathName
         })[0]
 
