@@ -14,6 +14,7 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
             opacity-85 hover:opacity-100 
             transition-all
             p-1 rounded-sm
+            translate-y-1
             ${className}
         `}>
             <span className={`${isSelected ? "underline decoration-1 underline-offset-[3px] decoration-dotted" : null}`}>{name}</span>
