@@ -88,7 +88,7 @@ export default function Page() {
                 <div className="pb-[5rem]">
                     <Reveal duration={0.5} delay={0.5}>
                         <div className="flex gap-2 items-center text-3xl justify-start">
-                            <span >I'm a Software Engineer from Canada</span>
+                            <span >I&aposm a Software Engineer from Canada</span>
                             <MapleLeafSVG className={`w-7 h-7 stroke-[1px] -translate-y-1`} />
                         </div>
                         <p className="text-3xl">
