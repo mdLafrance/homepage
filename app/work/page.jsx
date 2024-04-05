@@ -1,50 +1,59 @@
 "use client"
 
 import { useThemeContext } from "../(context)/ThemeContext";
-import { work_experiences } from "../(data)/work"
-
 import { motion } from "framer-motion"
 
-function WorkHistoryCard_OLD({ title, company, summary, date, skills }) {
-    return (
-        <div className="
-            z-10
-            group
-            rounded-sm py-4 px-6
-            backdrop-blur-md ring-1 ring-black/10
-            hover:backdrop-blur-3xl hover:bg-light/10 transition-all duration-100
-            hover:shadow-black/15 hover:shadow-md
-            hover:ring-1 hover:ring-grey/40
-            sm:w-[45rem] w-[80vw]
-        ">
-            {/** Left/right div **/}
-            <div className="flex sm:gap-6">
-                {/** Date range side **/}
-                <div className="mt-1 w-0 invisible sm:visible sm:min-w-40 sm:max-w-40 flex-0">
-                    <p className="text-space_cadet/80 font-Kanit font-light text-lg">{date}</p>
-                </div>
-                {/** Experience **/}
-                <div>
-                    <p className="font-Kanit font-bold text-space_cadet text-2xl">{title}</p>
-                    <p className="font-Kanit font-semibold text-space_cadet/80 text-xl">{company}</p>
-                    <p className="text-space_cadet/80 group-hover:text-space_cadet font-Kanit font-light text-lg transition-all">{summary}</p>
-                    {/** Work experience chicklets **/}
-                    <div className="flex flex-wrap gap-2 mt-2">
-                        {
-                            skills.map((S, idx) => {
-                                return (
-                                    <div className="grow-0">
-                                        <S key={idx} />
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
+const work_experiences = [
+    {
+
+        title: "Junior Pipeline Engineer",
+        company: "BeloFX",
+        date: "April 2022 - Present",
+        summary: `Contributed to the architecture and design of core systems as an early developer at a VFX startup. Product owner and maintainer of our data ingestion system used daily by an international data ops team of 15+ users. Met often with stakeholders and team leads from other departments to discuss requirements and product direction. 
+
+Often acted as primary technical liaison within the company when onboarding new clients, in order to consult on unique product requirements they may have had. 
+
+Advocated for and implemented better observability and maintainability patterns within the codebase, including implementing and maintaining CI / CD pipelines for linting, testing, and automatic documentation generation.\
+`,
+    },
+
+    {
+        title: "Software developer intern",
+        company: "Industrial Brothers",
+        date: "Summer 2019, Summer 2018",
+        summary: `Developed extension plugins for our digital content creation software including Autodesk Maya, and Nuke. These plugins leveraged third party apis, and the integration of the Qt graphics library to extend the functionality of these programs to better serve artist needs. 
+
+Contributed to an R&D proposal for an overhaul of the studio’s asset organization system. This system included a small DSL and graphical interface. (Note: this was developed prior to USD)
+ 
+Implemented a novel algorithm for testing certain characteristics of 3d mesh quality. This algorithm was faster than its predecessor by a factor of a full O(n), and took the completion time for large sets of vertices down from minutes to seconds.
+`,
+
+    },
+    {
+        title: "Software developer intern",
+        company: "Awesometown Entertainment",
+        date: "Summer 2017",
+        summary: `Rewrote core studio DCC software extensions.
+
+Audited studio code quality using our in-house testing software. Added updates to this software to increase ease of use and reliability.
+
+Maintained the studio MySQL database. 
+`,
+
+    },
+    {
+        title: "Junior TD",
+        company: "Arc Productions",
+        date: "June 2015 - January 2016",
+        summary: `Worked directly with team leads to develop scripts and tools to increase artist efficiency.
+
+Finalized various visual effects, including physics simulations, and character turntables.
+
+Model retopology and uv’ing for show assets.
+`,
+
+    }
+]
 
 function WorkHistoryCard({ title, company, summary, date, skills }) {
     const [theme, _] = useThemeContext();
@@ -64,8 +73,10 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
                 <p className="text-3xl font-Kanit font-light">{title}</p>
                 <p className="text-xl font-Kanit font-light opacity-80">{date}</p>
             </div>
-            <div className="w-3/5">
-                <p className="font-Kanit font-light text-2xl">{summary}</p>
+            <div className="w-3/5 ">
+                <pre className="font-Kanit font-light text-2xl text-wrap">
+                    {summary}
+                </pre>
             </div>
         </div>
     )
@@ -101,7 +112,7 @@ export default function Work() {
                         work_experiences.map((e, idx) => {
                             return (
                                 <motion.li key={idx} variants={workCardTransitions}>
-                                    <WorkHistoryCard key={idx} title={e.title} company={e.company} date={e.date} summary={e.summary} skills={e.skills} />
+                                    <WorkHistoryCard key={idx} title={e.title} company={e.company} date={e.date} summary={e.summary} />
                                 </motion.li>
                             )
 
