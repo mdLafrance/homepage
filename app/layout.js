@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 
 import { WavyBackground } from "./(components)/BackgroundWaves"
 import BackgroundFill from "./(components)/BackgroundFill"
-import Sidebar from "./(components)/Sidebar"
 import Footer from "./(components)/Footer"
 import ControlBar from "./(components)/controls/ControlBar"
 import Providers from "./providers"
