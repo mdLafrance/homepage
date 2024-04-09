@@ -57,32 +57,43 @@ export default function Page() {
         >
             {/** Vertical content area **/}
             <div
-                className="h-full flex flex-col w-[65rem] p-12"
+                className="h-full flex flex-col justify-start w-screen sm:w-[65rem] p-12"
             >
-                <div className="grow-[3]" />
+                <div className="grow-0 sm:grow sm:grow-[3]" />
                 <header>
                     <Reveal duration={0.5}>
-                        <p className="text-5xl">
+                        <p className="text-4xl sm:text-5xl">
                             Hi, my name is
                         </p>
                     </Reveal>
                     <Reveal duration={0.5} delay={0.1}>
-                        <p variants={transitions} className="text-9xl -translate-x-2">
+                        <p variants={transitions} className="text-7xl sm:text-9xl sm:-translate-x-2">
                             Max Lafrance.
                         </p>
                     </Reveal>
                 </header>
                 <div className="h-[2rem]" />
                 <div className="pb-[5rem]">
-                    <Reveal duration={0.5} delay={0.5}>
-                        <div className="flex gap-2 items-center text-3xl justify-start">
-                            <span >I&apos;m a Software Engineer from Canada</span>
-                            <MapleLeafSVG className={`w-7 h-7 stroke-[1px] -translate-y-1`} />
-                        </div>
-                        <p className="text-3xl">
-                            I design and build solutions for the VFX industry.
-                        </p>
-                    </Reveal>
+                    {/** Desktop intro section **/}
+                    <div className="hidden sm:block">
+                        <Reveal duration={0.5} delay={0.5}>
+                            <div className="flex gap-2 items-center text-2xl sm:text-3xl justify-start">
+                                <span >I&apos;m a Software Engineer from Canada</span>
+                                <MapleLeafSVG className={`hidden sm:block w-7 h-7 stroke-[1px]`} />
+                            </div>
+                            <p className="text-2xl sm:text-3xl pt-8 sm:pt-0">
+                                I design and build solutions for the VFX industry.
+                            </p>
+                        </Reveal>
+                    </div>
+                    {/** Mobile intro section **/}
+                    <div className="block sm:hidden">
+                        <Reveal duration={0.5} delay={0.5}>
+                            <p className="text-xl">
+                                I&apos;m a software Engineer from Canada. I design and build solutions for the VFX industry.
+                            </p>
+                        </Reveal>
+                    </div>
                 </div>
                 <div className="grow-[3]" />
                 <Reveal delay={0.5} duration={1}>
