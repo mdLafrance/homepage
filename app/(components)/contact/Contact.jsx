@@ -29,7 +29,7 @@ export function ContactItem({ name, footerText, link, className }) {
             target="_blank"
         >
             <span>{name}</span>
-            <figure className={`grow grow-1 border-b border-dotted -translate-y-2 ${theme == "dark" ? "border-white/40" : "border-space_cadet/40"}`} />
+            <figure className={`grow grow-1 border-b border-dotted -translate-y-1.5 ${theme == "dark" ? "border-white/40" : "border-space_cadet/40"}`} />
             <span className="hidden sm:block">{footerText}</span>
             <LinkSvg  weight={6} className={`w-3 h-3 -translate-y-[1px] self-center ${theme == "dark" ? "stroke-light" : "stroke-space_cadet" }`} />
         </a>

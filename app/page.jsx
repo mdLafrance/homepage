@@ -57,17 +57,17 @@ export default function Page() {
         >
             {/** Vertical content area **/}
             <div
-                className="h-full flex flex-col justify-start w-screen sm:w-[65rem] p-12"
+                className="h-full flex flex-col justify-start w-screen sm:w-[65rem] p-8 sm:p-12"
             >
                 <div className="grow-0 sm:grow sm:grow-[3]" />
                 <header>
                     <Reveal duration={0.5}>
-                        <p className="text-4xl sm:text-5xl">
+                        <p className="text-2xl sm:text-5xl">
                             Hi, my name is
                         </p>
                     </Reveal>
                     <Reveal duration={0.5} delay={0.1}>
-                        <p variants={transitions} className="text-5xl sm:text-9xl sm:-translate-x-2">
+                        <p variants={transitions} className="text-6xl sm:text-9xl sm:-translate-x-2">
                             Max Lafrance.
                         </p>
                     </Reveal>

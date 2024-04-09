@@ -14,7 +14,6 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
             opacity-85 hover:opacity-100 
             transition-all
             p-1 rounded-sm
-            translate-y-1
             w-[95px]
             text-center
             ${className}
@@ -69,7 +68,7 @@ export default function NewNav() {
             h-[3rem]
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
-            ${theme == "dark" ? "bg-black shadow-light/10" : "bg-white"}
+            ${theme == "dark" ? "bg-black shadow-light/30 sm:shadow-light/10" : "bg-white"}
         `}>
             {
                 pageNames.map(([name, route], idx) => (
