@@ -98,10 +98,10 @@ const workCardTransitions = {
 
 export default function Work() {
     return (
-        <main className="">
+        <main className="flex flex-col justify-center">
             {/** Work history cards **/}
             <div className={`
-                flex flex-col items-center p-12 m-8
+                flex flex-col items-center p-12
             `}>
                 <motion.ul
                     className="flex flex-col gap-[4rem]"

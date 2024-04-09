@@ -67,7 +67,7 @@ export default function Page() {
                         </p>
                     </Reveal>
                     <Reveal duration={0.5} delay={0.1}>
-                        <p variants={transitions} className="text-7xl sm:text-9xl sm:-translate-x-2">
+                        <p variants={transitions} className="text-5xl sm:text-9xl sm:-translate-x-2">
                             Max Lafrance.
                         </p>
                     </Reveal>

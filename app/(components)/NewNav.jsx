@@ -15,6 +15,8 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
             transition-all
             p-1 rounded-sm
             translate-y-1
+            w-[95px]
+            text-center
             ${className}
         `}>
             <span className={`${isSelected ? "underline decoration-1 underline-offset-[3px] decoration-dotted" : null}`}>{name}</span>
@@ -63,7 +65,7 @@ export default function NewNav() {
         <nav className={`
             sticky top-0 p-4
             z-100
-            flex justify-start items-center gap-8
+            flex justify-center items-center gap-8
             h-[3rem]
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
@@ -81,8 +83,8 @@ export default function NewNav() {
                     />
                 ))
             }
-            <div className="grow-1 w-screen" />
-            <ControlBar />
+            <div className="hidden sm:block grow-1 w-screen" />
+            <ControlBar className="hidden sm:flex" />
         </nav>
     )
 }
