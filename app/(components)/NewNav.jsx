@@ -16,9 +16,10 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
             p-1 rounded-sm
             w-[95px]
             text-center
+            translate-y-1
             ${className}
         `}>
-            <span className={`${isSelected ? "underline decoration-1 underline-offset-[3px] decoration-dotted" : null}`}>{name}</span>
+            <span className={` ${isSelected ? "underline decoration-1 underline-offset-[3px] decoration-dotted" : null}`}>{name}</span>
         </Link>
     )
 }
