@@ -124,7 +124,7 @@ export function WavyBackground({ className, children, ...props }) {
 
                 const mouseDistance = calculateMouseDistance(x, yPos);
 
-                var dy = clamp((1 + calculateJitter(mouseDistance)) * noise(x * s.scaleX, currentDY * s.scaleY, time) * s.amplitude * 5, -20, 20);
+                var dy = (1 + calculateJitter(mouseDistance)) * noise(x * s.scaleX, currentDY * s.scaleY, time) * s.amplitude;
 
                 ctx.lineTo(x, yPos + dy); // adjust for height, currently at 50% of the container
             }
