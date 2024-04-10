@@ -60,7 +60,7 @@ export default function Page() {
                 <div className="grow-0 sm:grow sm:grow-[3]" />
                 <header>
                     <Reveal duration={0.5}>
-                        <p className="text-4xl sm:text-5xl pb-4 sm:pb-0">
+                        <p className="text-3xl sm:text-5xl pb-4 sm:pb-0">
                             Hi, my name is
                         </p>
                     </Reveal>
