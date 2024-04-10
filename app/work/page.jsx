@@ -74,7 +74,7 @@ function WorkHistoryCard({ title, company, summary, date }) {
             `}>
                     <p className="text-5xl">{company}</p>
                     <p className="text-3xl font-Kanit font-light">{title}</p>
-                    <p className="text-xl font-Kanit font-light opacity-80">{date}</p>
+                    <p className="text-xl font-Kanit font-light">{date}</p>
                 </div>
                 <div className="w-3/5 ">
                     <pre className="font-Kanit font-light text-2xl text-wrap">
@@ -84,14 +84,14 @@ function WorkHistoryCard({ title, company, summary, date }) {
             </div>
             {/** Vertical card **/}
             <div className={`
-                block lg:hidden w-full rounded-sm p-4 
+                block lg:hidden rounded-sm p-4
                 ${theme == "dark" ? darkTheme : lightTheme}
             `}>
                 <p className="text-4xl md:text-5xl">{company}</p>
                 <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
-                <p className="text-xl md:text-2xl font-Kanit font-light opacity-80">{date}</p>
-                <figure className={`my-2 w-full border-b border-solid ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
-                <pre className="font-Kanit font-light text-lg md:text-2xl text-wrap">
+                <p className="text-xl md:text-2xl font-Kanit font-light">{date}</p>
+                <figure className={`my-2 w-full border-b border-dotted ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
+                <pre className="font-Kanit font-light text-lg md:text-2xl whitespace-pre-wrap">
                     {summary}
                 </pre>
             </div>
@@ -113,10 +113,10 @@ const workCardTransitions = {
 
 export default function Work() {
     return (
-        <main className="w-full flex flex-col justify-center">
+        <main className="flex flex-col justify-center">
             {/** Work history cards **/}
             <div className={`
-                flex flex-col items-center p-4 sm:p-12
+                flex flex-col items-center p-2 sm:p-12
             `}>
                 <motion.ul
                     className="flex flex-col gap-8 sm:gap-[4rem]"
