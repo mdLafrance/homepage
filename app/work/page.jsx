@@ -83,11 +83,14 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
                 </div>
             </div>
             {/** Mobile card **/}
-            <div className="block sm:hidden w-full rounded-sm bg-white/70 p-4">
-                <p className="text-4xl">{company}</p>
+            <div className={`
+                block sm:hidden w-full rounded-sm p-4 
+                ${theme == "dark" ? darkTheme : lightTheme}
+            `}>
+                <p className="text-4xl ">{company}</p>
                 <p className="text-2xl font-Kanit font-light">{title}</p>
                 <p className="text-xl font-Kanit font-light opacity-80">{date}</p>
-                <figure className={`my-2 w-[20rem] border-b border-solid ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
+                <figure className={`my-2 w-full border-b border-solid ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
                 <pre className="font-Kanit font-light text-lg text-wrap">
                     {summary}
                 </pre>
@@ -113,10 +116,10 @@ export default function Work() {
         <main className="w-full flex flex-col justify-center">
             {/** Work history cards **/}
             <div className={`
-                flex flex-col items-center p-12
+                flex flex-col items-center p-4 sm:p-12
             `}>
                 <motion.ul
-                    className="flex flex-col gap-[4rem]"
+                    className="flex flex-col gap-8 sm:gap-[4rem]"
                     variants={workCardTransitions}
                     initial="hidden"
                     animate="show"
