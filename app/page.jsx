@@ -1,8 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useThemeContext } from "./(context)/ThemeContext";
-import Link from "next/link";
 import { ContactSection } from "./(components)/contact/Contact";
 import Reveal from "./(components)/Reveal";
 

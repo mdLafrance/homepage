@@ -55,7 +55,7 @@ Model retopology and uv’ing for show assets.
     }
 ]
 
-function WorkHistoryCard({ title, company, summary, date, skills }) {
+function WorkHistoryCard({ title, company, summary, date }) {
     const [theme, _] = useThemeContext();
 
     const darkTheme = "text-light"
@@ -64,7 +64,7 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
     return (
         <>
             {/** Horizontal card **/}
-            <div className={`hidden lg:flex max-w-[85rem] flex gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
+            <div className={`hidden lg:flex max-w-[85rem] gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
                 {/** Title section **/}
                 <div className={`
                 w-2/5 pr-4 
