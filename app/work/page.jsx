@@ -3,18 +3,28 @@
 import { useThemeContext } from "../(context)/ThemeContext";
 import { motion } from "framer-motion"
 
+import { Bash, Gitlab, Maya, MySQL, Nuke, Python, Qt } from "./Experience.jsx"
+import { NEXT_RSC_UNION_QUERY } from "next/dist/client/components/app-router-headers";
+
 const work_experiences = [
     {
 
         title: "Junior Pipeline Engineer",
         company: "BeloFX",
         date: "April 2022 - Present",
-        summary: `Contributed to the architecture and design of core systems as an early developer at a VFX startup. Product owner and maintainer of our data ingestion system used daily by an international data ops team of 15+ users. Met often with stakeholders and team leads from other departments to discuss requirements and product direction. 
+        summary: `Lead the development of the vendor outsource and ingest pipeline, meeting frequently with stakeholders and team leads to discuss product requirements and direction.
 
-Often acted as primary technical liaison within the company when onboarding new clients, in order to consult on unique product requirements they may have had. 
+Acted as an internal technical consultant when onboarding new clients, in order to design and implement unique product requirements.
 
-Advocated for and implemented better observability and maintainability patterns within the codebase, including implementing and maintaining CI / CD pipelines for linting, testing, and automatic documentation generation.\
+Advocated for and created better observability and maintainability patterns within the codebase, including implementing and maintaining CI/CD pipelines for linting, testing, and automatic documentation generation.
 `,
+        technologies: [
+            Python,
+            Bash,
+            Qt,
+            Gitlab,
+            Nuke
+        ]
     },
 
     {
@@ -23,39 +33,52 @@ Advocated for and implemented better observability and maintainability patterns 
         date: "Summer 2019, Summer 2018",
         summary: `Developed extension plugins for our digital content creation software including Autodesk Maya, and Nuke. These plugins leveraged third party apis, and the integration of the Qt graphics library to extend the functionality of these programs to better serve artist needs. 
 
-Contributed to an R&D proposal for an overhaul of the studio’s asset organization system. This system included a small DSL and graphical interface. (Note: this was developed prior to USD)
- 
-Implemented a novel algorithm for testing certain characteristics of 3d mesh quality. This algorithm was faster than its predecessor by a factor of a full O(n), and took the completion time for large sets of vertices down from minutes to seconds.
+Contributed to an R&D proposal for an overhaul of the studio’s asset organization system. This system included a graphical interface and maya extension.
+
+Created a standalone Qt desktop application for production staff to view and download media from Shotgrid.
 `,
+        technologies: [
+            Python,
+            Maya,
+            Qt,
+            Nuke
+        ]
 
     },
     {
         title: "Software developer intern",
         company: "Awesometown Entertainment",
         date: "Summer 2017",
-        summary: `Rewrote core studio DCC software extensions.
+        summary: `Audited studio tool quality using in-house auditing software. Added updates to this software to increase ease of use and reliability.
 
-Audited studio code quality using our in-house testing software. Added updates to this software to increase ease of use and reliability.
-
-Maintained the studio MySQL database. 
+Wrote DCC tools for artists with Qt.
 `,
+
+        technologies: [
+            Python,
+            Maya,
+            Qt,
+            MySQL
+        ]
 
     },
     {
-        title: "Junior TD",
+        title: "Software developer intern",
         company: "Arc Productions",
         date: "June 2015 - January 2016",
-        summary: `Worked directly with team leads to develop scripts and tools to increase artist efficiency.
+        summary: `Worked with artists and team leads to develop maya tools to increase artist efficiency.
 
-Finalized various visual effects, including physics simulations, and character turntables.
-
-Model retopology and uv’ing for show assets.
+Model retopology, UV unwrapping, and character turntables.
 `,
-
+        technologies: [
+            Python,
+            Maya,
+            Nuke
+        ]
     }
 ]
 
-function WorkHistoryCard({ title, company, summary, date }) {
+function WorkHistoryCard({ title, company, summary, date, technologies }) {
     const [theme, _] = useThemeContext();
 
     const darkTheme = "text-light"
@@ -75,6 +98,11 @@ function WorkHistoryCard({ title, company, summary, date }) {
                     <p className="text-5xl">{company}</p>
                     <p className="text-3xl font-Kanit font-light">{title}</p>
                     <p className="text-xl font-Kanit font-light">{date}</p>
+                    <div className="flex items-center gap-2 py-2">
+                        {technologies.map( C => (
+                            <C />
+                        ))}
+                    </div>
                 </div>
                 <div className="w-3/5 ">
                     <pre className="font-Kanit font-light text-2xl text-wrap">
@@ -128,7 +156,14 @@ export default function Work() {
                         work_experiences.map((e, idx) => {
                             return (
                                 <motion.li key={idx} variants={workCardTransitions}>
-                                    <WorkHistoryCard key={idx} title={e.title} company={e.company} date={e.date} summary={e.summary} />
+                                    <WorkHistoryCard
+                                        key={idx}
+                                        title={e.title}
+                                        company={e.company}
+                                        date={e.date}
+                                        summary={e.summary}
+                                        technologies={e.technologies}
+                                    />
                                 </motion.li>
                             )
 
