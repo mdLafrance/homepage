@@ -44,7 +44,6 @@ export default function NewNav() {
     const pageNames = [
         ["HOME", "/"],
         ["WORK", "/work"],
-        ["ABOUT", "/about"]
     ]
 
     const [currentPageName, setCurrentPageName] = useState("not_a_page")
