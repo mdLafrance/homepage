@@ -14,23 +14,39 @@ const aboutCardTransitions = {
     }
 }
 
+function AboutSection({ title, children }) {
+    return (
+        <div>
+            <motion.h1 variants={aboutCardTransitions} className="text-5xl sm:text-7xl text-light ">
+                .{title}
+            </motion.h1>
+            {children}
+        </div>
+    )
+
+}
+
 export default function About() {
+    const aboutSections = [
+        ["ME", null],
+        ["PROJECTS", null],
+        ["ART", null],
+    ]
+
     return (
         <motion.div
             variants={aboutCardTransitions}
             initial="hidden"
             animate="show"
-            className="w-full flex flex-col justify-start text-7xl text-light p-8 gap-4"
+            className="w-full flex flex-col justify-start p-4 sm:p-8 gap-4"
         >
-            <motion.h1 variants={aboutCardTransitions}>
-                .ME
-            </motion.h1>
-            <motion.h1 variants={aboutCardTransitions}>
-                .PROJECTS
-            </motion.h1>
-            <motion.h1 variants={aboutCardTransitions}>
-                .ART
-            </motion.h1>
+            {
+                aboutSections.map(([title, children], idx) => (
+                    <AboutSection key={idx} title={title}>
+                        {children}
+                    </AboutSection>
+                ))
+            }
         </motion.div>
     )
 }
