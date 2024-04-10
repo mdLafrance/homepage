@@ -12,7 +12,7 @@ const work_experiences = [
         title: "Junior Pipeline Engineer",
         company: "BeloFX",
         date: "April 2022 - Present",
-        summary: `Lead the development of the vendor outsource and ingest pipeline, meeting frequently with stakeholders and team leads to discuss product requirements and direction.
+        summary: `Oversaw the development of the vendor outsource and ingest pipeline, meeting frequently with stakeholders and team leads to discuss product requirements and direction.
 
 Acted as an internal technical consultant when onboarding new clients, in order to design and implement unique product requirements.
 
@@ -99,7 +99,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                     <p className="text-3xl font-Kanit font-light">{title}</p>
                     <p className="text-xl font-Kanit font-light">{date}</p>
                     <div className="flex items-center gap-2 py-2">
-                        {technologies.map( C => (
+                        {technologies.map(C => (
                             <C />
                         ))}
                     </div>
@@ -118,6 +118,11 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                 <p className="text-4xl md:text-5xl">{company}</p>
                 <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
                 <p className="text-xl md:text-2xl font-Kanit font-light">{date}</p>
+                <div className="flex items-center gap-2 py-2">
+                    {technologies.map(C => (
+                        <C size={20} />
+                    ))}
+                </div>
                 <figure className={`my-2 w-full border-b border-dotted ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
                 <pre className="font-Kanit font-light text-lg md:text-2xl whitespace-pre-wrap">
                     {summary}

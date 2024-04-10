@@ -19,50 +19,51 @@ function ExperiencePill({ path, name, link, size = 25, className }) {
 
 }
 
-export function Python() {
+export function Python({ size = 25 }) {
     return (
-        <ExperiencePill name="python" link="https://www.python.org" path={"icons/python.svg"} />
+        <ExperiencePill size={size} name="python" link="https://www.python.org" path={"icons/python.svg"} />
     )
 }
 
-export function Bash() {
+export function Bash({ size = 25 }) {
     return (
-        <ExperiencePill name="bash" link="https://www.gnu.org/software/bash/" path={"icons/bash.svg"} />
+        <ExperiencePill size={size} name="bash" link="https://www.gnu.org/software/bash/" path={"icons/bash.svg"} />
     )
 }
 
-export function Qt() {
+export function Qt({ size = 25 }) {
     return (
-        <ExperiencePill name="Qt" link="https://www.qt.io/product/framework" path={"icons/qt.svg"} />
+        <ExperiencePill size={size} name="Qt" link="https://www.qt.io/product/framework" path={"icons/qt.svg"} />
     )
 }
 
-export function Maya() {
+export function Maya({ size = 25 }) {
     return (
-        <ExperiencePill name="Maya" link="https://www.autodesk.com/ca-en/products/maya/" path={"icons/maya.svg"} />
+        <ExperiencePill size={size} name="Maya" link="https://www.autodesk.com/ca-en/products/maya/" path={"icons/maya.svg"} />
     )
 }
 
-export function Gitlab() {
+export function Gitlab({ size = 25 }) {
     return (
-        <ExperiencePill name="Gitlab" link="https://www.mysql.com/" path={"icons/gitlab.svg"} />
+        <ExperiencePill size={size} name="Gitlab" link="https://www.mysql.com/" path={"icons/gitlab.svg"} />
     )
 }
 
-export function Nuke() {
+export function Nuke({ size = 25 }) {
     const [theme, _] = useThemeContext();
 
     return (
-        <ExperiencePill 
-            name="Nuke" 
-            link="https://www.foundry.com/products/nuke-family/nuke" 
-            path={theme == "dark" ? "icons/nuke_dark.svg" : "icons/nuke_light.svg"} className="stroke-blue" 
+        <ExperiencePill
+            size={size}
+            name="Nuke"
+            link="https://www.foundry.com/products/nuke-family/nuke"
+            path={theme == "dark" ? "icons/nuke_dark.svg" : "icons/nuke_light.svg"} className="stroke-blue"
         />
     )
 }
 
-export function MySQL() {
+export function MySQL({ size = 25 }) {
     return (
-        <ExperiencePill name="mysql" link="https://www.python.org" path={"icons/mysql.svg"} />
+        <ExperiencePill size={size} name="mysql" link="https://www.python.org" path={"icons/mysql.svg"} />
     )
 }
