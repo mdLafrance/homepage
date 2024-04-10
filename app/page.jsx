@@ -67,7 +67,7 @@ export default function Page() {
                         </p>
                     </Reveal>
                     <Reveal duration={0.5} delay={0.1}>
-                        <p variants={transitions} className="text-7xl sm:text-9xl sm:-translate-x-2">
+                        <p variants={transitions} className="text-7xl md:text-8xl lg:text-9xl sm:-translate-x-2">
                             Max Lafrance.
                         </p>
                     </Reveal>
@@ -75,13 +75,13 @@ export default function Page() {
                 <div className="h-[1rem] sm:h-[2rem]" />
                 <div className="pb-[5rem]">
                     {/** Desktop intro section **/}
-                    <div className="hidden sm:block">
+                    <div className="hidden sm:block text-2xl md:text-3xl">
                         <Reveal duration={0.5} delay={0.5}>
-                            <div className="flex gap-2 items-center text-2xl sm:text-3xl justify-start">
+                            <div className="flex gap-2 items-center justify-start">
                                 <span >I&apos;m a Software Engineer from Canada</span>
                                 <MapleLeafSVG className={`hidden sm:block w-7 h-7 stroke-[1px]`} />
                             </div>
-                            <p className="text-2xl sm:text-3xl pt-8 sm:pt-0">
+                            <p className="pt-8 sm:pt-0">
                                 I design and build solutions for the VFX industry.
                             </p>
                         </Reveal>
