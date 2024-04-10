@@ -63,8 +63,8 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
 
     return (
         <>
-            {/** Desktop card **/}
-            <div className={`hidden sm:flex max-w-[85rem] flex gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
+            {/** Horizontal card **/}
+            <div className={`hidden lg:flex max-w-[85rem] flex gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
                 {/** Title section **/}
                 <div className={`
                 w-2/5 pr-4 
@@ -82,16 +82,16 @@ function WorkHistoryCard({ title, company, summary, date, skills }) {
                     </pre>
                 </div>
             </div>
-            {/** Mobile card **/}
+            {/** Vertical card **/}
             <div className={`
-                block sm:hidden w-full rounded-sm p-4 
+                block lg:hidden w-full rounded-sm p-4 
                 ${theme == "dark" ? darkTheme : lightTheme}
             `}>
-                <p className="text-4xl ">{company}</p>
-                <p className="text-2xl font-Kanit font-light">{title}</p>
-                <p className="text-xl font-Kanit font-light opacity-80">{date}</p>
+                <p className="text-4xl md:text-5xl">{company}</p>
+                <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
+                <p className="text-xl md:text-2xl font-Kanit font-light opacity-80">{date}</p>
                 <figure className={`my-2 w-full border-b border-solid ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
-                <pre className="font-Kanit font-light text-lg text-wrap">
+                <pre className="font-Kanit font-light text-lg md:text-2xl text-wrap">
                     {summary}
                 </pre>
             </div>
