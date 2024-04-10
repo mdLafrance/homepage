@@ -58,9 +58,7 @@ export default function About() {
         >
             {
                 moreSections.map(([title, children], idx) => (
-                    <AboutSection key={idx} title={title}>
-                        {children}
-                    </AboutSection>
+                    <></>
                 ))
             }
         </motion.div>
