@@ -25,7 +25,7 @@ function ControlBarItem({ children }) {
 
     return (
         <li className={`
-            h-7 w-7 
+            size-7 
             transition-all duration-[80ms]
             ${interactionTheme}
         `}>

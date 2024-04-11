@@ -64,7 +64,7 @@ export default function NewNav() {
         <nav className={`
             sticky top-0 p-4
             z-100
-            flex justify-center items-center gap-8
+            flex justify-center items-center gap-2 sm:gap-8
             h-[3rem]
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
@@ -83,8 +83,8 @@ export default function NewNav() {
                     />
                 ))
             }
-            <div className="hidden sm:block grow-1 w-screen" />
-            <ControlBar className="hidden sm:flex" />
+            <div className="block grow-1 w-screen" />
+            <ControlBar className="flex" />
         </nav>
     )
 }

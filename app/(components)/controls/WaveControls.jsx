@@ -68,7 +68,7 @@ function WaveShapeBase({ ShapeSvg, setTo }) {
             className={`rounded-sm ${computeRingColor()}`}
             onClick={() => changeWaveStyle(setTo)}
         >
-            <ShapeSvg className={`${theme == "light" ? "stroke-black" : "stroke-light"} w-7 h-7 p-1`} />
+            <ShapeSvg className={`${theme == "light" ? "stroke-black" : "stroke-light"} size-7 p-1`} />
         </button>
     )
 }
