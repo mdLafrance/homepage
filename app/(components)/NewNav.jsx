@@ -56,8 +56,6 @@ export default function NewNav() {
         })[0]
 
         setCurrentPageName(pageName);
-
-        console.log("Path name is:", pageName)
     }, [pathName])
 
     return (
