@@ -14,7 +14,7 @@ const work_experiences = [
         date: "April 2022 - Present",
         summary: `Oversaw the development of the vendor outsource and ingest pipeline, meeting frequently with stakeholders and team leads to discuss product requirements and direction.
 
-Acted as an internal technical consultant when onboarding new clients, in order to design and implement unique product requirements.
+Acted as an internal technical consultant when onboarding new clients, in order to design and implement unique requirements.
 
 Advocated for and created better observability and maintainability patterns within the codebase, including implementing and maintaining CI/CD pipelines for linting, testing, and automatic documentation generation.
 `,
@@ -52,6 +52,8 @@ Created a standalone Qt desktop application for production staff to view and dow
         summary: `Audited studio tool quality using in-house auditing software. Added updates to this software to increase ease of use and reliability.
 
 Wrote DCC tools for artists with Qt.
+
+Extended and mainted studio MySQL database and associated wrapper library.
 `,
 
         technologies: [
@@ -98,7 +100,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                     <p className="text-5xl">{company}</p>
                     <p className="text-3xl font-Kanit font-light">{title}</p>
                     <p className="text-xl font-Kanit font-light">{date}</p>
-                    <div className="flex items-center gap-3 py-2">
+                    <div className="flex items-center gap-1 py-2">
                         {technologies.map(C => (
                             <C />
                         ))}
@@ -118,7 +120,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                 <p className="text-4xl md:text-5xl">{company}</p>
                 <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
                 <p className="text-xl md:text-2xl font-Kanit font-light">{date}</p>
-                <div className="flex items-center gap-2 py-2">
+                <div className="flex items-center">
                     {technologies.map(C => (
                         <C size={20} />
                     ))}
