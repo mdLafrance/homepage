@@ -2,11 +2,18 @@ import Image from "next/image";
 import { useThemeContext } from "../(context)/ThemeContext";
 
 function ExperiencePill({ path, name, link, size = 25, className }) {
+    const [theme, _] = useThemeContext();
+
     return (
         <a
             href={link}
             rel="noopener noreferrer"
             target="_blank"
+            className={`
+                size-8 flex justify-center items-center rounded-sm p-1 transition-all duration-100
+                hover:ring-1
+                ${theme == "dark" ? "ring-light/60 hover:bg-light/10" : "ring-space_cadet/80 hover:bg-space_cadet/5"}
+            `}
         >
             <Image
                 src={path}
