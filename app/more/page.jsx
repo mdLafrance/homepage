@@ -41,7 +41,7 @@ export default function About() {
     const [theme, _] = useThemeContext();
 
     const moreSections = [
-        ["PROJECTS", <ProjectsSection />],
+        ["PROJECTS", null],
         ["ART", null],
         ["???", null]
     ]
@@ -56,11 +56,7 @@ export default function About() {
                 ${theme == "dark" ? "text-light" : "text-space_cadet"}
             `}
         >
-            {
-                moreSections.map(([title, children], idx) => (
-                    <></>
-                ))
-            }
+
         </motion.div>
     )
 }

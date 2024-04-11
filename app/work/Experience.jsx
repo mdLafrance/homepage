@@ -20,6 +20,7 @@ function ExperiencePill({ path, name, link, size = 25, className }) {
                 width={size}
                 height={size}
                 className={className}
+                alt={name}
             />
         </a>
     )

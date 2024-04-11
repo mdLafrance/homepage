@@ -19,11 +19,11 @@ Acted as an internal technical consultant when onboarding new clients, in order 
 Advocated for and created better observability and maintainability patterns within the codebase, including implementing and maintaining CI/CD pipelines for linting, testing, and automatic documentation generation.
 `,
         technologies: [
-            Python,
-            Bash,
-            Qt,
-            Gitlab,
-            Nuke
+            <Python key={1} />,
+            <Bash key={2} />,
+            <Qt key={3} />,
+            <Gitlab key={4} />,
+            <Nuke key={5} />
         ]
     },
 
@@ -38,10 +38,10 @@ Contributed to an R&D proposal for an overhaul of the studio’s asset organizat
 Created a standalone Qt desktop application for production staff to view and download media from Shotgrid.
 `,
         technologies: [
-            Python,
-            Maya,
-            Qt,
-            Nuke
+            <Python key={1} />,
+            <Maya key={2} />,
+            <Qt key={3} />,
+            <Nuke key={4} />
         ]
 
     },
@@ -57,10 +57,10 @@ Extended and mainted studio MySQL database and associated wrapper library.
 `,
 
         technologies: [
-            Python,
-            Maya,
-            Qt,
-            MySQL
+            <Python key={1} />,
+            <Maya key={2} />,
+            <Qt key={3} />,
+            <MySQL key={4} />,
         ]
 
     },
@@ -73,9 +73,9 @@ Extended and mainted studio MySQL database and associated wrapper library.
 Model retopology, UV unwrapping, and character turntables.
 `,
         technologies: [
-            Python,
-            Maya,
-            Nuke
+            <Python key={1} />,
+            <Maya key={2} />,
+            <Nuke key={3} />,
         ]
     }
 ]
@@ -101,9 +101,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                     <p className="text-3xl font-Kanit font-light">{title}</p>
                     <p className="text-xl font-Kanit font-light">{date}</p>
                     <div className="flex items-center gap-1 py-2">
-                        {technologies.map(C => (
-                            <C />
-                        ))}
+                        {technologies}
                     </div>
                 </div>
                 <div className="w-3/5 ">
@@ -121,9 +119,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                 <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
                 <p className="text-xl md:text-2xl font-Kanit font-light">{date}</p>
                 <div className="flex items-center">
-                    {technologies.map(C => (
-                        <C size={20} />
-                    ))}
+                    {technologies}
                 </div>
                 <figure className={`my-2 w-full border-b border-dotted ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
                 <pre className="font-Kanit font-light text-lg md:text-2xl whitespace-pre-wrap">
