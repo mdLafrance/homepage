@@ -63,7 +63,14 @@ export function Nuke({ size = 25 }) {
 }
 
 export function MySQL({ size = 25 }) {
+    const [theme, _] = useThemeContext();
+
     return (
-        <ExperiencePill size={size} name="mysql" link="https://www.python.org" path={"icons/mysql.svg"} />
+        <ExperiencePill     
+            size={size} 
+            name="mysql" 
+            link="https://www.python.org" 
+            path={theme == "dark" ? "icons/mysql_dark.svg" : "icons/mysql_light.svg"} 
+        />
     )
 }
