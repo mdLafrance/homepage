@@ -98,7 +98,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                     <p className="text-5xl">{company}</p>
                     <p className="text-3xl font-Kanit font-light">{title}</p>
                     <p className="text-xl font-Kanit font-light">{date}</p>
-                    <div className="flex items-center gap-2 py-2">
+                    <div className="flex items-center gap-3 py-2">
                         {technologies.map(C => (
                             <C />
                         ))}
