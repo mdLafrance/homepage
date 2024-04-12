@@ -77,7 +77,7 @@ export default function Page() {
                         <Reveal duration={0.5} delay={0.5}>
                             <div className="flex gap-2 items-center justify-start">
                                 <span >I&apos;m a Software Engineer from Canada</span>
-                                <MapleLeafSVG className={`hidden sm:block w-7 h-7 stroke-[1px]`} />
+                                <MapleLeafSVG className={`hidden sm:block w-7 h-7 stroke-[1px] -translate-y-1`} />
                             </div>
                             <p className="pt-8 sm:pt-0">
                                 I design and build solutions for the VFX industry.
