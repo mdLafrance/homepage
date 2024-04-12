@@ -81,8 +81,8 @@ export default function NewNav() {
                     />
                 ))
             }
-            <div className="block grow-1 w-screen" />
-            <ControlBar className="flex" />
+            <div className="hidden sm:block grow-1 w-screen" />
+            <ControlBar className="hidden sm:flex" />
         </nav>
     )
 }
