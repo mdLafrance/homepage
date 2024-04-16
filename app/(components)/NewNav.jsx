@@ -4,16 +4,15 @@ import { useEffect, useState } from "react";
 import { useThemeContext } from "../(context)/ThemeContext";
 import ControlBar from "./controls/ControlBar"
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 
 function NavItem({ name, linkTarget, isSelected, onClick, className }) {
     return (
         <Link href={linkTarget} onClick={onClick} className={`
-            font-NeueMachina text-2xl 
+            font-Kanit text-2xl 
             opacity-85 hover:opacity-100 
             transition-all
-            p-1 rounded-sm
+            rounded-sm
             w-[95px]
             text-center
             ${className}
@@ -59,10 +58,9 @@ export default function NewNav() {
 
     return (
         <nav className={`
-            sticky top-0 p-4
+            sticky top-0 p-2
             z-100
-            flex justify-center items-center gap-2 sm:gap-8
-            h-[3rem]
+            flex justify-center items-center gap-2 sm:gap-4
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
             border-b sm:border-0 border-solid border-light/30
