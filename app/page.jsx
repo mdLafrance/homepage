@@ -88,7 +88,7 @@ export default function Page() {
                     <div className="block sm:hidden">
                         <Reveal duration={0.5} delay={0.5}>
                             <p className="text-lg">
-                                I&apos;m a software Engineer from Canada. I design and build solutions for the VFX industry.
+                                I&apos;m a Software Engineer from Canada. I design and build solutions for the VFX industry.
                             </p>
                         </Reveal>
                     </div>
