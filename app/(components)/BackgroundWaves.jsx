@@ -6,18 +6,19 @@ import { createNoise3D } from "simplex-noise";
 
 import { useWaveContext } from "../(context)/WaveContext";
 
-function clamp(num, min, max) {
-    return num <= min
-        ? min
-        : num >= max
-            ? max
-            : num
-}
-
 export function WavyBackground({ className, children, ...props }) {
     const [inboundWaveSettings, _] = useWaveContext();
+    const [isSafari, setIsSafari] = useState(false);
 
     var waveSettings = useRef({})
+
+    // Rendering variables
+    const noise = createNoise3D();
+    const canvasRef = useRef(null);
+    let w, h, ctx, canvas, drawCanvas, drawCtx, animationId;
+
+    // Track mouse position
+    var mouse = useRef({ x: 0, y: 0 })
 
     useEffect(
         () => {
@@ -25,14 +26,6 @@ export function WavyBackground({ className, children, ...props }) {
         },
         [inboundWaveSettings]
     )
-
-    let w, h, ctx, canvas, animationId;
-
-    const noise = createNoise3D();
-    const canvasRef = useRef(null);
-
-    // Track mouse position
-    var mouse = useRef({ x: 0, y: 0 })
 
     useEffect(() => {
         const updateMousePosition = (ev) => {
@@ -43,8 +36,6 @@ export function WavyBackground({ className, children, ...props }) {
             window.removeEventListener('mousemove', updateMousePosition);
         };
     }, []);
-
-    const [isSafari, setIsSafari] = useState(false);
 
     // Check for safari
     useEffect(() => {
@@ -57,14 +48,29 @@ export function WavyBackground({ className, children, ...props }) {
 
     // Setup canvas
     useEffect(() => {
+        // Render canvas
         canvas = canvasRef.current;
         ctx = canvas.getContext("2d");
+
+        // Double buffer canvas
+        drawCanvas = document.createElement("canvas");
+        drawCtx = drawCanvas.getContext("2d");
+
+        drawCtx.lineWidth = 50;
+        drawCtx.globalAlpha = 0.6
+
+        drawCtx.fillStyle = "white"
+
         w = ctx.canvas.width = window.innerWidth;
         h = ctx.canvas.height = window.innerHeight;
+
         window.onresize = function() {
-            w = ctx.canvas.width = window.innerWidth;
-            h = ctx.canvas.height = window.innerHeight;
+            w = ctx.canvas.width = drawCtx.canvas.width = window.innerWidth;
+            h = ctx.canvas.height = drawCtx.canvas.height = window.innerHeight;
         };
+
+        window.onresize(); // Call this once to fill the appropriate w/h values
+
         render();
     }, []);
 
@@ -72,6 +78,8 @@ export function WavyBackground({ className, children, ...props }) {
         return Math.sqrt((x - mouse.x) ** 2 + (y - mouse.y) ** 2)
     }
 
+    // CalcaulteJitter calculates some ajdustment factor based on the given distance 
+    // to the mouse. This is used to drive wave displacement.
     const calculateJitter = (dist) => {
         if (mouse.x === undefined) {
             return 0
@@ -85,12 +93,8 @@ export function WavyBackground({ className, children, ...props }) {
     // Render call
     const render = () => {
         const s = waveSettings.current;
-        ctx.globalAlpha = 0.5;
 
-        ctx.clearRect(0, 0, w, h)
-
-        ctx.globalAlpha = 0.5;
-        ctx.fillStyle = "white"
+        drawCtx.clearRect(0, 0, w, h)
 
         // Y offset from which the first wave will be drawn 
         const dy0 = 50;
@@ -98,39 +102,48 @@ export function WavyBackground({ className, children, ...props }) {
         // How far apart the waves will be
         const spacing = h * 0.6 / s.numWaves;
 
+        // Incrementing time value to drive z coordinate of noise sample
         const time = Math.round(performance.now()) / 15000;
 
+        // Draw each wave to back buffer
         for (let i = 0; i < s.numWaves; i++) {
-            ctx.beginPath();
-            ctx.lineWidth = 2.5;
-            ctx.globalAlpha = 0.6
-
             // currentDY is the vertical offset that this wave will begin drawing from
             const currentDY = dy0 + spacing * i;
-            ctx.moveTo(-20, currentDY);
+            drawCtx.moveTo(-20, currentDY);
 
-            // dyProgress calculates a perrentage of the screen completed, that is used
+            drawCtx.beginPath();
+
+            // dyProgress calculates a percentage of the screen completed, that is used
             // for incrementing transparency
             const dyProgress = 0.15 + currentDY / h;
-            ctx.strokeStyle = `rgba(${s.r * dyProgress}, ${s.g * dyProgress}, ${s.b * dyProgress})`
 
+            // NOTE: This is not the best way to calc incrementing opacity, however it 
+            // accidentally created a cool style in light mode that I'm keeping.
+            drawCtx.strokeStyle = `rgba(${s.r * dyProgress}, ${s.g * dyProgress}, ${s.b * dyProgress})`
+
+            // Walk across the screen drawing wave points
             for (let x = 0; x < w + s.stepX; x += s.stepX) {
-
-                // Stepy adds an additional differential step downwards, which will cause
-                // a downward slope
+                // stepY adds an additional differential step downwards, which will cause
+                // a gradual downward slope
                 const stepY = x * 0.15;
 
                 const yPos = currentDY + stepY;
 
                 const mouseDistance = calculateMouseDistance(x, yPos);
 
-                var dy = (1 + calculateJitter(mouseDistance)) * noise(x * s.scaleX, currentDY * s.scaleY, time) * s.amplitude;
+                var dy = (1 + calculateJitter(mouseDistance)) * 
+                    noise(x * s.scaleX, currentDY * s.scaleY, time) * 
+                    s.amplitude;
 
-                ctx.lineTo(x, yPos + dy); // adjust for height, currently at 50% of the container
+                drawCtx.lineTo(x, yPos + dy);
             }
-            ctx.stroke();
-            ctx.closePath();
+            drawCtx.stroke();
+            drawCtx.closePath();
         }
+
+        // Draw to front buffer
+        ctx.clearRect(0, 0, w, h);
+        ctx.drawImage(drawCanvas, 0, 0);
 
         animationId = requestAnimationFrame(render);
     };
