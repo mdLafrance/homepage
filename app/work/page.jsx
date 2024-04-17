@@ -100,11 +100,11 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                     <p className="text-5xl">{company}</p>
                     <p className="text-3xl font-Kanit font-light">{title}</p>
                     <p className="text-xl font-Kanit font-light">{date}</p>
-                    <div className="flex items-center gap-1 py-2">
+                    <div className="grayscale flex items-center gap-1 py-2">
                         {technologies}
                     </div>
                 </div>
-                <div className="w-3/5 ">
+                <div className="w-3/5">
                     <pre className="font-Kanit font-light text-2xl text-wrap">
                         {summary}
                     </pre>
@@ -118,7 +118,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                 <p className="text-4xl md:text-5xl">{company}</p>
                 <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
                 <p className="text-xl md:text-2xl font-Kanit font-light">{date}</p>
-                <div className="flex items-center">
+                <div className="flex items-center z-5">
                     {technologies}
                 </div>
                 <figure className={`my-2 w-full border-b border-dotted ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />

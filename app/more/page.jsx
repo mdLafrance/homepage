@@ -7,6 +7,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Image from "next/image"
 
+import LinkSvg from "../(components)/controls/Link"
+
 const moreCardTransitions = {
     hidden: {
         opacity: 0
@@ -22,25 +24,37 @@ const moreCardTransitions = {
 function GitProject({ name, language, link }) {
     const [theme, _] = useThemeContext();
 
+    const darkTheme = "hover:ring-white/30 hover:bg-white/10 active:bg-white/20 text-light"
+    const lightTheme = "hover:ring-space_cadet/30 hover:bg-space_cadet/5 active:bg-space_cadet/10 text-space_cadet"
+
     return (
         <a
-            className="flex items-center gap-2"
+            className={`
+                flex justify-start items-center
+                ${theme == "dark" ? darkTheme : lightTheme}
+            `}
+
             href={link}
             rel="noopener noreferrer"
             target="_blank"
         >
-            <Image
-                width={30}
-                height={30}
+            <Image 
                 src={`icons/${language.toLowerCase()}.svg`}
-                alt={language}
+                width={25}
+                height={25}
+                className=""
             />
-            <span className={`
-                ${theme == "dark" ? "text-light" : "text-space_cadet"}
-            `}
-            >
-                {name}
-            </span>
+            <span>{name}</span>
+            <figure
+                className={`
+translate-y-2
+                    grow grow-1 border-b border-dotted ${theme == "dark" ? "border-white/40" : "border-space_cadet/40"}
+                `}
+            />
+            <LinkSvg
+                weight={4}
+                className={`w-4 h-4  self-center ${theme == "dark" ? "stroke-light" : "stroke-space_cadet"}`}
+            />
         </a>
     )
 }
@@ -56,7 +70,7 @@ function CodeComment({ message }) {
 function MoreSection({ title, children }) {
     return (
         <motion.div
-            className="lg:w-[80rem] flex"
+            className="lg:w-[70rem] flex"
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
@@ -71,7 +85,7 @@ function MoreSection({ title, children }) {
                     -translate-y-3 lg:-translate-y-5 
                 "/>
                 </div>
-                <div className="sm:text-3xl font-light pt-1 sm:ml-1">
+                <div className="sm:text-2xl font-light pt-1 sm:ml-1">
                     {children}
                 </div>
             </div>
@@ -115,19 +129,21 @@ export default function More() {
         >
             <MoreSection title={"projects"}>
                 <p>
-                    I always have one or two coding projects on the go, check out
-                    some of my finished ones here:
+                    I always have one or two coding projects on the go.
+                    <br />
+                    Check out some of my finished ones here:
                 </p>
 
-                {
-                    gitProjects
-                        .filter(x => x.language != undefined)
-                        .sort((a, b) => a.language > b.language ? 1 : -1)
-                        .map((x, idx) => (
-                            <GitProject key={idx} name={x.name} language={x.language} link={x.html_url} />
-                        ))
-                }
-                <br />
+                <div className="flex flex-col flex-wrap gap-2 py-4 mb-4">
+                    {
+                        gitProjects
+                            .filter(x => x.language != undefined)
+                            .sort((a, b) => a.language > b.language ? 1 : -1)
+                            .map((x, idx) => (
+                                <GitProject key={idx} name={x.name} language={x.language} link={x.html_url} />
+                            ))
+                    }
+                </div>
                 <CodeComment
                     message={"Currently, I'm reworking an old C++ raycaster I wrote in university."}
                 />
@@ -145,7 +161,7 @@ export default function More() {
 
             <MoreSection title={"art"}>
                 <p>
-                    Some of my life drawing work is on my artstation
+                    Some of my life drawing work is available on my artstation
                     <a
                         href={""}
                         rel="noopener noreferrer"
@@ -161,7 +177,9 @@ export default function More() {
                 <p>
                     In university, I participated in an environment modelling competition
                     for Ubisoft where I created a diorama from a short story prompt
-                    using Maya and Substance Painter. You can watch a flythrough of the
+                    using Maya and Substance Painter.
+                    <br />
+                    You can watch a flythrough of the
                     scene
                     <a
                         href={"https://www.youtube.com/watch?v=9I4dntZ5OhE"}
