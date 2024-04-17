@@ -30,7 +30,7 @@ function GitProject({ name, language, link }) {
     return (
         <a
             className={`
-                flex justify-start items-center
+                flex justify-start items-center gap-1 px-2 py-1 hover:ring-1
                 ${theme == "dark" ? darkTheme : lightTheme}
             `}
 
@@ -42,9 +42,9 @@ function GitProject({ name, language, link }) {
                 src={`icons/${language.toLowerCase()}.svg`}
                 width={25}
                 height={25}
-                className=""
+                className="grayscale-[20%] rounded-md"
             />
-            <span>{name}</span>
+            <span className="font-Kanit font-extralight text-2xl ml-1">{name}</span>
             <figure
                 className={`
 translate-y-2
@@ -53,7 +53,7 @@ translate-y-2
             />
             <LinkSvg
                 weight={4}
-                className={`w-4 h-4  self-center ${theme == "dark" ? "stroke-light" : "stroke-space_cadet"}`}
+                className={`w-3 h-3 translate-y-0.5 self-center ${theme == "dark" ? "stroke-light" : "stroke-space_cadet"}`}
             />
         </a>
     )
@@ -74,7 +74,7 @@ function MoreSection({ title, children }) {
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
-            <div className="block w-full">
+            <div className="block w-full pr-2">
                 <div className="w-full flex justify-start gap-1">
                     <h1 className="text-5xl lg:text-8xl">
                         {title}

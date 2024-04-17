@@ -20,7 +20,7 @@ function ExperiencePill({ path, name, link, size = 25, showName = false, classNa
                 src={path}
                 width={size}
                 height={size}
-                className={`${className}`}
+                className={` ${className}`}
                 alt={name}
             />
             {

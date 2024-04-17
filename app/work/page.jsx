@@ -87,7 +87,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
     const lightTheme = "text-space_cadet"
 
     return (
-        <>
+        <div className="grayscale-[30%]">
             {/** Horizontal card **/}
             <div className={`hidden lg:flex max-w-[85rem] gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
                 {/** Title section **/}
@@ -100,7 +100,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                     <p className="text-5xl">{company}</p>
                     <p className="text-3xl font-Kanit font-light">{title}</p>
                     <p className="text-xl font-Kanit font-light">{date}</p>
-                    <div className="grayscale flex items-center gap-1 py-2">
+                    <div className="flex items-center gap-1 py-2">
                         {technologies}
                     </div>
                 </div>
@@ -126,7 +126,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                     {summary}
                 </pre>
             </div>
-        </>
+        </div>
     )
 }
 
