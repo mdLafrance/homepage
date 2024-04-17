@@ -10,14 +10,20 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
     return (
         <Link href={linkTarget} onClick={onClick} className={`
             font-Kanit text-2xl 
-            opacity-85 hover:opacity-100 
+            opacity-85 hover:opacity-100 ${isSelected ? "opacity-100" : "opacity-75"}
             transition-all
             rounded-sm
             w-[95px]
             text-center
             ${className}
         `}>
-            <span className={` ${isSelected ? "underline decoration-1 underline-offset-[3px] decoration-dotted" : null}`}>{name}</span>
+            <span className={` 
+                ${isSelected ?
+                    "underline decoration-1 underline-offset-[3px] decoration-dotted" :
+                    null}
+                `}>
+                {name}
+            </span>
         </Link>
     )
 }
