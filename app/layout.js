@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
                             {children}
                         </div>
                     </div>
-                    <div className="static-noise pointer-events-none"></div>
+                    <div className="opacity-[18%] sm:opacity-25 static-noise pointer-events-none"></div>
                 </Providers>
             </body>
         </html >
