@@ -18,20 +18,24 @@ const moreCardTransitions = {
 function MoreSection({ title, children }) {
     return (
         <motion.div
-            className="lg:w-[85rem]"
-            variants={moreCardTransitions}>
-            <div className="w-full flex justify-start gap-1">
-                <h1 className="text-5xl lg:text-8xl">
-                    .{title}
-                </h1>
-                <figure className="
+            className="lg:w-[85rem] flex"
+            variants={moreCardTransitions}
+        >
+            <figure className="text-5xl lg:text-8xl">.</figure>
+            <div className="block w-full">
+                <div className="w-full flex justify-start gap-1">
+                    <h1 className="text-5xl lg:text-8xl">
+                        {title}
+                    </h1>
+                    <figure className="
                     grow grow-1
                     border-b border-light/40 border-dotted 
                     -translate-y-3 lg:-translate-y-5 
                 "/>
-            </div>
-            <div className="max-w-[60rem] sm:text-3xl font-light ml-[36px]">
-                {children}
+                </div>
+                <div className="max-w-[60rem] sm:text-3xl font-light pt-1 sm:ml-1">
+                    {children}
+                </div>
             </div>
         </motion.div>
     )
