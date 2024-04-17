@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion"
 import { useThemeContext } from "../(context)/ThemeContext"
+import { useEffect, useState } from "react"
+
+import axios from "axios"
+import Image from "next/image"
 
 const moreCardTransitions = {
     hidden: {
@@ -15,10 +19,38 @@ const moreCardTransitions = {
     }
 }
 
+function GitProject({ name, language }) {
+
+    console.log("Language is", name, language)
+
+    return (
+        <div className="flex">
+            {
+                language != undefined ?
+                    <Image
+                        width={40}
+                        height={40}
+                        src={`icons/${language.toLowerCase()}.svg`}
+                        alt={language}
+                    /> : null
+            }
+            <span>{name}</span>
+        </div>
+    )
+}
+
+function CodeComment({ message }) {
+    return (
+        <p className="opacity-65">
+        // {message}
+        </p>
+    )
+}
+
 function MoreSection({ title, children }) {
     return (
         <motion.div
-            className="lg:w-[85rem] flex"
+            className="lg:w-[80rem] flex"
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
@@ -33,17 +65,18 @@ function MoreSection({ title, children }) {
                     -translate-y-3 lg:-translate-y-5 
                 "/>
                 </div>
-                <div className="max-w-[60rem] sm:text-3xl font-light pt-1 sm:ml-1">
+                <div className="sm:text-3xl font-light pt-1 sm:ml-1">
                     {children}
                 </div>
             </div>
         </motion.div>
     )
-
 }
 
 export default function More() {
     const [theme, _] = useThemeContext();
+
+    const [gitProjects, setGitProjects] = useState(["a"]);
 
     const moreSections = [
         ["PROJECTS", null],
@@ -51,22 +84,47 @@ export default function More() {
         ["???", null]
     ]
 
+    useEffect(() => {
+        axios.get("https://api.github.com/users/mdlafrance/repos")
+            .then(res => {
+                console.log("Setting projects:", res.data)
+                setGitProjects(res.data)
+            })
+            .catch(e => {
+                console.log("Error fetching git repos:")
+                console.log(e)
+            })
+    }, [])
+
     return (
         <motion.div
             variants={moreCardTransitions}
             initial="hidden"
             animate="show"
             className={`
-                w-full sm:mt-4 p-4 sm:p-2
-                flex flex-col justify-center items-center gap-[4rem]
+                w-full sm:my-12 p-4 sm:p-2
+                flex flex-col justify-center items-center gap-8 sm:gap-[6rem]
                 ${theme == "dark" ? "text-light" : "text-space_cadet"}
             `}
         >
             <MoreSection title={"projects"}>
-                <p className="text-wrap max-w-[50rem]">
+                <p>
                     I always have one or two coding projects on the go, check out
-                    some of my published ones here:
+                    some of my finished ones here:
                 </p>
+
+                {
+                    gitProjects
+                        .filter(x => x.language != undefined)
+                        .sort((a, b) => a.language > b.language ? 1 : -1)
+                        .map((x, idx) => (
+                        <GitProject key={idx} name={x.name} language={x.language} />
+                    ))
+                }
+                <br />
+                <CodeComment
+                    message={"Currently, I'm reworking an old C++ raycaster I wrote in university."}
+                />
             </MoreSection>
 
             <MoreSection title={"website"}>
@@ -80,17 +138,19 @@ export default function More() {
             </MoreSection>
 
             <MoreSection title={"art"}>
-                <p>Before I got into software development, </p>
-                <p>Some of my life drawaing work is on my artstation here.</p>
-                <br />
-                <p>In university, I participated in an environemntal art competition</p>
-                <p>for Ubisoft where I created a diorama </p>
-            </MoreSection>
-
-            <MoreSection title={"self"}>
                 <p>
-                    asdf
+                    Some of my life drawing work is on my artstation here.
                 </p>
+                <br />
+                <p>
+                    In university, I participated in a modelling competition
+                    for Ubisoft where I created a diorama from a short story prompt
+                    using Maya and Substance Painter. You can watch a flythrough of the
+                    scene here.
+                    <br />
+                    <br />
+                </p>
+                <CodeComment message={"FIXME: Texel density is really uneven"} />
             </MoreSection>
         </motion.div>
     )
