@@ -19,23 +19,29 @@ const moreCardTransitions = {
     }
 }
 
-function GitProject({ name, language }) {
-
-    console.log("Language is", name, language)
+function GitProject({ name, language, link }) {
+    const [theme, _] = useThemeContext();
 
     return (
-        <div className="flex">
-            {
-                language != undefined ?
-                    <Image
-                        width={40}
-                        height={40}
-                        src={`icons/${language.toLowerCase()}.svg`}
-                        alt={language}
-                    /> : null
-            }
-            <span>{name}</span>
-        </div>
+        <a
+            className="flex items-center gap-2"
+            href={link}
+            rel="noopener noreferrer"
+            target="_blank"
+        >
+            <Image
+                width={30}
+                height={30}
+                src={`icons/${language.toLowerCase()}.svg`}
+                alt={language}
+            />
+            <span className={`
+                ${theme == "dark" ? "text-light" : "text-space_cadet"}
+            `}
+            >
+                {name}
+            </span>
+        </a>
     )
 }
 
@@ -118,8 +124,8 @@ export default function More() {
                         .filter(x => x.language != undefined)
                         .sort((a, b) => a.language > b.language ? 1 : -1)
                         .map((x, idx) => (
-                        <GitProject key={idx} name={x.name} language={x.language} />
-                    ))
+                            <GitProject key={idx} name={x.name} language={x.language} link={x.html_url} />
+                        ))
                 }
                 <br />
                 <CodeComment
@@ -139,15 +145,33 @@ export default function More() {
 
             <MoreSection title={"art"}>
                 <p>
-                    Some of my life drawing work is on my artstation here.
+                    Some of my life drawing work is on my artstation
+                    <a
+                        href={""}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="underline text-blue-500 ml-2"
+                    >
+                        here
+                    </a>
+                    .
+
                 </p>
                 <br />
                 <p>
-                    In university, I participated in a modelling competition
+                    In university, I participated in an environment modelling competition
                     for Ubisoft where I created a diorama from a short story prompt
                     using Maya and Substance Painter. You can watch a flythrough of the
-                    scene here.
-                    <br />
+                    scene
+                    <a
+                        href={"https://www.youtube.com/watch?v=9I4dntZ5OhE"}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="underline text-blue-500 ml-2"
+                    >
+                        here
+                    </a>
+                    .
                     <br />
                 </p>
                 <CodeComment message={"FIXME: Texel density is really uneven"} />
