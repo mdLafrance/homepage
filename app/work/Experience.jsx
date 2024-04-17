@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useThemeContext } from "../(context)/ThemeContext";
 
-function ExperiencePill({ path, name, link, size = 25, className }) {
+function ExperiencePill({ path, name, link, size = 25, showName = false, className }) {
     const [theme, _] = useThemeContext();
 
     return (
@@ -10,8 +10,9 @@ function ExperiencePill({ path, name, link, size = 25, className }) {
             rel="noopener noreferrer"
             target="_blank"
             className={`
-                size-8 flex justify-center items-center rounded-sm p-1 transition-all duration-100
+                h-8 flex gap-1 justify-center items-center rounded-sm p-1 transition-all duration-100
                 hover:ring-1
+                text-center font-Kanit
                 ${theme == "dark" ? "ring-light/60 hover:bg-light/10" : "ring-space_cadet/80 hover:bg-space_cadet/5"}
             `}
         >
@@ -22,6 +23,9 @@ function ExperiencePill({ path, name, link, size = 25, className }) {
                 className={className}
                 alt={name}
             />
+            {
+                showName ? <span>{name}</span> : null
+            }
         </a>
     )
 
@@ -74,11 +78,11 @@ export function MySQL({ size = 25 }) {
     const [theme, _] = useThemeContext();
 
     return (
-        <ExperiencePill     
-            size={size} 
-            name="mysql" 
-            link="https://www.python.org" 
-            path={theme == "dark" ? "icons/mysql_dark.svg" : "icons/mysql_light.svg"} 
+        <ExperiencePill
+            size={size}
+            name="mysql"
+            link="https://www.python.org"
+            path={theme == "dark" ? "icons/mysql_dark.svg" : "icons/mysql_light.svg"}
         />
     )
 }
