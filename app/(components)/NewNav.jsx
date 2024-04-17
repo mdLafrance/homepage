@@ -60,11 +60,11 @@ export default function NewNav() {
         <nav className={`
             sticky top-0 p-2
             z-100
-            flex justify-center items-center gap-2 sm:gap-4
+            flex justify-center items-center gap-2 sm:px-3 sm:gap-4
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
             border-b sm:border-0 border-solid border-light/30
-            ${theme == "dark" ? "bg-black sm:shadow-light/20" : "bg-white"}
+            ${theme == "dark" ? "bg-black sm:shadow-light/20" : "bg-white sm:shadow-space_cadet/15"}
         `}>
             {
                 pageNames.map(([name, route], idx) => (
