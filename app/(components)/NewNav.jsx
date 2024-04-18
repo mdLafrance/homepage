@@ -1,12 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { useThemeContext } from "../(context)/ThemeContext";
 import ControlBar from "./controls/ControlBar"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function NavItem({ name, linkTarget, isSelected, onClick, className }) {
+function NavItem({ name, linkTarget, isSelected, onClick }) {
     return (
         <Link href={linkTarget} onClick={onClick} className={`
             font-Kanit font-light text-2xl 
@@ -15,7 +14,8 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
             rounded-sm
             w-[95px]
             text-center
-            ${className}
+            text-space_cadet
+            dark:text-light
         `}>
             <span className={` 
                 ${isSelected ?
@@ -29,21 +29,6 @@ function NavItem({ name, linkTarget, isSelected, onClick, className }) {
 }
 
 export default function NewNav() {
-    // Theme context
-    const [theme, _] = useThemeContext();
-    const [interactionTheme, setInteractionTheme] = useState("")
-
-    const darkInteractionTheme = "text-light"
-    const lightInteractionTheme = "text-space_cadet"
-
-    useEffect(() => {
-        if (theme == "light") {
-            setInteractionTheme(lightInteractionTheme)
-        } else {
-            setInteractionTheme(darkInteractionTheme)
-        }
-    }, [theme])
-
     // Path context
     const pageNames = [
         ["HOME", "/"],
@@ -71,7 +56,9 @@ export default function NewNav() {
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
             border-b sm:border-0 border-solid border-light/30
-            ${theme == "dark" ? "bg-black sm:shadow-light/20" : "bg-white sm:shadow-space_cadet/15"}
+
+            bg-white sm:shadow-space_cadet/15
+            dark:bg-black dark:sm:shadow-light/20
         `}>
             {
                 pageNames.map(([name, route], idx) => (
@@ -81,7 +68,6 @@ export default function NewNav() {
                         isSelected={currentPageName == name}
                         linkTarget={route}
                         onClick={() => setCurrentPageName(name)}
-                        className={interactionTheme}
                     />
                 ))
             }
