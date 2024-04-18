@@ -144,7 +144,7 @@ const workCardTransitions = {
 
 export default function Work() {
     return (
-        <main className="flex flex-col justify-center">
+        <main className="z-1 flex flex-col justify-center">
             {/** Work history cards **/}
             <div className={`
                 flex flex-col items-center p-2 sm:p-12
