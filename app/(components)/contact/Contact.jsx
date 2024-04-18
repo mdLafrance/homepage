@@ -15,6 +15,7 @@ export function ContactItem({ name, footerText, link, className }) {
     return (
         <a
             className={`
+                rounded-sm
                 flex gap-1 items-end pt-1 justify-start
                 px-2
                 opacity-95 hover:opacity-100

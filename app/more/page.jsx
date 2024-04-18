@@ -30,6 +30,7 @@ function GitProject({ name, language, link }) {
     return (
         <a
             className={`
+                rounded-sm
                 flex justify-start items-center gap-1 px-2 py-1 hover:ring-1
                 ${theme == "dark" ? darkTheme : lightTheme}
             `}
@@ -123,7 +124,7 @@ export default function More() {
             animate="show"
             className={`
                 w-full sm:my-12 p-4 sm:p-2
-                flex flex-col justify-center items-center gap-8 sm:gap-[6rem]
+                flex flex-col justify-center items-center gap-8 sm:gap-[4rem]
                 ${theme == "dark" ? "text-light" : "text-space_cadet"}
             `}
         >
@@ -138,6 +139,7 @@ export default function More() {
                     {
                         gitProjects
                             .filter(x => x.language != undefined)
+                            .filter(x => !["dotfiles", "mdLafrance"].includes(x.name) )
                             .sort((a, b) => a.language > b.language ? 1 : -1)
                             .map((x, idx) => (
                                 <GitProject key={idx} name={x.name} language={x.language} link={x.html_url} />
