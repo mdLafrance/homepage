@@ -62,7 +62,7 @@ function GitProject({ name, language, link }) {
 function CodeComment({ message }) {
     return (
         <p className="opacity-65">
-        // {message}
+            {`// ${message}`}
         </p>
     )
 }
