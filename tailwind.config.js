@@ -57,7 +57,7 @@ module.exports = {
         },
     },
     plugins: [addVariablesForColors],
-    darkMode: 'class'
+    darkMode: 'selector'
 };
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

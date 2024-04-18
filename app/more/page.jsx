@@ -44,6 +44,7 @@ function GitProject({ name, language, link }) {
                 width={23}
                 height={23}
                 className="grayscale-[20%] rounded-md"
+                alt={language}
             />
             <span className="font-Kanit font-extralight text-2xl ml-1">{name}</span>
             <figure
@@ -76,7 +77,7 @@ function CodeComment({ message }) {
 function MoreSection({ title, children }) {
     return (
         <motion.div
-            className="isolate lg:w-[70rem] flex"
+            className="isolate sm:max-w-[80dvw] lg:w-[70rem] flex"
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
@@ -100,20 +101,11 @@ function MoreSection({ title, children }) {
 }
 
 export default function More() {
-    const [theme, _] = useThemeContext();
-
-    const [gitProjects, setGitProjects] = useState(["a"]);
-
-    const moreSections = [
-        ["PROJECTS", null],
-        ["ART", null],
-        ["???", null]
-    ]
+    const [gitProjects, setGitProjects] = useState([]);
 
     useEffect(() => {
         axios.get("https://api.github.com/users/mdlafrance/repos")
             .then(res => {
-                console.log("Setting projects:", res.data)
                 setGitProjects(res.data)
             })
             .catch(e => {
@@ -130,7 +122,7 @@ export default function More() {
             className={`
                 w-full sm:my-12 p-4 sm:p-2
                 flex flex-col justify-center items-center gap-8 sm:gap-[4rem]
-                ${theme == "dark" ? "text-light" : "text-space_cadet"}
+                dark:text-light text-space_cadet
             `}
         >
             <MoreSection title={"projects"}>

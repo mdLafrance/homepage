@@ -1,6 +1,3 @@
-"use client";
-
-import { useThemeContext } from "./(context)/ThemeContext";
 import { ContactSection } from "./(components)/contact/Contact";
 import Reveal from "./(components)/Reveal";
 
@@ -44,20 +41,18 @@ const transitions = {
 }
 
 export default function Page() {
-    const [theme, _] = useThemeContext();
-
     return (
         <div
             className={`
                 flex justify-center items-center w-full h-full
-                ${theme == "light" ? "text-space_cadet stroke-black" : "text-light stroke-light"}
+                text-space_cadet stroke-black dark:text-light dark:stroke-light
             `}
         >
             {/** Vertical content area **/}
             <div
                 className="h-full flex flex-col justify-start w-[100dvw] sm:w-[65rem] p-6 sm:p-12"
             >
-                <div className="grow-0 sm:grow sm:grow-[3]" />
+                <div className="grow-0 sm:grow-[3]" />
                 <header>
                     <Reveal duration={0.5}>
                         <p className="text-3xl sm:text-5xl pb-4 sm:pb-0">
