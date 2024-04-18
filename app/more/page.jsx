@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useThemeContext } from "../(context)/ThemeContext"
 import { useEffect, useState } from "react"
 
 import axios from "axios"
@@ -22,17 +21,14 @@ const moreCardTransitions = {
 }
 
 function GitProject({ name, language, link }) {
-    const [theme, _] = useThemeContext();
-
-    const darkTheme = "hover:ring-white/30 hover:bg-white/10 active:bg-white/20 text-light"
-    const lightTheme = "hover:ring-space_cadet/30 hover:bg-space_cadet/5 active:bg-space_cadet/10 text-space_cadet"
-
     return (
         <a
             className={`
                 rounded-sm
                 flex justify-start items-center gap-1 pl-2 pr-3 py-1 hover:ring-1
-                ${theme == "dark" ? darkTheme : lightTheme}
+
+                hover:ring-space_cadet/30 hover:bg-space_cadet/5 active:bg-space_cadet/10 text-space_cadet
+                dark:hover:ring-white/30 dark:hover:bg-white/10 dark:active:bg-white/20 dark:text-light
             `}
 
             href={link}
@@ -51,16 +47,16 @@ function GitProject({ name, language, link }) {
                 className={`
                     translate-y-2
                     grow grow-1 border-b border-dotted 
-                    ${theme == "dark" ? "border-white/40" : "border-space_cadet/40"
-                }`}
+                    dark:border-white/40 border-space_cadet
+                `}
             />
             <LinkSvg
                 weight={4}
                 className={`
                     w-3 h-3 translate-y-0.5 
                     self-center 
-                    ${theme == "dark" ? "stroke-light" : "stroke-space_cadet"
-                }`}
+                    dark:stroke-light stroke-space_cadet
+                `}
             />
         </a>
     )
@@ -87,10 +83,11 @@ function MoreSection({ title, children }) {
                         {title}
                     </h1>
                     <figure className="
-                    grow grow-1
-                    border-b border-light/40 border-dotted 
-                    -translate-y-1 lg:-translate-y-2
-                "/>
+                        grow grow-1
+                        border-b border-dotted 
+                        dark:border-white/40 border-space_cadet
+                        -translate-y-1 lg:-translate-y-2
+                    "/>
                 </div>
                 <div className="sm:text-2xl font-light pt-1 sm:pt-4 sm:ml-1">
                     {children}

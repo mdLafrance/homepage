@@ -1,10 +1,8 @@
 "use client"
 
-import { useThemeContext } from "../(context)/ThemeContext";
 import { motion } from "framer-motion"
 
 import { Bash, Gitlab, Maya, MySQL, Nuke, Python, Qt } from "./Experience.jsx"
-import { NEXT_RSC_UNION_QUERY } from "next/dist/client/components/app-router-headers";
 
 const work_experiences = [
     {
@@ -81,21 +79,16 @@ Model retopology, UV unwrapping, and character turntables.
 ]
 
 function WorkHistoryCard({ title, company, summary, date, technologies }) {
-    const [theme, _] = useThemeContext();
-
-    const darkTheme = "text-light"
-    const lightTheme = "text-space_cadet"
-
     return (
-        <div className="grayscale-[100%]">
+        <div className="grayscale-[100%] dark:text-light text-space_cadet">
             {/** Horizontal card **/}
-            <div className={`hidden lg:flex max-w-[85rem] gap-4 ${theme == "dark" ? darkTheme : lightTheme}`}>
+            <div className={`hidden lg:flex max-w-[85rem] gap-4`}>
                 {/** Title section **/}
                 <div className={`
                 w-2/5 pr-4 
                 flex flex-col items-end 
                 text-right
-                border-r border-solid ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}
+                border-r border-solid dark:border-light/70 border-space_cadet/80
             `}>
                     <p className="text-5xl">{company}</p>
                     <p className="text-3xl font-Kanit font-light">{title}</p>
@@ -113,7 +106,6 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
             {/** Vertical card **/}
             <div className={`
                 block lg:hidden rounded-sm p-4
-                ${theme == "dark" ? darkTheme : lightTheme}
             `}>
                 <p className="text-4xl md:text-5xl">{company}</p>
                 <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
@@ -121,7 +113,11 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                 <div className="flex items-center z-5">
                     {technologies}
                 </div>
-                <figure className={`my-2 w-full border-b border-dotted ${theme == "dark" ? "border-light/70" : "border-space_cadet/80"}`} />
+                <figure className={`
+                    my-2 w-full 
+                    border-b border-dotted 
+                    dark:border-light/70 border-space_cadet/80
+                `} />
                 <pre className="font-Kanit font-light text-lg md:text-2xl whitespace-pre-wrap">
                     {summary}
                 </pre>
