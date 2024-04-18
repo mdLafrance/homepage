@@ -31,7 +31,7 @@ function GitProject({ name, language, link }) {
         <a
             className={`
                 rounded-sm
-                flex justify-start items-center gap-1 px-2 py-1 hover:ring-1
+                flex justify-start items-center gap-1 pl-2 pr-3 py-1 hover:ring-1
                 ${theme == "dark" ? darkTheme : lightTheme}
             `}
 
@@ -39,7 +39,7 @@ function GitProject({ name, language, link }) {
             rel="noopener noreferrer"
             target="_blank"
         >
-            <Image 
+            <Image
                 src={`icons/${language.toLowerCase()}.svg`}
                 width={23}
                 height={23}
@@ -48,13 +48,18 @@ function GitProject({ name, language, link }) {
             <span className="font-Kanit font-extralight text-2xl ml-1">{name}</span>
             <figure
                 className={`
-translate-y-2
-                    grow grow-1 border-b border-dotted ${theme == "dark" ? "border-white/40" : "border-space_cadet/40"}
-                `}
+                    translate-y-2
+                    grow grow-1 border-b border-dotted 
+                    ${theme == "dark" ? "border-white/40" : "border-space_cadet/40"
+                }`}
             />
             <LinkSvg
                 weight={4}
-                className={`w-3 h-3 translate-y-0.5 self-center ${theme == "dark" ? "stroke-light" : "stroke-space_cadet"}`}
+                className={`
+                    w-3 h-3 translate-y-0.5 
+                    self-center 
+                    ${theme == "dark" ? "stroke-light" : "stroke-space_cadet"
+                }`}
             />
         </a>
     )
@@ -83,7 +88,7 @@ function MoreSection({ title, children }) {
                     <figure className="
                     grow grow-1
                     border-b border-light/40 border-dotted 
-                    -translate-y-3 lg:-translate-y-5 
+                    -translate-y-1 lg:-translate-y-2
                 "/>
                 </div>
                 <div className="sm:text-2xl font-light pt-1 sm:pt-4 sm:ml-1">
@@ -135,11 +140,13 @@ export default function More() {
                     Check out some of my finished ones here:
                 </p>
 
-                <div className="flex flex-col flex-wrap gap-2 py-4 mb-4">
+                <div className="flex flex-col flex-wrap gap-2 py-2">
                     {
                         gitProjects
+                            // Ignore git projects with no defined language
                             .filter(x => x.language != undefined)
-                            .filter(x => !["dotfiles", "mdLafrance"].includes(x.name) )
+                            // Ignore dotfiles and landing page project
+                            .filter(x => !["dotfiles", "mdLafrance"].includes(x.name))
                             .sort((a, b) => a.language > b.language ? 1 : -1)
                             .map((x, idx) => (
                                 <GitProject key={idx} name={x.name} language={x.language} link={x.html_url} />

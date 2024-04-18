@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 function NavItem({ name, linkTarget, isSelected, onClick, className }) {
     return (
         <Link href={linkTarget} onClick={onClick} className={`
-            font-Kanit text-2xl 
+            font-Kanit font-light text-2xl 
             opacity-85 hover:opacity-100 ${isSelected ? "opacity-100" : "opacity-75"}
             transition-all
             rounded-sm
