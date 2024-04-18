@@ -65,7 +65,7 @@ export default function NewNav() {
 
     return (
         <nav className={`
-            fixed top-0 p-2
+            sticky top-0 p-2
             z-9999
             w-[100dvw]
             flex justify-center items-center gap-2 sm:px-3 sm:gap-4

@@ -71,7 +71,7 @@ function CodeComment({ message }) {
 function MoreSection({ title, children }) {
     return (
         <motion.div
-            className="lg:w-[70rem] flex"
+            className="isolate lg:w-[70rem] flex"
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
@@ -86,7 +86,7 @@ function MoreSection({ title, children }) {
                     -translate-y-3 lg:-translate-y-5 
                 "/>
                 </div>
-                <div className="sm:text-2xl font-light pt-1 sm:ml-1">
+                <div className="sm:text-2xl font-light pt-1 sm:pt-4 sm:ml-1">
                     {children}
                 </div>
             </div>

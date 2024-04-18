@@ -68,9 +68,9 @@ export default function RootLayout({ children }) {
                     </Reveal>
                     <div className="flex">
                         {/** Main content section **/}
-                        <div className="h-[100dvh] w-[100dvw] overflow-y-auto z-10 flex flex-col pt-[3rem]">
-                            {children}
+                        <div className="isolate h-[100dvh] w-[100dvw] overflow-y-auto z-10 flex flex-col">
                             <NewNav />
+                            {children}
                         </div>
                     </div>
                     <div className="opacity-[18%] sm:opacity-25 static-noise pointer-events-none"></div>
