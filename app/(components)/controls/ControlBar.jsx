@@ -1,40 +1,22 @@
-"use client"
-
 import VisibilityToggle from "./VisibilityControls"
 import { WaveJaggedButton, WaveSmoothButton } from "./WaveControls"
 import ThemeSwitcher from "./ThemeControl"
-import { useThemeContext } from "../../(context)/ThemeContext"
-import { useEffect, useState } from "react"
 
 
 function ControlBarItem({ children }) {
-
-    const darkInteractionTheme =  "stroke-white hover:bg-light/10 active:bg-light/20"
-    const lightInteractionTheme = "stroke-black hover:bg-space_cadet/10 active:bg-black/20"
-
-    const [theme, _] = useThemeContext();
-    const [interactionTheme, setInteractionTheme] = useState("")
-
-    useEffect(() => {
-        if (theme == "light") {
-            setInteractionTheme(lightInteractionTheme)
-        } else {
-            setInteractionTheme(darkInteractionTheme)
-        }
-    }, [theme])
-
     return (
         <li className={`
             size-7 
             transition-all duration-[80ms]
-            ${interactionTheme}
+            stroke-black hover:bg-space_cadet/10 active:bg-black/20
+            dark:stroke-white dark:hover:bg-light/10 dark:active:bg-light/20
         `}>
             {children}
         </li>
     )
 }
 
-export default function ControlBar({className}) {
+export default function ControlBar({ className }) {
     return (
         <ul className={`h-7 flex gap-2 justify-end align-center z-200 ${className}`}>
             <ControlBarItem>
