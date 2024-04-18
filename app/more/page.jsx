@@ -39,7 +39,7 @@ function GitProject({ name, language, link }) {
                 src={`icons/${language.toLowerCase()}.svg`}
                 width={23}
                 height={23}
-                className="grayscale-[20%] rounded-md"
+                className="grayscale-[30%] rounded-md"
                 alt={language}
             />
             <span className="font-Kanit font-extralight text-2xl ml-1">{name}</span>

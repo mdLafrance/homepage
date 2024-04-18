@@ -80,7 +80,7 @@ Model retopology, UV unwrapping, and character turntables.
 
 function WorkHistoryCard({ title, company, summary, date, technologies }) {
     return (
-        <div className="grayscale-[100%] dark:text-light text-space_cadet">
+        <div className="grayscale-[30%] dark:text-light text-space_cadet">
             {/** Horizontal card **/}
             <div className={`hidden lg:flex max-w-[85rem] gap-4`}>
                 {/** Title section **/}
