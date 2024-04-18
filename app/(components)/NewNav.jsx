@@ -52,7 +52,7 @@ export default function NewNav() {
         <nav className={`
             sticky top-0 p-2
             z-50
-            flex justify-center items-center gap-2 sm:px-3 sm:gap-4
+            flex justify-center items-center gap-2 sm:px-3 sm:gap-6
             shadow-sm
             bg-opacity-50 backdrop-blur-lg
             border-b sm:border-0 border-solid border-light/30

@@ -1,12 +1,8 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
-
 import axios from "axios"
 import Image from "next/image"
 
 import LinkSvg from "../(components)/controls/Link"
+import Reveal from "../(components)/Reveal"
 
 const moreCardTransitions = {
     hidden: {
@@ -70,10 +66,25 @@ function CodeComment({ message }) {
     )
 }
 
+function TechnologyLink({ name, iconPath, link }) {
+    return (
+        <span className="inline">
+            <Image
+                src={iconPath}
+                alt={name}
+                width={24}
+                height={24}
+            >
+            </Image>
+            <span>{name}</span>
+        </span>
+    )
+}
+
 function MoreSection({ title, children }) {
     return (
-        <motion.div
-            className="isolate sm:max-w-[80dvw] lg:w-[70rem] flex"
+        <div
+            className="isolate sm:max-w-[85dvw] lg:w-[70rem] flex"
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
@@ -93,105 +104,119 @@ function MoreSection({ title, children }) {
                     {children}
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 
-export default function More() {
-    const [gitProjects, setGitProjects] = useState([]);
+async function getGithubProjects() {
+    try {
+        const response = await axios.get(
+            "https://api.github.com/users/mdLafrance/repos"
+        )
 
-    useEffect(() => {
-        axios.get("https://api.github.com/users/mdlafrance/repos")
-            .then(res => {
-                setGitProjects(res.data)
-            })
-            .catch(e => {
-                console.log("Error fetching git repos:")
-                console.log(e)
-            })
-    }, [])
+        return response.data;
+
+    } catch {
+        console.log("Error getting projects for mdLafrance")
+        return []
+    }
+}
+
+export default async function More() {
+    const githubProjects = await getGithubProjects();
 
     return (
-        <motion.div
+        <div
             variants={moreCardTransitions}
             initial="hidden"
             animate="show"
             className={`
-                w-full sm:my-12 p-4 sm:p-2
+                w-full sm:mt-8 mb-[1rem] sm:mb-[5rem] p-4 sm:p-2
                 flex flex-col justify-center items-center gap-8 sm:gap-[4rem]
                 dark:text-light text-space_cadet
             `}
         >
-            <MoreSection title={"projects"}>
-                <p>
-                    I always have one or two coding projects on the go.
-                    <br />
-                    Check out some of my finished ones here:
-                </p>
+            <Reveal>
+                <MoreSection title={"projects"}>
+                    <p>
+                        I always have one or two coding projects on the go.
+                        <br />
+                        Check out some of my finished ones here:
+                    </p>
 
-                <div className="flex flex-col flex-wrap gap-2 py-2">
-                    {
-                        gitProjects
-                            // Ignore git projects with no defined language
-                            .filter(x => x.language != undefined)
-                            // Ignore dotfiles and landing page project
-                            .filter(x => !["dotfiles", "mdLafrance"].includes(x.name))
-                            .sort((a, b) => a.language > b.language ? 1 : -1)
-                            .map((x, idx) => (
-                                <GitProject key={idx} name={x.name} language={x.language} link={x.html_url} />
-                            ))
-                    }
-                </div>
-                <CodeComment
-                    message={"Currently, I'm reworking an old C++ raycaster I wrote in university."}
-                />
-            </MoreSection>
+                    <div className="flex flex-col flex-wrap gap-2 py-2">
+                        {
+                            githubProjects
+                                // Ignore git projects with no defined language
+                                .filter(x => x.language != undefined)
+                                // Ignore dotfiles and landing page project
+                                .filter(x => !["dotfiles", "mdLafrance"].includes(x.name))
+                                .sort((a, b) => a.language > b.language ? 1 : -1)
+                                .map((x, idx) => (
+                                    <GitProject key={idx} name={x.name} language={x.language} link={x.html_url} />
+                                ))
+                        }
+                    </div>
+                    <CodeComment
+                        message={"Currently, I'm reworking an old C++ raycaster I wrote in university."}
+                    />
+                </MoreSection>
+            </Reveal>
 
-            <MoreSection title={"website"}>
-                <p>
-                    This website was built using React NextJS and Tailwind,
-                    running on AWS Amplify with Porkbun as a domain registrar.
-                    <br />
-                    <br />
-                    Source code on my github.
-                </p>
-            </MoreSection>
+            <Reveal delay={0.1}>
+                <MoreSection title={"website"}>
+                    <p>
+                        This website was built using <TechnologyLink name={"React"} iconPath={"icons/react.svg"} />
+                        <TechnologyLink name={"NextJS"} iconPath={"icons/next.svg"} />
+                        and,
+                        <TechnologyLink name={"Tailwind"} iconPath={"icons/tailwind.svg"} />
+                        running on
+                        <TechnologyLink name={"AWS Amplify"} iconPath={"icons/tailwind.svg"} />
+                        with Porkbun as a domain registrar.
+                        <br />
+                        <br />
+                        Source code on my github.
+                    </p>
+                </MoreSection>
+            </Reveal>
 
-            <MoreSection title={"art"}>
-                <p>
-                    Some of my life drawing work is available on my artstation
-                    <a
-                        href={""}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className="underline text-blue-500 ml-2"
-                    >
-                        here
-                    </a>
-                    .
+            <Reveal delay={0.2}>
+                <MoreSection title={"art"}>
+                    <p>
+                        Some of my life drawing work is available on my artstation
+                        <a
+                            href={""}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            className="underline text-blue-500 ml-2"
+                        >
+                            here
+                        </a>
+                        .
 
-                </p>
-                <br />
-                <p>
-                    In university, I participated in an environment modelling competition
-                    for Ubisoft where I created a diorama from a short story prompt
-                    using Maya and Substance Painter.
+                    </p>
                     <br />
-                    You can watch a flythrough of the
-                    scene
-                    <a
-                        href={"https://www.youtube.com/watch?v=9I4dntZ5OhE"}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className="underline text-blue-500 ml-2"
-                    >
-                        here
-                    </a>
-                    .
-                    <br />
-                </p>
-                <CodeComment message={"FIXME: Texel density is really uneven"} />
-            </MoreSection>
-        </motion.div>
+                    <p>
+                        In university, I participated in an environment modelling competition
+                        for Ubisoft where I created a diorama from a short story prompt
+                        using Maya and Substance Painter.
+                        <br />
+                        You can watch a flythrough of the
+                        scene
+                        <a
+                            href={"https://www.youtube.com/watch?v=9I4dntZ5OhE"}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            className="underline text-blue-500 ml-2"
+                        >
+                            here
+                        </a>
+                        .
+                        <br />
+                    </p>
+                    <CodeComment message={"FIXME: Texel density is really uneven"} />
+                </MoreSection>
+            </Reveal>
+        </div>
     )
 }
