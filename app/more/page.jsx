@@ -3,6 +3,7 @@ import Image from "next/image"
 
 import LinkSvg from "../(components)/controls/Link"
 import Reveal from "../(components)/Reveal"
+import { Amplify, NextJS, React, Tailwind } from "../work/Experience"
 
 const moreCardTransitions = {
     hidden: {
@@ -68,7 +69,12 @@ function CodeComment({ message }) {
 
 function TechnologyLink({ name, iconPath, link }) {
     return (
-        <span className="inline">
+        <a
+            className="flex gap-2"
+            href={link}
+            rel="noopener noreferrer"
+            target="_blank"
+        >
             <Image
                 src={iconPath}
                 alt={name}
@@ -77,14 +83,14 @@ function TechnologyLink({ name, iconPath, link }) {
             >
             </Image>
             <span>{name}</span>
-        </span>
+        </a>
     )
 }
 
 function MoreSection({ title, children }) {
     return (
         <div
-            className="isolate sm:max-w-[85dvw] lg:w-[70rem] flex"
+            className="isolate max-w-[85dvw] w-[70rem] flex"
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
@@ -165,18 +171,20 @@ export default async function More() {
 
             <Reveal delay={0.1}>
                 <MoreSection title={"website"}>
-                    <p>
-                        This website was built using <TechnologyLink name={"React"} iconPath={"icons/react.svg"} />
-                        <TechnologyLink name={"NextJS"} iconPath={"icons/next.svg"} />
-                        and,
-                        <TechnologyLink name={"Tailwind"} iconPath={"icons/tailwind.svg"} />
-                        running on
-                        <TechnologyLink name={"AWS Amplify"} iconPath={"icons/tailwind.svg"} />
-                        with Porkbun as a domain registrar.
-                        <br />
-                        <br />
-                        Source code on my github.
-                    </p>
+                    <div className="flex flex-wrap sm:flex-row align-middle">
+                        <span className="pr-2 align-top">This website was made with</span>
+                        <React showName={true} />
+                        <span className="pr-1">,</span>
+                        <Tailwind />
+                        <span className="pr-1">,</span>
+                        <NextJS />
+                        <span className="px-1">, and</span>
+                        <Amplify />
+                        .
+                    </div>
+                    <br />
+                    <p>Source code available on my Github.</p>
+
                 </MoreSection>
             </Reveal>
 

@@ -110,7 +110,7 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                 <p className="text-4xl md:text-5xl">{company}</p>
                 <p className="text-2xl md:text-3xl font-Kanit font-light">{title}</p>
                 <p className="text-xl md:text-2xl font-Kanit font-light">{date}</p>
-                <div className="flex items-center z-5">
+                <div className="flex items-center z-5 p-1 gap-2">
                     {technologies}
                 </div>
                 <figure className={`
