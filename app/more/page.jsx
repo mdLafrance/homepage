@@ -90,7 +90,7 @@ function TechnologyLink({ name, iconPath, link }) {
 function MoreSection({ title, children }) {
     return (
         <div
-            className="isolate max-w-[85dvw] w-[70rem] flex"
+            className="isolate sm:max-w-[85dvw] sm:w-[70rem] flex"
             variants={moreCardTransitions}
         >
             <figure className="text-5xl lg:text-8xl">.</figure>
@@ -137,7 +137,7 @@ export default async function More() {
             initial="hidden"
             animate="show"
             className={`
-                w-full sm:mt-8 mb-[1rem] sm:mb-[5rem] p-4 sm:p-2
+                w-full sm:mt-8 mb-[1rem] sm:mb-[5rem] p-4 sm:p-0
                 flex flex-col justify-center items-center gap-8 sm:gap-[4rem]
                 dark:text-light text-space_cadet
             `}
