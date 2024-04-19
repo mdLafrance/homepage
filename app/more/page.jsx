@@ -100,13 +100,14 @@ function MoreSection({ title, children }) {
                         {title}
                     </h1>
                     <figure className="
+                        hidden sm:inline
                         grow grow-1
                         border-b border-dotted 
                         dark:border-white/40 border-space_cadet
                         -translate-y-1 lg:-translate-y-2
                     "/>
                 </div>
-                <div className="sm:text-2xl font-light pt-1 sm:pt-4 sm:ml-1">
+                <div className="sm:text-2xl font-light pt-4 sm:pt-4 sm:ml-1">
                     {children}
                 </div>
             </div>
