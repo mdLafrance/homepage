@@ -107,7 +107,7 @@ function MoreSection({ title, children }) {
                         -translate-y-1 lg:-translate-y-2
                     "/>
                 </div>
-                <div className="sm:text-2xl font-light sm:ml-1 font-Kanit">
+                <div className="sm:text-2xl font-light pt-2 sm:ml-1 font-Kanit">
                     {children}
                 </div>
             </div>
