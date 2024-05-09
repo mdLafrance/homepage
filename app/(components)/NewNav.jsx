@@ -50,15 +50,15 @@ export default function NewNav() {
 
     return (
         <nav className={`
-            sticky top-0 p-2
+            sticky top-0 py-2
             z-50
-            flex justify-center items-center gap-2 sm:px-3 sm:gap-6
-            shadow-sm
+            flex justify-center items-center gap-2 sm:px-4 sm:gap-6
             bg-opacity-50 backdrop-blur-lg
-            border-b sm:border-0 border-solid border-light/30
+            border-b border-1 border-solid 
 
-            bg-white sm:shadow-space_cadet/15
-            dark:bg-black dark:sm:shadow-light/20
+            dark:border-light/[20%]
+
+            bg-white dark:bg-black
         `}>
             {
                 pageNames.map(([name, route], idx) => (
