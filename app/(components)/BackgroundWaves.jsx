@@ -107,9 +107,11 @@ export function WavyBackground({ className, children, ...props }) {
 
         // Draw each wave to back buffer
         for (let i = 0; i < s.numWaves; i++) {
+            const x0 = 0 - 1 * i;
+
             // currentDY is the vertical offset that this wave will begin drawing from
             const currentDY = dy0 + spacing * i;
-            drawCtx.moveTo(-20, currentDY);
+            drawCtx.moveTo(x0, currentDY);
 
             drawCtx.beginPath();
 
@@ -122,7 +124,7 @@ export function WavyBackground({ className, children, ...props }) {
             drawCtx.strokeStyle = `rgba(${s.r * dyProgress}, ${s.g * dyProgress}, ${s.b * dyProgress})`
 
             // Walk across the screen drawing wave points
-            for (let x = 0; x < w + s.stepX; x += s.stepX) {
+            for (let x = x0; x < w + s.stepX; x += s.stepX) {
                 // stepY adds an additional differential step downwards, which will cause
                 // a gradual downward slope
                 const stepY = x * 0.15;

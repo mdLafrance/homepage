@@ -44,13 +44,15 @@ export default function Page() {
     return (
         <div
             className={`
-                flex justify-center items-center w-full h-full
+                isolate z-100
+                grow grow-1
+                flex flex-col justify-center items-center w-full 
                 text-space_cadet stroke-black dark:text-light dark:stroke-light
             `}
         >
             {/** Vertical content area **/}
             <div
-                className="h-full flex flex-col justify-start w-[100dvw] sm:w-[65rem] p-6 sm:p-12"
+                className="h-full grow grow-1 flex flex-col justify-start w-[100dvw] sm:w-[65rem] p-6 sm:p-12"
             >
                 <div className="grow-0 sm:grow-[3]" />
                 <header>
@@ -60,7 +62,7 @@ export default function Page() {
                         </p>
                     </Reveal>
                     <Reveal duration={0.5} delay={0.1}>
-                        <p variants={transitions} className="text-7xl md:text-8xl lg:text-9xl sm:-translate-x-2">
+                        <p variants={transitions} className="text-7xl md:text-8xl lg:text-9xl sm:-translate-x-[4px]">
                             Max Lafrance.
                         </p>
                     </Reveal>
@@ -88,7 +90,7 @@ export default function Page() {
                         </Reveal>
                     </div>
                 </div>
-                <div className="grow-[3]" />
+                <div className="grow-[3] " />
                 <Reveal delay={0.5} duration={1}>
                     <ContactSection />
                 </Reveal>

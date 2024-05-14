@@ -62,16 +62,13 @@ export default function RootLayout({ children }) {
         >
             <body>
                 <Providers>
-                    <BackgroundFill />
                     <Reveal duration={4} delay={0.1}>
                         <WavyBackground />
                     </Reveal>
-                    <div className="flex">
-                        {/** Main content section **/}
-                        <div className="h-[100dvh] w-[100dvw] overflow-y-auto z-10 flex flex-col">
-                            <NewNav />
-                            {children}
-                        </div>
+                    {/** Main content section **/}
+                    <div id="MainContentArea" className="flex flex-col min-h-[100dvh] dark:bg-black bg-light ">
+                        <NewNav />
+                        {children}
                     </div>
                     <div className="opacity-[18%] sm:opacity-25 static-noise pointer-events-none"></div>
                 </Providers>
