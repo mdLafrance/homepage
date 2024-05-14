@@ -70,7 +70,7 @@ export default function Page() {
                 <div className="h-[1rem] sm:h-[2rem]" />
                 <div className="pb-[5rem]">
                     {/** Desktop intro section **/}
-                    <div className="hidden sm:block text-2xl md:text-3xl">
+                    <h1 className="hidden sm:block text-2xl md:text-3xl">
                         <Reveal duration={0.5} delay={0.5}>
                             <div className="flex gap-2 items-center justify-start">
                                 <span >I&apos;m a Software Engineer from Canada</span>
@@ -80,15 +80,15 @@ export default function Page() {
                                 I design and build solutions for the VFX industry.
                             </p>
                         </Reveal>
-                    </div>
+                    </h1>
                     {/** Mobile intro section **/}
-                    <div className="block sm:hidden">
+                    <h1 className="block sm:hidden">
                         <Reveal duration={0.5} delay={0.5}>
                             <p className="text-lg">
                                 I&apos;m a Software Engineer from Canada. I design and build solutions for the VFX industry.
                             </p>
                         </Reveal>
-                    </div>
+                    </h1>
                 </div>
                 <div className="grow-[3] " />
                 <Reveal delay={0.5} duration={1}>

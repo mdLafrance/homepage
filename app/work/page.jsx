@@ -90,18 +90,18 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                 text-right
                 border-r border-solid dark:border-light/70 border-space_cadet/80
             `}>
-                    <p className="text-5xl">{company}</p>
-                    <p className="text-3xl font-Kanit font-light">{title}</p>
+                    <h1 className="text-5xl">{company}</h1>
+                    <h2 className="text-3xl font-Kanit font-light">{title}</h2>
                     <p className="text-xl font-Kanit font-light">{date}</p>
                     <div className="flex items-center gap-1 py-2">
                         {technologies}
                     </div>
                 </div>
-                <div className="w-3/5">
+                <p className="w-3/5">
                     <pre className="font-Kanit font-light text-2xl text-wrap">
                         {summary}
                     </pre>
-                </div>
+                </p>
             </div>
             {/** Vertical card **/}
             <div className={`
