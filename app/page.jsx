@@ -52,7 +52,7 @@ export default function Page() {
         >
             {/** Vertical content area **/}
             <div
-                className="h-full grow grow-1 flex flex-col justify-start w-[100dvw] sm:w-[65rem] p-6 sm:p-12"
+                className="h-full grow grow-1 flex flex-col justify-start w-[100dvw] sm:max-w-[65rem] p-6 sm:p-12"
             >
                 <div className="grow-0 sm:grow-[3]" />
                 <header>
