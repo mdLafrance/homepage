@@ -125,7 +125,7 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning className={`${inter.className} ${apercu.className} ${neuemachina.className}`}
             style={{ scrollBehavior: 'smooth' }}
         >
-            <link rel="icon" href="/favicon.ico" sizes="any" />
+            <link rel="icon" href="/images/favicon.ico" sizes="any" />
             <body>
                 <Providers>
                     <Reveal duration={4} delay={0.1}>
