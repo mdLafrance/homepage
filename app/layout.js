@@ -14,19 +14,6 @@ import Reveal from "./(components)/Reveal";
 import { ContactSection } from "./(components)/contact/Contact";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
-const apercu = localFont({
-    src: [
-        {
-            path: '../public/fonts/Apercu-Medium.otf',
-            weight: '400'
-        },
-        {
-            path: '../public/fonts/Apercu-Bold.otf',
-            weight: '700'
-        },
-    ],
-    variable: '--font-apercu'
-})
 
 const neuemachina = localFont({
     src: [
@@ -122,7 +109,7 @@ export default function RootLayout({ children }) {
     return (
         <html
             lang="en"
-            suppressHydrationWarning className={`${inter.className} ${apercu.className} ${neuemachina.className}`}
+            suppressHydrationWarning className={`${inter.className} ${neuemachina.className}`}
             style={{ scrollBehavior: 'smooth' }}
         >
             <link rel="icon" href="/images/favicon.ico" sizes="any" />

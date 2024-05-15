@@ -97,11 +97,11 @@ function WorkHistoryCard({ title, company, summary, date, technologies }) {
                         {technologies}
                     </div>
                 </div>
-                <p className="w-3/5">
+                <section className="w-3/5">
                     <pre className="font-Kanit font-light text-2xl text-wrap">
                         {summary}
                     </pre>
-                </p>
+                </section>
             </div>
             {/** Vertical card **/}
             <div className={`
@@ -137,6 +137,7 @@ const workCardTransitions = {
         }
     }
 }
+
 
 export default function Work() {
     return (
