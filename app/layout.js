@@ -118,7 +118,9 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning className={`${inter.className} ${neuemachina.className}`}
             style={{ scrollBehavior: 'smooth' }}
         >
-            <link rel="icon" type="image/x-icon" href="/images/favicon.ico" sizes="any" />
+            <head>
+                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+            </head>
             <body>
                 <Providers>
                     <Reveal duration={4} delay={0.1}>
