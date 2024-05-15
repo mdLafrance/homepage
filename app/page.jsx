@@ -57,12 +57,15 @@ export default function Page() {
                 <div className="grow-0 sm:grow-[3]" />
                 <header>
                     <Reveal duration={0.5}>
-                        <p className="text-3xl sm:text-5xl pb-4 sm:pb-0">
+                        <p className="text-3xl sm:text-5xl pb-3 sm:pb-0 text-center sm:text-left font-Kanit font-extralight opacity-90">
                             Hi, my name is
                         </p>
                     </Reveal>
                     <Reveal duration={0.5} delay={0.1}>
-                        <p variants={transitions} className="text-7xl md:text-8xl lg:text-9xl sm:-translate-x-[4px]">
+                        <p
+                            variants={transitions}
+                            className="text-5xl md:text-8xl lg:text-9xl sm:-translate-x-[4px] text-center sm:text-left"
+                        >
                             Max Lafrance.
                         </p>
                     </Reveal>
@@ -84,7 +87,7 @@ export default function Page() {
                     {/** Mobile intro section **/}
                     <h1 className="block sm:hidden">
                         <Reveal duration={0.5} delay={0.5}>
-                            <p className="text-lg">
+                            <p className="text-lg text-center">
                                 I&apos;m a Software Engineer from Canada. I design and build solutions for the VFX industry.
                             </p>
                         </Reveal>

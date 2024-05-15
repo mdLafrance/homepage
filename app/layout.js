@@ -1,17 +1,13 @@
-
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import { WavyBackground } from "./(components)/BackgroundWaves"
-import BackgroundFill from "./(components)/BackgroundFill"
-import Footer from "./(components)/Footer"
-import ControlBar from "./(components)/controls/ControlBar"
+
 import Providers from "./providers"
 import NewNav from "./(components)/NewNav"
 
 import './globals.css';
 import Reveal from "./(components)/Reveal";
-import { ContactSection } from "./(components)/contact/Contact";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 
@@ -118,20 +114,23 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning className={`${inter.className} ${neuemachina.className}`}
             style={{ scrollBehavior: 'smooth' }}
         >
-            <head>
-                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-            </head>
             <body>
+                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
                 <Providers>
                     <Reveal duration={4} delay={0.1}>
                         <WavyBackground />
                     </Reveal>
                     {/** Main content section **/}
-                    <div id="MainContentArea" className="flex flex-col min-h-[100dvh] dark:bg-black bg-light ">
+                    <div
+                        id="MainContentArea"
+                        className={`
+                            flex flex-col min-h-[100dvh] dark:bg-black bg-light
+                        `}
+                    >
                         <NewNav />
                         {children}
                     </div>
-                    <div className="opacity-[18%] sm:opacity-25 static-noise pointer-events-none"></div>
+                    <div className="opacity-20 sm:opacity-25 static-noise pointer-events-none"></div>
                 </Providers>
             </body>
         </html >
