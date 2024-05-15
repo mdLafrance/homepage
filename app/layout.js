@@ -35,10 +35,16 @@ const neuemachina = localFont({
 })
 
 export const metadata = {
-    title: "Max Lafrance",
+    title: "Max Lafrance | Software Engineer",
     description: "Software engineer working in VFX",
     metadataBase: new URL('https://mlafrance.dev'),
     keywords: [
+        "lafrance",
+        "canada",
+        "design",
+        "software design",
+        "engineer",
+        "software",
         "software engineer",
         "mathematics background",
         "python",
@@ -112,7 +118,7 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning className={`${inter.className} ${neuemachina.className}`}
             style={{ scrollBehavior: 'smooth' }}
         >
-            <link rel="icon" href="/images/favicon.ico" sizes="any" />
+            <link rel="icon" type="image/x-icon" href="/images/favicon.ico" sizes="any" />
             <body>
                 <Providers>
                     <Reveal duration={4} delay={0.1}>
