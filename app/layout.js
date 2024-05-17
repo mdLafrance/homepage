@@ -118,7 +118,10 @@ export default function RootLayout({ children }) {
             style={{ scrollBehavior: 'smooth' }}
         >
             <body>
-                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+                <head>
+                    <meta name="google-site-verification" content="6Fk7fIGaYOZhWicz9qgSqTF9B-wxhdDWrqg_pwIlTZw" />
+                    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+                </head>
                 <Analytics />
                 <SpeedInsights />
                 <Providers>
