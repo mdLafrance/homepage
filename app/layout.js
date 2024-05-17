@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
+import { Analytics } from "@vercel/analytics/react"
+
 import { WavyBackground } from "./(components)/BackgroundWaves"
 
 import Providers from "./providers"
@@ -116,6 +118,7 @@ export default function RootLayout({ children }) {
         >
             <body>
                 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+                <Analytics />
                 <Providers>
                     <Reveal duration={4} delay={0.1}>
                         <WavyBackground />
