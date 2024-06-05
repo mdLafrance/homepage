@@ -117,11 +117,11 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning className={`${inter.className} ${neuemachina.className}`}
             style={{ scrollBehavior: 'smooth' }}
         >
+            <head>
+                <meta name="google-site-verification" content="6Fk7fIGaYOZhWicz9qgSqTF9B-wxhdDWrqg_pwIlTZw" />
+                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+            </head>
             <body>
-                <head>
-                    <meta name="google-site-verification" content="6Fk7fIGaYOZhWicz9qgSqTF9B-wxhdDWrqg_pwIlTZw" />
-                    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-                </head>
                 <Analytics />
                 <SpeedInsights />
                 <Providers>
@@ -138,7 +138,7 @@ export default function RootLayout({ children }) {
                         <NewNav />
                         {children}
                     </div>
-                    <div className="opacity-20 sm:opacity-25 static-noise pointer-events-none"></div>
+                    <div className="opacity-20 sm:opacity-20 static-noise pointer-events-none"></div>
                 </Providers>
             </body>
         </html >
