@@ -36,7 +36,9 @@ export function NavbarItem({ name, active }: { name: string, active?: boolean })
 
         font-size: var(--font-md);
 
-        ${!active && "opacity: 0.6;"}
+        &:not(:hover) {
+            ${!active && "opacity: 0.6;"}
+        }
 
         ${active ? leftArrowElement : null}
 
