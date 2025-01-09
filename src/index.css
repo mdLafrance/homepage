@@ -1,0 +1,29 @@
+@import url(https://api.fontshare.com/v2/css?f[]=monaspace@700,400&display=swap);
+@import "normalize.css";
+
+:root {
+    --font-xl: 2.5rem;
+    --font-lg: 2rem;
+    --font-md: 1.5rem;
+    --font-sm: 1rem;
+
+    --text: #FFFFFF;
+
+    --spacing-sm: 0.25rem;
+    --spacing-md: 0.6rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 3rem;
+
+    --light: #F8F8F8;
+    --dark: #0f0f0f;
+}
+
+main {
+    position: relative;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+body {
+    font-family: 'Monaspace', monospace;
+}
