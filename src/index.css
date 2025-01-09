@@ -2,10 +2,12 @@
 @import "normalize.css";
 
 :root {
-    --font-xl: 2.5rem;
-    --font-lg: 2rem;
-    --font-md: 1.5rem;
-    --font-sm: 1rem;
+    --font-2xl: 3rem;
+    --font-xl: 48px;
+    --font-lg: 32px;
+    --font-md: 16px;
+    --font-sm: 14px;
+    --font-xs: 12px;
 
     --text: #FFFFFF;
 
@@ -16,6 +18,9 @@
 
     --light: #F8F8F8;
     --dark: #0f0f0f;
+    --primary: blue;
+
+    --rounded-md: 0.3rem;
 }
 
 main {
@@ -26,4 +31,10 @@ main {
 
 body {
     font-family: 'Monaspace', monospace;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }

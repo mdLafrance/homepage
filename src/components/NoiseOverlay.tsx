@@ -14,12 +14,14 @@ export function NoiseOverlay() {
         background-attachment: local;
         background-blend-mode: multiply;
         mix-blend-mode: multiply;
-        opacity: 0.6;
+        opacity: 0.65;
 
         z-index: 100;
-    `
 
-    return (
-        <div className={style} />
-    )
+        pointer-events: none;
+        `
+
+        return (
+            <div className={style} />
+        )
 }
