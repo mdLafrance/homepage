@@ -1,3 +1,4 @@
+import { ContentContainer } from '@/components/ContentContainer'
 import { Navbar, NavbarItem } from '@/components/Navbar'
 import { NoiseOverlay } from '@/components/NoiseOverlay'
 import { ReachOut } from '@/components/ReachOut'
@@ -41,11 +42,6 @@ export default function Home() {
         }
     `
 
-    const contentStyle = css`
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        flex-grow: 1;
-    `
 
     return (
         <>
@@ -69,24 +65,25 @@ export default function Home() {
                         </Navbar>
                     </nav>
                 </aside>
-                <div className={contentStyle}>
+                <ContentContainer>
                     <Section title="About">
                         <p>
                             Hi, I'm <strong className={css`color: var(--primary)`}>Max</strong>, a programmer based in Canada.
-                            <br />
-                            <br />
+                        </p>
+                        <br />
+                        <p>
                             I've been <b>working in tech</b> for the past <strong>5</strong> years at visual effects and animation companies, making desktop applications, websites, plugins - you name it.
-                            <br />
-                            <br />
+                        </p>
+                        <br />
+                        <p>
                             When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
                         </p>
                     </Section>
                     <Section title="Work">
                         <></>
                     </Section>
-                </div>
-            </div>
-            <TopButton />
+                </ContentContainer>
+            </div >
             <NoiseOverlay />
         </>
     )

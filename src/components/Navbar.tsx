@@ -40,6 +40,7 @@ export function NavbarItem({ name, active }: { name: string, active?: boolean })
         cursor: pointer;
 
         font-size: var(--font-md);
+        font-weight: bold;
 
         &:not(:hover) {
             ${!active && "opacity: 0.6;"}

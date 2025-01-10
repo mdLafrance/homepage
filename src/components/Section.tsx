@@ -2,7 +2,7 @@ import { css } from "@emotion/css"
 
 export function Section({ title, children }: { title: string, children: React.ReactNode }) {
     const style = css`
-        width: 60ch;
+        max-width: 60ch;
         min-height: 100vh;
         color: var(--dark);
         font-size: var(--font-md);

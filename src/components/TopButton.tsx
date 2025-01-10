@@ -2,6 +2,10 @@ import { css } from "@emotion/css";
 import { HandPointing } from "@phosphor-icons/react";
 
 export function TopButton() {
+    const handleClick = () => {
+        document.getElementById(`section-about`)?.scrollIntoView()
+    }
+
     const style = css`
         position: fixed;
         bottom: var(--spacing-lg);
@@ -30,7 +34,7 @@ export function TopButton() {
     `
 
     return (
-        <button className={style}>
+        <button className={`${style} fade-in`} onClick={handleClick}>
             <HandPointing size={28} />
         </button>
     )
