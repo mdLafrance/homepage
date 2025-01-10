@@ -43,6 +43,8 @@ export default function Home() {
 
     const contentStyle = css`
         overflow-y: scroll;
+        scroll-behavior: smooth;
+        flex-grow: 1;
     `
 
     return (
@@ -78,19 +80,9 @@ export default function Home() {
                             <br />
                             When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
                         </p>
-                        <div className={css`background: blue; height: 70rem;`}></div>
                     </Section>
                     <Section title="Work">
-                        <p>
-                            Hi, I'm <strong className={css`color: var(--primary)`}>Max</strong>, a programmer based in Canada.
-                            <br />
-                            <br />
-                            I've been <b>working in tech</b> for the past <strong>5</strong> years at visual effects and animation companies, making desktop applications, websites, plugins - you name it.
-                            <br />
-                            <br />
-                            When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
-                        </p>
-                        <div className={css`background: blue; height: 70rem;`}></div>
+                        <></>
                     </Section>
                 </div>
             </div>

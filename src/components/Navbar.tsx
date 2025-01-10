@@ -17,6 +17,11 @@ export function Navbar({ children }: { children: React.ReactNode }) {
 }
 
 export function NavbarItem({ name, active }: { name: string, active?: boolean }) {
+    const handleClick = () => {
+        console.log("Scrolling to", `section-${name.toLowerCase()}`)
+        document.getElementById(`section-${name.toLowerCase()}`)?.scrollIntoView()
+    }
+
     const leftArrowElement = `
         &::before {
             content: ">";
@@ -57,9 +62,9 @@ export function NavbarItem({ name, active }: { name: string, active?: boolean })
     `
     return (
         <li>
-            <span className={style}>
+            <button className={style} onClick={handleClick}>
                 {name}
-            </span>
+            </button>
         </li>
     )
 }
