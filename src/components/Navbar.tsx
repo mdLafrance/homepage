@@ -14,7 +14,6 @@ export function Navbar() {
         "about",
         "work",
         "projects",
-        "writing"
     ]
 
     const style = css`
@@ -28,16 +27,13 @@ export function Navbar() {
     return (
         <nav>
             <ul className={style}>
-                {sections.map((section, _) => {
-                    console.log(section, currentSection)
-                    return (
-                        <NavbarItem
-                            name={section}
-                            key={`navbar-item-${section}`}
-                            active={section === currentSection}
-                        />
-                    )
-                })}
+                {sections.map((section, _) => (
+                    <NavbarItem
+                        name={section}
+                        key={`navbar-item-${section}`}
+                        active={section === currentSection}
+                    />
+                ))}
             </ul>
         </nav>
     )
@@ -54,7 +50,7 @@ export function NavbarItem({ name, active }: { name: string, active?: boolean })
             content: ">";
             font-weight: bold;
             position: absolute;
-            left: -14px;
+            left: -10px;
             top: 50%;
             transform: translate(0, -50%);
             color: var(--primary);
@@ -71,7 +67,7 @@ export function NavbarItem({ name, active }: { name: string, active?: boolean })
         text-transform: capitalize;
 
         &:not(:hover) {
-            ${!active && "opacity: 0.6;"}
+            ${!active && "opacity: 0.5;"}
         }
 
         ${active ? leftArrowElement : null}
@@ -80,7 +76,7 @@ export function NavbarItem({ name, active }: { name: string, active?: boolean })
             &::after {
                 content: "<";
                 position: absolute;
-                right: -14px;
+                right: -10px;
                 top: 50%;
                 transform: translate(0, -50%);
                 font-weight: bold;
