@@ -1,8 +1,31 @@
 import { css } from "@emotion/css"
+import { useEffect, useMemo, useRef } from "react";
 
-export function Section({ title, children }: { title: string, children: React.ReactNode }) {
+export function Section({ name, children, noShowTitle }: { name: string, children: React.ReactNode, noShowTitle?: boolean }) {
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([_]) => {
+                window.location.hash = name
+            },
+            {
+                root: null,
+                threshold: 0.8,
+            }
+        )
+        const header = ref.current;
+
+        if (header) {
+            observer.observe(header)
+        }
+    }, [])
+
     const style = css`
-        max-width: 60ch;
+        display: flex;
+        flex-direction: column;
+
+        max-width: 70ch;
         min-height: 100vh;
         color: var(--dark);
         font-size: var(--font-md);
@@ -24,6 +47,7 @@ export function Section({ title, children }: { title: string, children: React.Re
 
             font-size: var(--font-lg);
             font-weight: bold;
+            text-transform: capitalize;
 
             background: var(--light);
             box-shadow: 0 0 4px 4px var(--light);
@@ -35,11 +59,11 @@ export function Section({ title, children }: { title: string, children: React.Re
     `
 
     return (
-        <section className={style} id={`section-${title.toLowerCase()}`}>
+        <section className={style} id={`section-${name.toLowerCase()}`} ref={ref} >
             <h2>
                 <span>
                     <span>{"#"}</span>
-                    <span>{title}</span>
+                    <span>{name}</span>
                 </span>
                 <span className={css`min-height: 4px;`} />
             </h2>

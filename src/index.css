@@ -1,4 +1,4 @@
-@import url(https://api.fontshare.com/v2/css?f[]=monaspace@700,400&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "normalize.css";
 @import "animations.css";
 
@@ -31,11 +31,15 @@ main {
 }
 
 body {
-    font-family: 'Monaspace', monospace;
+    font-family: "Inter", sans-serif;
 }
 
 button {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+strong {
+    font-weight: bold;
 }

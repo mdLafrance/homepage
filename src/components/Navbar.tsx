@@ -1,6 +1,22 @@
 import { css } from "@emotion/css"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 
-export function Navbar({ children }: { children: React.ReactNode }) {
+export function Navbar() {
+    const location = useLocation();
+    const [currentSection, setCurrentSection] = useState("about");
+
+    useEffect(() => {
+        setCurrentSection(location.hash.slice(1))
+    }, [location.hash])
+
+    const sections = [
+        "about",
+        "work",
+        "projects",
+        "writing"
+    ]
+
     const style = css`
         ul {
             display: flex;
@@ -10,9 +26,20 @@ export function Navbar({ children }: { children: React.ReactNode }) {
     `
 
     return (
-        <ul className={style}>
-            {children}
-        </ul>
+        <nav>
+            <ul className={style}>
+                {sections.map((section, _) => {
+                    console.log(section, currentSection)
+                    return (
+                        <NavbarItem
+                            name={section}
+                            key={`navbar-item-${section}`}
+                            active={section === currentSection}
+                        />
+                    )
+                })}
+            </ul>
+        </nav>
     )
 }
 
@@ -41,6 +68,7 @@ export function NavbarItem({ name, active }: { name: string, active?: boolean })
 
         font-size: var(--font-md);
         font-weight: bold;
+        text-transform: capitalize;
 
         &:not(:hover) {
             ${!active && "opacity: 0.6;"}

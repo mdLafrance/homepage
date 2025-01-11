@@ -1,13 +1,15 @@
 import { css } from "@emotion/css";
-import { useRef, useState } from "react";
 import { TopButton } from "./TopButton";
+import useScrolledStore from "@/lib/scrollState";
+import { ScrollIndicator } from "./ScrollIndicator";
+import React from "react";
 
 export function ContentContainer({ children }: { children: React.ReactNode }) {
-    const [isScrolled, setIsScrolled] = useState(false);
+    const { scrolled, setScrolled } = useScrolledStore();
 
     const handleScroll = (e) => {
         const div = e.target;
-        setIsScrolled(div.scrollTop > 100);
+        setScrolled(div.scrollTop > 200);
     };
 
     const style = css`
@@ -19,7 +21,8 @@ export function ContentContainer({ children }: { children: React.ReactNode }) {
     return (
         <div className={style} onScroll={handleScroll}>
             {children}
-            {isScrolled && <TopButton />}
+            <ScrollIndicator />
+            <TopButton />
         </div>
     )
 }
