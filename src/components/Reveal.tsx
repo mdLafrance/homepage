@@ -2,6 +2,8 @@ import { css } from "@emotion/css"
 
 export function Reveal({ delay, slide, children }: { delay?: number, slide?: boolean, children: React.ReactNode }) {
     const style = css`
+        display: contents;
+
         @keyframes revealOpacity {
             0% {
                 opacity: 0;

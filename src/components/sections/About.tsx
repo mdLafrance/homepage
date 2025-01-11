@@ -6,9 +6,12 @@ import { Reveal } from "../Reveal";
 
 export function About() {
     const style = css`
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+
         h2 {
-            padding-top: var(--spacing-xl);
-            padding-bottom: var(--spacing-lg);
+            padding-top: var(--spacing-2xl);
             font-size: var(--font-xl);
             font-weight: bold;
         }
@@ -36,13 +39,11 @@ export function About() {
                 <p>
                     A <strong>programmer</strong> based in Canada.
                 </p>
-                <br />
             </Reveal>
             <Reveal delay={0.6}>
                 <p>
                     I've been <strong>working in tech</strong> for the past 5 years at visual effects and animation companies, making desktop applications, websites, plugins - <strong>you name it</strong>.
                 </p>
-                <br />
                 <p>
                     When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
                 </p>

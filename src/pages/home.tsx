@@ -1,4 +1,5 @@
 import { ContentContainer } from '@/components/ContentContainer'
+import { CustomCursor } from '@/components/Cursor'
 import { Header } from '@/components/Header'
 import { Navbar } from '@/components/Navbar'
 import { NoiseOverlay } from '@/components/NoiseOverlay'
