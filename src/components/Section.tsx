@@ -74,3 +74,12 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         </section >
     )
 }
+
+export function SubSection({ title, children }: { title: string, children: React.ReactNode }) {
+    return (
+        <section>
+            <h3>{title}</h3>
+            {children}
+        </section>
+    )
+}

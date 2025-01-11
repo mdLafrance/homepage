@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 import { ReachOut } from "../ReachOut";
 import { EnvelopeSimple, GithubLogo, HandWaving, LinkedinLogo, ReadCvLogo } from "@phosphor-icons/react";
 import { IconLink } from "../IconLink";
+import { Reveal } from "../Reveal";
 
 export function About() {
     const style = css`
@@ -26,21 +27,29 @@ export function About() {
 
     return (
         <div className={style}>
-            <h2>
-                Hi, I'm <strong className="blue">Max</strong> <HandWaving className="hand" />
-            </h2>
-            <p>
-                A <strong>programmer</strong> based in Canada.
-            </p>
-            <br />
-            <p>
-                I've been <strong>working in tech</strong> for the past 5 years at visual effects and animation companies, making desktop applications, websites, plugins - <strong>you name it</strong>.
-            </p>
-            <br />
-            <p>
-                When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
-            </p>
-            <Links />
+            <Reveal>
+                <h2>
+                    Hi, I'm <strong className="blue">Max</strong> <HandWaving className="hand" />
+                </h2>
+            </Reveal>
+            <Reveal delay={0.5}>
+                <p>
+                    A <strong>programmer</strong> based in Canada.
+                </p>
+                <br />
+            </Reveal>
+            <Reveal delay={0.6}>
+                <p>
+                    I've been <strong>working in tech</strong> for the past 5 years at visual effects and animation companies, making desktop applications, websites, plugins - <strong>you name it</strong>.
+                </p>
+                <br />
+                <p>
+                    When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
+                </p>
+            </Reveal>
+            <Reveal delay={0.7}>
+                <Links />
+            </Reveal>
         </div>
     )
 }
@@ -49,27 +58,29 @@ export function About() {
 function Links() {
     const style = css`
         display: flex;
+        padding: var(--spacing-md) 0;
+        gap: var(--spacing-md);
     `
 
     return (
         <div className={style}>
             <IconLink
-                icon={<EnvelopeSimple size={32} />}
+                icon={<EnvelopeSimple size={24} />}
                 link="mailto:maxlafrance97@gmail.com"
                 hint="email"
             />
             <IconLink
-                icon={<LinkedinLogo size={32} />}
+                icon={<LinkedinLogo size={24} />}
                 link="https://linkedin.com/in/max-lafrance"
                 hint="linkedin"
             />
             <IconLink
-                icon={<GithubLogo size={32} />}
+                icon={<GithubLogo size={24} />}
                 link="https://github.com/mdlafrance"
                 hint="github"
             />
             <IconLink
-                icon={<ReadCvLogo size={32} />}
+                icon={<ReadCvLogo size={24} />}
                 link="https://github.com/mdlafrance"
                 hint="resume"
             />

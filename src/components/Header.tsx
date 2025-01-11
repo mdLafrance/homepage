@@ -3,8 +3,6 @@ import { css } from "@emotion/css"
 import { OpenToWork } from "./OpenToWork";
 
 export function Header() {
-    const { scrolled } = useScrolledStore();
-
     const style = css`
         h1 {
             font-weight: bold;
@@ -26,24 +24,12 @@ export function Header() {
 
     return (
         <header className={style}>
-            {!scrolled && (
-                <>
-                    <h1>
-                        Max Lafrance<span className='headerAccent'>{"."}</span>
-                    </h1>
-                    <h2>
-                        Software Developer
-                    </h2>
-                </>
-            )}
-            {!!scrolled && (
-                <h1>
-                    <span className="headerAccent">{"<"}</span>
-                    {"ML /"}
-                    <span className="headerAccent">{">"}</span>
-                    <OpenToWork />
-                </h1>
-            )}
+            <h1>
+                <span className="headerAccent">{"<"}</span>
+                {"ML /"}
+                <span className="headerAccent">{">"}</span>
+                <OpenToWork />
+            </h1>
         </header>
     )
 }

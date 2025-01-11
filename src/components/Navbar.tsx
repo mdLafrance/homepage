@@ -1,3 +1,4 @@
+import useScrolledStore from "@/lib/scrollState";
 import { css } from "@emotion/css"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"

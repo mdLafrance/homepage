@@ -33,11 +33,21 @@
 
     80% {
         opacity: 100%;
-        transform: scaleX(-1) rotate(-12deg);
+        transform: scaleX(-1) rotate(-15deg);
     }
 
     100% {
         opacity: 100%;
         transform: scaleX(-1) rotate(0deg);
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
     }
 }

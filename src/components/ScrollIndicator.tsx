@@ -15,11 +15,10 @@ export function ScrollIndicator() {
         }
     }, [scrolled])
 
-    // Show after 2 seconds
     useEffect(() => {
         const timeout = setTimeout(() => {
             setVisible(true);
-        }, 3000); // 2 seconds delay
+        }, 4000);
 
         return () => clearTimeout(timeout);
     }, []);

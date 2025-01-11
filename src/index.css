@@ -18,9 +18,10 @@
     --spacing-xl: 3rem;
 
     --light: #F8F8F8;
-    --dark: #0f0f0f;
+    --dark: rgb(15, 15, 15);
     --primary: #034694;
 
+    --rounded-lg: 0.5rem;
     --rounded-md: 0.3rem;
 }
 
