@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar'
 import { NoiseOverlay } from '@/components/NoiseOverlay'
 import { ReachOut } from '@/components/ReachOut'
 import { Section } from '@/components/Section'
+import { About } from '@/components/sections/About'
 import { Sidebar } from '@/components/Sidebar'
 import { css } from '@emotion/css'
 
@@ -28,24 +29,8 @@ export default function Home() {
                     <Navbar />
                 </Sidebar>
                 <ContentContainer>
-                    <Section name="about">
-                        <p>
-                            Hi, I'm <strong className={css`color: var(--primary)`}>Max</strong>, a <strong>programmer</strong> based in Canada.
-                        </p>
-                        <br />
-                        <p>
-                            I've been <strong>working in tech</strong> for the past 5 years at visual effects and animation companies, making desktop applications, websites, plugins - <strong>you name it</strong>.
-                        </p>
-                        <br />
-                        <p>
-                            When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
-                        </p>
-                        <div className={css`
-                            padding: var(--spacing-lg);
-                            display: flex;
-                        `}>
-                            <ReachOut />
-                        </div>
+                    <Section name="about" noShowTitle>
+                        <About />
                     </Section>
                     <Section name="work">
                         <></>

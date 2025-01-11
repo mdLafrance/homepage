@@ -11,3 +11,33 @@
         opacity: 1;
     }
 }
+
+.hand-wave {
+    transform: scaleX(-1);
+}
+
+@keyframes handWave {
+    0% {
+        opacity: 0;
+        transform: scaleX(-1) translateY(10px);
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    60% {
+        opacity: 100%;
+        transform: scaleX(-1) rotate(0) translateY(0px);
+    }
+
+    80% {
+        opacity: 100%;
+        transform: scaleX(-1) rotate(-12deg);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: scaleX(-1) rotate(0deg);
+    }
+}

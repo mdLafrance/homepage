@@ -31,42 +31,45 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         font-size: var(--font-md);
         text-wrap: balance;
 
-        h2 {
-            line-height: 1;
+    `
 
-            position: sticky;
-            top: 0rem;
-            min-height: 5.8rem;
+    const stickyHeaderStyle = css`
+        line-height: 1;
 
-            margin-bottom: 1rem;
+        position: sticky;
+        top: 0rem;
+        min-height: 5.8rem;
 
-            display: flex;
-            flex-direction:column;
-            gap: var(--spacing-sm);
-            justify-content: end;
+        margin-bottom: 1rem;
 
-            font-size: var(--font-lg);
-            font-weight: bold;
-            text-transform: capitalize;
+        display: flex;
+        flex-direction:column;
+        gap: var(--spacing-sm);
+        justify-content: end;
 
-            background: var(--light);
-            box-shadow: 0 0 4px 4px var(--light);
+        font-size: var(--font-lg);
+        font-weight: bold;
+        text-transform: capitalize;
 
-            span *:first-child {
-                color: var(--primary);
-            }
+        background: var(--light);
+        box-shadow: 0 0 4px 4px var(--light);
+
+        span *:first-child {
+            color: var(--primary);
         }
     `
 
     return (
         <section className={style} id={`section-${name.toLowerCase()}`} ref={ref} >
-            <h2>
-                <span>
-                    <span>{"#"}</span>
-                    <span>{name}</span>
-                </span>
-                <span className={css`min-height: 4px;`} />
-            </h2>
+            {!noShowTitle && (
+                <h2 className={stickyHeaderStyle}>
+                    <span>
+                        <span>{"#"}</span>
+                        <span>{name}</span>
+                    </span>
+                    <span className={css`min-height: 4px;`} />
+                </h2>
+            )}
             {children}
         </section >
     )

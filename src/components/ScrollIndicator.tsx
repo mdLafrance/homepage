@@ -26,20 +26,20 @@ export function ScrollIndicator() {
 
     const style = css`
         position: fixed;
-        top: 50%;
-        transform: translate(0, -50%);
-        right: var(--spacing-xl);
+        bottom: var(--spacing-xl);
+        transform: translate(-50%, 0);
+        left: 50%;
 
         transition: opacity 1.5s ease;
 
-        ${visible ? 'opacity: 0.6' : 'opacity: 0'};
+        ${visible ? 'opacity: 0.5' : 'opacity: 0'};
 
         ${hidden && 'display: none;'}
     `
 
     return (
         <span className={style}>
-            <MouseScroll size={27} />
+            <MouseScroll size={34} />
         </span>
     )
 }

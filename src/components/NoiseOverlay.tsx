@@ -14,7 +14,7 @@ export function NoiseOverlay() {
         background-attachment: local;
         background-blend-mode: multiply;
         mix-blend-mode: multiply;
-        opacity: 0.65;
+        opacity: 0.5;
 
         z-index: 100;
 
