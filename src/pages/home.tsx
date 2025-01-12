@@ -6,6 +6,7 @@ import { NoiseOverlay } from '@/components/NoiseOverlay'
 import { ReachOut } from '@/components/ReachOut'
 import { Section } from '@/components/Section'
 import { About } from '@/components/sections/About'
+import { Work } from '@/components/sections/Work'
 import { Sidebar } from '@/components/Sidebar'
 import { css } from '@emotion/css'
 
@@ -34,7 +35,7 @@ export default function Home() {
                         <About />
                     </Section>
                     <Section name="work">
-                        <></>
+                        <Work />
                     </Section>
                     <Section name="projects">
                         <></>

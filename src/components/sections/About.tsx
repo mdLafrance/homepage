@@ -8,7 +8,7 @@ export function About() {
     const style = css`
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-lg);
+        gap: var(--spacing-md);
 
         h2 {
             padding-top: var(--spacing-2xl);
@@ -35,6 +35,7 @@ export function About() {
                     Hi, I'm <strong className="blue">Max</strong> <HandWaving className="hand" />
                 </h2>
             </Reveal>
+            <ProfilePic />
             <Reveal delay={0.5}>
                 <p>
                     A <strong>programmer</strong> based in Canada.
@@ -44,6 +45,7 @@ export function About() {
                 <p>
                     I've been <strong>working in tech</strong> for the past 5 years at visual effects and animation companies, making desktop applications, websites, plugins - <strong>you name it</strong>.
                 </p>
+                <br />
                 <p>
                     When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
                 </p>
@@ -55,13 +57,28 @@ export function About() {
     )
 }
 
+function ProfilePic() {
+    const style = css`
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 10rem;
+        aspect-ratio: 1;
+
+        border-radius: 100%;
+        border: 2.5px solid var(--dark);
+    `
+    return (
+        <img src="profile.jpeg" alt="My Local Image" className={style} />
+    )
+}
 
 function Links() {
     const style = css`
-        display: flex;
-        padding: var(--spacing-md) 0;
-        gap: var(--spacing-md);
-    `
+            display: flex;
+            padding: var(--spacing-md) 0;
+            gap: var(--spacing-md);
+            `
 
     return (
         <div className={style}>

@@ -64,7 +64,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
             {!noShowTitle && (
                 <h2 className={stickyHeaderStyle}>
                     <span>
-                        <span>{"#"}</span>
+                        <span>{"# "}</span>
                         <span>{name}</span>
                     </span>
                     <span className={css`min-height: 4px;`} />
