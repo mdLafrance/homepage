@@ -5,6 +5,11 @@ export function Reveal({ delay, slide, children }: { delay?: number, slide?: boo
         @keyframes revealOpacity {
             0% {
                 opacity: 0;
+                filter: blur(1.5px);
+            }
+
+            70% {
+                filter: blur(0px);
             }
 
             100% {
@@ -24,7 +29,7 @@ export function Reveal({ delay, slide, children }: { delay?: number, slide?: boo
 
         opacity: 0;
 
-        animation: revealOpacity 0.5s ease forwards ${!!slide && `, revealSlide 0.5s ease forwards`};
+        animation: revealOpacity 0.5s ease forwards ${true && `, revealSlide 0.5s ease forwards`};
         ${delay !== undefined && `animation-delay: ${delay}s;`}
     `
 

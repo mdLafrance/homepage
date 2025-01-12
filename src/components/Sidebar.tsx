@@ -7,9 +7,9 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
     const [revealed, setRevealed] = useState(false)
 
     useEffect(() => {
-        if (scrolled) {
-            setRevealed(true)
-        }
+        // if (scrolled) {
+        //     setRevealed(true)
+        // }
     }, [scrolled])
 
     const style = css`

@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/mdlafrance/hacking/homepage/app/layout":["static/media/c9a5bc6a7c948fb0-s.p.woff2","static/media/af9c9aa4377e5ab9-s.p.otf","static/media/a75b4f06128885ba-s.p.otf","static/media/9298eb2a58e0b66a-s.p.otf"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';

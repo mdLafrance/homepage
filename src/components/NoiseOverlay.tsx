@@ -10,11 +10,11 @@ export function NoiseOverlay() {
 
         background-image: url("noise.svg");
         background-repeat: repeat;
-        background-size: 10dvh;
+        background-size: 15dvh;
         background-attachment: local;
         background-blend-mode: multiply;
         mix-blend-mode: multiply;
-        opacity: 0.65;
+        opacity: 0.6;
 
         z-index: 100;
 

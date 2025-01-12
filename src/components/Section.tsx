@@ -26,10 +26,10 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         flex-direction: column;
 
         max-width: 70ch;
-        min-height: 100vh;
         color: var(--dark);
         font-size: var(--font-md);
         text-wrap: balance;
+        padding-bottom: var(--spacing-lg);
 
     `
 
@@ -47,7 +47,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         gap: var(--spacing-sm);
         justify-content: end;
 
-        font-size: var(--font-lg);
+        font-size: var(--font-xl);
         font-weight: bold;
         text-transform: capitalize;
 
