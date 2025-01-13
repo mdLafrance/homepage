@@ -11,7 +11,7 @@ export function Hero() {
         gap: var(--spacing-md);
         max-width: 70ch;
 
-        margin-top: 15dvh;
+        margin-top: 12dvh;
 
         .hand {
             opacity: 0;
@@ -65,7 +65,7 @@ export function Hero() {
                         </h2>
                         <Reveal delay={0.8}>
                             <p>
-                                Programmer, tech enthusiast, artist, and general nerd.
+                                Software developer, <br /> general nerd.
                             </p>
                         </Reveal>
                     </div>

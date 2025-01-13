@@ -29,7 +29,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
 
         color: var(--dark);
         font-size: var(--font-md);
-        padding-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-2xl);
 
         text-wrap: balance;
     `

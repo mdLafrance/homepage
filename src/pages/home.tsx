@@ -1,4 +1,5 @@
 import { ContentContainer } from '@/components/ContentContainer'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navbar } from '@/components/Navbar'
 import { NoiseOverlay } from '@/components/NoiseOverlay'
@@ -46,6 +47,9 @@ export default function Home() {
                         <Section name="projects">
                             <></>
                         </Section>
+                    </Reveal>
+                    <Reveal delay={1.3}>
+                        <Footer />
                     </Reveal>
                 </ContentContainer>
             </div >

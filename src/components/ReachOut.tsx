@@ -3,17 +3,18 @@ import { HandWaving } from "@phosphor-icons/react"
 
 export function ReachOut() {
     const style = css`
-        width: 6.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: var(--spacing-sm);
-        border-radius: var(--rounded-md);
-        padding: var(--spacing-sm);
+        border-radius: var(--rounded-lg);
+        padding: var(--spacing-sm) var(--spacing-md);
 
-        font-size: var(--font-sm);
+        font-size: var(--font-lg);
 
-        border: 1.4px solid var(--dark);
+        border: 2.5px solid var(--dark);
+        border-right: 4px solid var(--dark);
+        border-bottom: 4px solid var(--dark);
 
         cursor: pointer;
 
