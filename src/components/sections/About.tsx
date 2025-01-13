@@ -12,6 +12,10 @@ export function About() {
             </p>
             <br />
             <p>
+                <strong>These days</strong>, I'm working at a <strong>VFX startup</strong>, making web apps, python libraries, and other things.
+            </p>
+            <br />
+            <p>
                 When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
             </p>
         </div>

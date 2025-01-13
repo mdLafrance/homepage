@@ -26,11 +26,12 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         flex-direction: column;
 
         max-width: 70ch;
+
         color: var(--dark);
         font-size: var(--font-md);
-        text-wrap: balance;
         padding-bottom: var(--spacing-lg);
 
+        text-wrap: balance;
     `
 
     const stickyHeaderStyle = css`
@@ -40,7 +41,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         top: 0rem;
         min-height: 5.8rem;
 
-        margin-bottom: 1rem;
+        padding-bottom: var(--spacing-md);
 
         display: flex;
         flex-direction:column;

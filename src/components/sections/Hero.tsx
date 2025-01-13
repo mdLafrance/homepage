@@ -1,17 +1,17 @@
 import { css } from "@emotion/css";
-import { ReachOut } from "../ReachOut";
 import { EnvelopeSimple, GithubLogo, HandWaving, LinkedinLogo, ReadCvLogo } from "@phosphor-icons/react";
 import { IconLink } from "../IconLink";
 import { Reveal } from "../Reveal";
 import { AtDesk } from "../Drawn/AtDesk";
 
-export function Intro() {
+export function Hero() {
     const style = css`
         display: flex;
         flex-direction: column;
         gap: var(--spacing-md);
         max-width: 70ch;
-        margin-top: 7rem;
+
+        margin-top: 15dvh;
 
         .hand {
             opacity: 0;
@@ -39,6 +39,7 @@ export function Intro() {
 
             .text-section {
                 display: flex;
+                justify-content: center;
                 flex-direction: column;
                 gap: var(--spacing-md);
                 flex-grow: 0;

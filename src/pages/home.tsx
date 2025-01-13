@@ -1,13 +1,11 @@
 import { ContentContainer } from '@/components/ContentContainer'
-import { CustomCursor } from '@/components/Cursor'
 import { Header } from '@/components/Header'
 import { Navbar } from '@/components/Navbar'
 import { NoiseOverlay } from '@/components/NoiseOverlay'
-import { ReachOut } from '@/components/ReachOut'
 import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
 import { About } from '@/components/sections/About'
-import { Intro } from '@/components/sections/Intro'
+import { Hero } from '@/components/sections/Hero'
 import { Work } from '@/components/sections/Work'
 import { Sidebar } from '@/components/Sidebar'
 import { css } from '@emotion/css'
@@ -33,18 +31,18 @@ export default function Home() {
                     <Navbar />
                 </Sidebar>
                 <ContentContainer>
-                    <Intro />
+                    <Hero />
                     <Reveal delay={1}>
                         <Section name="about">
                             <About />
                         </Section>
                     </Reveal>
-                    <Reveal delay={1.2}>
+                    <Reveal delay={1.1}>
                         <Section name="work">
                             <Work />
                         </Section>
                     </Reveal>
-                    <Reveal delay={1.4}>
+                    <Reveal delay={1.2}>
                         <Section name="projects">
                             <></>
                         </Section>
