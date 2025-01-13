@@ -15,7 +15,7 @@ export function Hero() {
 
         .hand {
             opacity: 0;
-            animation: handWave 0.8s ease forwards;
+            animation: handWave 0.7s ease forwards;
         }
 
         .blue {

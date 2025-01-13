@@ -5,7 +5,7 @@ export function Reveal({ delay, children }: { delay?: number, children: React.Re
         @keyframes revealOpacity {
             0% {
                 opacity: 0;
-                filter: blur(3px);
+                filter: blur(2px);
             }
 
             70% {
@@ -13,7 +13,7 @@ export function Reveal({ delay, children }: { delay?: number, children: React.Re
             }
 
             100% {
-                opacity: 100;
+                opacity: 1;
             }
         } 
 
