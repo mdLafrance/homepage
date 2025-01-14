@@ -2,46 +2,33 @@ import { css } from "@emotion/css";
 import { TechnologyCarousel } from "../TechnologyCarousel";
 import React, { useState } from "react";
 
-const technologies = [
-    "Python",
-    "Typescript",
-    "Javascript",
-    "React",
-    "Bash",
-    "Tailwind",
-    "EmotionCss",
-    "Qt",
-    "Vite",
-    "Poetry",
-    "Pybuilder",
-    "Make",
-    "html",
-    "css",
-    "git",
-    "Express",
-    "Elasticsearch",
-    "AWS",
-    "GCP",
-    "Gitlab CI",
-    "Docker",
-    "Docker Compose",
-    "Nextjs",
-    "MongoDB",
-    "PostgreSQL",
-    "MySQL",
-    "Maya",
-    "Nuke",
-    "RV",
-    "Shotgrid",
-    "ZBrush",
-    "Unity",
-    "Substance Painter",
-    "Rust",
-    "C++",
-    "C#",
-    "GLSL",
-    "OpenGL",
-    "ImGUI"
+interface WorkplaceDetails {
+    company: string,
+    position: string,
+    duration: string,
+}
+
+const workplaces: WorkplaceDetails[] = [
+    {
+        company: "BeloFX",
+        position: "Software Engineer",
+        duration: "April 2022 - Present"
+    },
+    {
+        company: "Industrial Brothers",
+        position: "Software Engineering Intern",
+        duration: "Summer 2028, Summer 2019"
+    },
+    {
+        company: "Awesometown Entertainment",
+        position: "Software Engineering Intern",
+        duration: "Summer 2017"
+    },
+    {
+        company: "Arc Productions",
+        position: "Software Engineering Intern",
+        duration: "June 2015 - January 2016"
+    },
 ]
 
 export function Work() {
@@ -49,25 +36,9 @@ export function Work() {
         text-wrap: balance; 
     `
 
-    const technologyStyle = css`
-        padding: var(--spacing-lg);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.3rem;
-        justify-content: center;
-
-        span {
-            font-size: var(--font-md);
-            font-weight: bold;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            border-radius: var(--rounded-md);
-            padding: var(--spacing-sm) var(--spacing-md);
-        }
-    `
-
     return (
         <div className={style}>
+            {/**
             <p>
                 At work I do a bit of everything, using technologies like <TechnologyCarousel /><br />
                 to make sure everything is running smoothly.
@@ -79,62 +50,88 @@ export function Work() {
                 learning new technologies and interfacing with stakeholders. Juggling two or three
                 solo initiatives, while acting as support for existing products is commonplace.
             </p>
+            **/}
 
-            <WorkplaceContainer workplaces={["BeloFX", "Industrial Brothers", "Awesometown Entertainment"]}>
-                <Workplace title="BeloFX">
-                    <p>Belofx</p>
-                </Workplace>
-                <Workplace title="Industrial Brothers">
-                    <p>Belofx</p>
-                </Workplace>
-                <Workplace title="Awesometown Entertainment">
-                    <p>Belofx</p>
-                </Workplace>
-                <Workplace title="Arc Productions">
-                    <p>Belofx</p>
-                </Workplace>
-            </WorkplaceContainer>
-
-            <div className={technologyStyle}>
-                {technologies.map((technology) => (
-                    <span key={technology} >{technology}</span>
-                ))}
-            </div>
+            <Workplaces workplaces={workplaces} />
         </div>
     )
 }
 
-function WorkplaceContainer({ workplaces, children }: { workplaces: string[], children: React.ReactNode }) {
+function Workplaces({ workplaces }: { workplaces: WorkplaceDetails[] }) {
     const [index, setIndex] = useState(0);
 
     const style = css`
         display: flex;
+        padding: var(--spacing-lg) 0;
     `
 
-    const selectorStyle = css`
+    const selectorContainerStyle = css`
         display: flex;
         flex-direction: column;
         gap: var(--spacing-md);
+        max-width: 8rem;
+        border-left: 2px solid var(--gray);
     `
 
     return (
         <div className={style}>
-            <div className={selectorStyle}>
+            <ul className={selectorContainerStyle}>
                 {workplaces.map((workplace) => (
-                    <button key={workplace}>{workplace}</button>
+                    <WorkplaceSelector key={`workplaceselector-${workplace.company}`} company={workplace.company} />
                 ))}
-            </div>
+            </ul>
 
-            {React.Children.toArray(children)[index]}
+            <Workplace details={workplaces[index]} />
         </div>
     )
 }
 
-function Workplace({ title, children }: { title: string, children: React.ReactNode }) {
+function WorkplaceSelector({ company }: { company: string }) {
+    const style = css`
+        font-weight: bold;
+        font-size: var(--font-sm);
+        text-align: start;
+        padding-bottom: var(--spacing-md);
+    `
+
     return (
-        <div>
-            <h3>{title}</h3>
-            {children}
-        </div>
+        <li>
+            <button className={style}>{company}</button>
+        </li>
+    )
+}
+
+function Workplace({ details }: { details: WorkplaceDetails }) {
+    const style = css`
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+
+        .position-text {
+            font-size: var(--font-lg);
+            font-weight: bold;
+        }
+
+        .company-text {
+            font-weight: bold;
+            font-size: var(--font-lg);
+
+            color: var(--primary);
+        }
+
+        .duration-text {
+            color: var(--gray);
+        }
+
+    `
+
+    return (
+        <article className={style}>
+            <h3>
+                <span className="position-text">{details.position}</span>
+                <span className="company-text">{` @ ${details.company}`}</span>
+            </h3>
+            <h5 className="duration-text">{details.duration}</h5>
+        </article>
     )
 }

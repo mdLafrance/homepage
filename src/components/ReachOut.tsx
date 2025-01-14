@@ -14,8 +14,6 @@ export function ReachOut() {
 
         border: 2px solid var(--dark);
 
-        cursor: pointer;
-
         font-weight: bold;
 
         transition: transform 0.05s ease,  box-shadow 0.05s ease;
