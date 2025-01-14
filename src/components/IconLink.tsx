@@ -6,15 +6,15 @@ export function IconLink({ icon, link, hint }: { icon: React.ReactNode, link: st
 
         padding: var(--spacing-sm);
 
-        border: 1.5px solid rgba(15, 15, 15, 0.03);
-        border-bottom: 2.5px solid rgba(15, 15, 15, 0.10);
         border-radius: var(--rounded-lg);
+
+        border: 1.7px solid var(--dark);
+        border-right: 2.8px solid var(--dark);
+        border-bottom: 3px solid var(--dark);
 
         display: flex;
         justify-content: center;
         align-items: center;
-
-        background: rgba(15, 15, 15, 0.035);
 
         color: var(--dark);
 

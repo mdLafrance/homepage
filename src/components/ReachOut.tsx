@@ -20,6 +20,7 @@ export function ReachOut() {
 
         font-weight: bold;
 
+
         &:hover {
             background: var(--primary);
             color: var(--light);

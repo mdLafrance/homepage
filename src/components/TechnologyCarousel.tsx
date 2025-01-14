@@ -7,7 +7,7 @@ const technologies = [
     "Typescript",
     "React",
     "Tailwind",
-    "Emotion",
+    "EmotionCss",
     "Qt",
     "Vite",
     "Poetry",

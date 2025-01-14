@@ -17,7 +17,6 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-lg);
-        padding: var(--spacing-lg);
     `
 
     return (

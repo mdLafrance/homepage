@@ -6,15 +6,17 @@ export function OpenToWork() {
         align-items: center;
         gap: var(--spacing-md);
 
-        font-size: var(--font-sm);
+        font-size: var(--font-md);
         font-weight: bold;
 
-        & *:first-child {
+        .circle {
             aspect-ratio: 1;
             background-color: green;
-            min-width: 0.5rem;
-            min-height: 0.5rem;
+            width: 0.7rem;
             border-radius: 100%;
+            border: 1.5px solid var(--dark);
+            box-sizing: border-box;
+            filter: brightness(1.2);
         }
     `
 

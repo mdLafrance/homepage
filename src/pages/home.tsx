@@ -44,7 +44,7 @@ export default function Home() {
                         </Section>
                     </Reveal>
                     <Reveal delay={1.2}>
-                        <Section name="projects">
+                        <Section name="more">
                             <></>
                         </Section>
                     </Reveal>
