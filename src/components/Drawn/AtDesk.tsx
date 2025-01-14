@@ -6,6 +6,6 @@ export function AtDesk() {
         mix-blend-mode: difference;
     `
     return (
-        <img src="Test3.gif" alt="AtDesk" width="170px" className={style} />
+        <img src="Desk.gif" alt="AtDesk" width="170px" className={style} />
     )
 }

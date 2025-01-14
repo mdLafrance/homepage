@@ -6,7 +6,7 @@ export function TopButton() {
     const { scrolled } = useScrolledStore();
 
     const handleClick = () => {
-        document.getElementById(`section-about`)?.scrollIntoView()
+        document.getElementById(`section-hero`)?.scrollIntoView()
     }
 
     const style = css`

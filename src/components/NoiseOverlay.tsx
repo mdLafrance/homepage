@@ -21,7 +21,7 @@ export function NoiseOverlay() {
         pointer-events: none;
         `
 
-        return (
-            <div className={style} />
-        )
+    return (
+        <div className={style} />
+    )
 }

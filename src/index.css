@@ -6,9 +6,9 @@
 @import "animations.css";
 
 :root {
-    --font-2xl: 44px;
-    --font-xl: 32px;
-    --font-lg: 22px;
+    --font-2xl: 48px;
+    --font-xl: 34px;
+    --font-lg: 24px;
     --font-md: 16px;
     --font-sm: 14px;
     --font-xs: 12px;

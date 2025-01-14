@@ -12,22 +12,23 @@ export function ReachOut() {
 
         font-size: var(--font-lg);
 
-        border: 2.5px solid var(--dark);
-        border-right: 4px solid var(--dark);
-        border-bottom: 4px solid var(--dark);
+        border: 2px solid var(--dark);
 
         cursor: pointer;
 
         font-weight: bold;
 
+        transition: transform 0.05s ease,  box-shadow 0.05s ease;
 
         &:hover {
             background: var(--primary);
             color: var(--light);
+            transform: translate(-3px, -3px);
+            box-shadow: 1.5px 1.5px 0 1.5px var(--dark);
         }
 
         &:active {
-            transform: translate(0, 1px);
+            transform: translate(-3px, -1.5px);
         }
     `
 

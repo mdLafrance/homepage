@@ -11,8 +11,6 @@ export function Hero() {
         gap: var(--spacing-md);
         max-width: 70ch;
 
-        margin-top: 12dvh;
-
         .hand {
             opacity: 0;
             animation: handWave 0.7s ease forwards;
@@ -24,6 +22,8 @@ export function Hero() {
         }
 
         .profile-section {
+            margin-top: 10dvh;
+
             h2 {
                 font-size: var(--font-2xl);
                 font-weight: bold;
@@ -36,6 +36,7 @@ export function Hero() {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
+            gap: var(--spacing-2xl);
 
             .text-section {
                 display: flex;
@@ -43,7 +44,6 @@ export function Hero() {
                 flex-direction: column;
                 gap: var(--spacing-md);
                 flex-grow: 0;
-                width: 24rem;
             }
 
             .image-section {
@@ -56,7 +56,7 @@ export function Hero() {
     `
 
     return (
-        <div className={style}>
+        <div className={style} id="section-hero">
             <Reveal>
                 <div className="profile-section">
                     <div className="text-section">
@@ -80,29 +80,6 @@ export function Hero() {
                 <Links />
             </Reveal>
         </div>
-    )
-}
-
-function ProfilePic() {
-    const style = css`
-        width: 9rem;
-        height: 9rem;
-        aspext-ratio: 1;
-        overflow: clip;
-
-        border-radius: 100%;
-        border: 2.5px solid var(--dark);
-
-        transform: scale(0.75);
-
-        img {
-            transform: translate(-25px, -48px);
-        }
-    `
-    return (
-        <figure className={style}>
-            <img src="profile.jpg" alt="My Local Image" width="220px" />
-        </figure>
     )
 }
 

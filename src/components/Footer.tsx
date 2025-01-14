@@ -24,7 +24,7 @@ export function Footer() {
         justify-content: center;
 
         img {
-            transform: scale(1.15) translate(-3px, -1px);
+            transform: scale(1.3) translate(-3px, -1px);
         }
     `
 
