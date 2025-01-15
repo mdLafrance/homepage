@@ -25,8 +25,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         display: flex;
         flex-direction: column;
 
-        max-width: 70ch;
-
+        max-width: var(--content-width);
         color: var(--dark);
         font-size: var(--font-md);
         padding-bottom: var(--spacing-2xl);
@@ -54,6 +53,8 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
 
         background: var(--light);
         box-shadow: 0 0 4px 4px var(--light);
+
+        z-index: 500;
 
         span *:first-child {
             color: var(--primary);

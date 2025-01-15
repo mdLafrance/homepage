@@ -13,7 +13,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
     }, [scrolled])
 
     const style = css`
-        width: calc((100% - 70ch) / 2);
+        width: calc((100% - var(--content-width)) / 2);
         display: flex;
         flex-direction: column;
         gap: var(--spacing-lg);

@@ -4,12 +4,15 @@ import { OpenToWork } from "./OpenToWork"
 
 export function Footer() {
     const style = css`
+        position: relative;
+
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: var(--spacing-lg);
+        max-width: var(--content-width);
 
-        max-width: 70ch;
+        padding-bottom: var(--spacing-2xl);
     `
 
     const profileStyle = css`
@@ -29,19 +32,27 @@ export function Footer() {
     `
 
     const sourceCodeStyle = css`
-        opacity: 0.5;
+        color: var(--gray);
+    `
+
+    const meGifStyle = css`
+        position: absolute;
+        top: -5rem;
+        right: 10rem;
+        transform: scale(0.7) rotate(10deg);
+        opacity: 0.3;
     `
 
     return (
         <footer className={style}>
+            <img src="me.gif" alt="Writing" width="170px" className={meGifStyle} />
             <span className={profileStyle}>
-                <img src="profile.jpg" alt="Profile" width="170px" />
+                <img src="profile.jpg" alt="Profile picture" width="170px" />
             </span>
             <OpenToWork />
             <ReachOut />
             <span>maxlafrance97@gmail.com</span>
             <span>647-878-8700</span>
-            <span></span>
             <a className={sourceCodeStyle}>Source code on my github</a>
         </footer>
     )

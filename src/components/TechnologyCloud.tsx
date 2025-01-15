@@ -42,7 +42,8 @@ const technologies = [
     "OpenGL",
     "ImGUI",
     "Lua",
-    "Nvim"
+    "Nvim",
+    "Cmake"
 ]
 
 export function TechnologyCloud() {
@@ -55,7 +56,7 @@ export function TechnologyCloud() {
         padding: 2px;
 
         span {
-            font-size: var(--font-md);
+            font-size: var(--font-sm);
             font-weight: bold;
             color: var(--primary);
             border: 2px solid var(--primary);

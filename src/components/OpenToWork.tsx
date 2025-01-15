@@ -23,7 +23,7 @@ export function OpenToWork() {
     return (
         <span className={style}>
             <span className="circle"></span>
-            <span> Open to work - Q2 2025</span>
+            <span> Available - Q2 2025</span>
         </span>
     )
 }

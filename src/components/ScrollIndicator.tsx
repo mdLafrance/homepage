@@ -25,9 +25,9 @@ export function ScrollIndicator() {
 
     const style = css`
         position: fixed;
-        bottom: var(--spacing-xl);
-        transform: translate(-50%, 0);
-        left: 50%;
+        right: var(--spacing-2xl);
+        transform: translate(0, -50%);
+        top: 50%;
 
         transition: opacity 1.5s ease;
 

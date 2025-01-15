@@ -22,22 +22,12 @@
         transform: scaleX(-1) translateY(8px);
     }
 
-    40% {
+    60% {
         opacity: 100%;
         transform: scaleX(-1) rotate(0) translateY(0px);
     }
 
-    55% {
-        opacity: 100%;
-        transform: scaleX(-1) rotate(-15deg);
-    }
-
-    70% {
-        opacity: 100%;
-        transform: scaleX(-1) rotate(2deg);
-    }
-
-    85% {
+    80% {
         opacity: 100%;
         transform: scaleX(-1) rotate(-15deg);
     }

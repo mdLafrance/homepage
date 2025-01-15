@@ -9,7 +9,7 @@ export function Hero() {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-md);
-        max-width: 70ch;
+        max-width: var(--content-width);
 
         .hand {
             opacity: 0;
@@ -65,7 +65,7 @@ export function Hero() {
                         </h2>
                         <Reveal delay={0.8}>
                             <p>
-                                Software developer, <br /> general nerd.
+                                Software developer, <br /> and general nerd.
                             </p>
                         </Reveal>
                     </div>

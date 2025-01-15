@@ -23,7 +23,6 @@ export function ContentContainer({ children }: { children: React.ReactNode }) {
             <div className={style} onScroll={handleScroll}>
                 {children}
             </div>
-            <ScrollIndicator />
             <TopButton />
         </>
     )

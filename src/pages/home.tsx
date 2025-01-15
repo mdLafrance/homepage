@@ -7,6 +7,7 @@ import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
 import { About } from '@/components/sections/About'
 import { Hero } from '@/components/sections/Hero'
+import { More } from '@/components/sections/More'
 import { Work } from '@/components/sections/Work'
 import { Sidebar } from '@/components/Sidebar'
 import { css } from '@emotion/css'
@@ -38,17 +39,17 @@ export default function Home() {
                             <About />
                         </Section>
                     </Reveal>
-                    <Reveal delay={1.1}>
+                    <Reveal delay={1.2}>
                         <Section name="work">
                             <Work />
                         </Section>
                     </Reveal>
-                    <Reveal delay={1.2}>
+                    <Reveal delay={1.4}>
                         <Section name="more">
-                            <></>
+                            <More />
                         </Section>
                     </Reveal>
-                    <Reveal delay={1.3}>
+                    <Reveal delay={1.5}>
                         <Footer />
                     </Reveal>
                 </ContentContainer>

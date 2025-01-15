@@ -1,19 +1,29 @@
 import { css } from "@emotion/css"
 import { TechnologyCloud } from "../TechnologyCloud"
+import { HandPointing } from "@phosphor-icons/react"
+import { Reveal } from "../Reveal"
 
 export function About() {
     const techHeaderStyle = css`
-        padding: var(--spacing-lg);
+        padding-top: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
         padding-left: 0;
 
         font-size: var(--font-lg);
         font-weight: bold;
+        font-style: italic;
 
         display: flex;
+        align-items: center;
         gap: var(--spacing-md);
 
         *:first-child {
             color: var(--primary);
+        }
+
+        .hand {
+            color: var(--primary);
+            transform: rotate(90deg);
         }
     `
 
@@ -27,11 +37,10 @@ export function About() {
                 <strong>These days</strong>, I'm working at a VFX <strong>startup</strong>, writing web apps, python libraries, and putting out fires.
             </p>
             <br />
-            <p>
-                When I'm not working, or getting lost in a tech rabbit hole, you can find me playing guitar, drawing, or hacking away on something.
-            </p>
-            <h4 className={techHeaderStyle}><span>{"##"}</span><span>I make stuff with</span></h4>
-            <TechnologyCloud />
+            <h4 className={techHeaderStyle}><span>I make stuff with</span><HandPointing className="hand" weight="bold" /></h4>
+            <Reveal delay={1.1}>
+                <TechnologyCloud />
+            </Reveal>
         </div>
     )
 }
