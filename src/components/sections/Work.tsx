@@ -1,14 +1,6 @@
 import { css } from "@emotion/css";
-import { TechnologyCarousel } from "../TechnologyCarousel";
 import React, { useState } from "react";
 import { Reveal } from "../Reveal";
-
-interface WorkExperience {
-    company: string,
-    position: string,
-    duration: string,
-    description: string,
-}
 
 export function Work() {
     const style = css`
@@ -17,43 +9,35 @@ export function Work() {
 
     return (
         <div className={style}>
-            <p>
-                At work I do a bit of everything, using technologies like <TechnologyCarousel /><br />
-                to make sure everything is running smoothly.
-            </p>
-            <br />
-            <p>
-                The teams I've worked on have always been skeleton crews - where developers of all
-                levels have had to step up to the plate and lead development of entire systems while
-                learning new technologies and interfacing with stakeholders. Juggling two or three
-                solo initiatives, while acting as support for existing products is commonplace.
-            </p>
-
             <Reveal delay={1.3}>
                 <WorkplaceContainer workplaces={["BeloFX", "Industrial Brothers", "Awesometown Entertainment", "Arc Productions"]}>
                     <Workplace position="Software Engineer" company="BeloFX" duration="April 2022 - Present">
                         <WorkBullet>
                             <p>
+                                As one of the first three developers on our Canadian team, took part in the design and implementation of core systems
+                            </p>
+                        </WorkBullet>
+                        <WorkBullet>
+                            <p>
                                 Developed a <strong>React</strong> web application allowing our teams to seamlessly browse our distributed file systems,
-                                backups, and archives. This app integrates with <strong>Elasticsearch</strong> to serve results in real-time, and includes
-                                an <strong>Express</strong> and <strong>TRPC</strong> sidecar API.
+                                backups, and archives. Uses an <strong>Express</strong> and <strong>TRPC</strong> sidecar API to serve results in real-time
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
                                 Established and maintained <strong>CI/CD</strong> pipelines to automate linting, testing, documentation generation,
-                                and deployments of <strong>Python</strong> and <strong>Typescript</strong> packages, resulting in lower TCO and maximizing team velocity.
+                                and deployments of <strong>Python</strong> and <strong>Typescript</strong> package
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
                                 Served as an internal <strong>technical consultant</strong> for client-facing projects, collaborating with department
-                                managers and team leads to analyze requirements and implement custom solutions.
+                                managers and team leads to analyze requirements and implement custom solutions
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
-                                Acted as a primary <strong>point of contact</strong> when triaging support tickets and feature requests.
+                                Acted as a primary <strong>point of contact</strong> when <strong>triaging support</strong> tickets and feature requests
                             </p>
                         </WorkBullet>
                     </Workplace>
@@ -61,16 +45,21 @@ export function Work() {
                         <WorkBullet>
                             <p>
                                 Created a <strong>desktop PyQT application</strong> for production staff to view and download media from our production
-                                tracking software, Shotgrid. This application leveraged multiprocessing to seamlessly handle dozens of
+                                tracking software, <strong>Shotgrid</strong>. This application leveraged <strong>multiprocessing</strong> to seamlessly handle dozens of
                                 concurrent downloads, and could save users upwards of five minutes every time they needed to
-                                assemble media for reviews.
+                                assemble media for reviews
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
                                 Redesigned the asset "preflight" tool used by artists to verify asset quality before check-in. This
                                 included a <strong>PyQT Maya GUI</strong>, as well as a <strong>Python library</strong> utilizing a decorator system to mark and dynamically
-                                load validator functions. This new system could in some cases reduce the time needed to validate an asset by 90%.
+                                load validator functions
+                            </p>
+                        </WorkBullet>
+                        <WorkBullet>
+                            <p>
+                                Implemented a novel algorithm for testing certain characteristics of 3d mesh quality which was multiple orgers of magnitude faster than the existing solution, and allowed processing of assets that were previously too large. This could save immense time for artist staff, who needed their assets to pass validation before publishing multiple times per day
                             </p>
                         </WorkBullet>
                     </Workplace>
@@ -78,37 +67,35 @@ export function Work() {
                         <WorkBullet>
                             <p>
                                 Created an <strong>extensible</strong> and modifiable <strong>PyQT</strong> toolshelf plugin for Autodesk Maya, which provided access to a
-                                variety of in-house and third party tools, <strong>used daily</strong> by artist staff.
+                                variety of in-house and third party tools, <strong>used daily</strong> by artist staff
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
                                 Maintained our <strong>MySQL</strong> database and wrapper library, used for persisting user data, show configuration,
-                                and even <strong>QML</strong> mockup data.
+                                and even <strong>QML</strong> mockup data
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
-                                Maintained
-                                Audited studio code quality using in-house testing software, and added updates to this software to increase ease of use and reliability.
+                                Maintained and audited studio code quality using in-house testing software, and added updates to this software to increase ease of use and reliability
                             </p>
                         </WorkBullet>
                     </Workplace>
                     <Workplace position="Developer Intern" company="Arc Productions" duration="June 2015 - January 2016">
                         <WorkBullet>
                             <p>
-                                Created an <strong>extensible</strong> and modifiable PyQT tool shelf plugin for Autodesk Maya, which provided access to a
-                                variety of in-house and third party tools, used daily by artist staff.
+                                Worked directly with artist teams and CG supervisors to develop <strong>scripts</strong> to increase artist efficiency
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
-                                Updated and maintained in-house MySQL wrapper
+                                <strong>Model retopology</strong> and <strong>UV wrapping</strong> of show assets
                             </p>
                         </WorkBullet>
                         <WorkBullet>
                             <p>
-                                Audited studio code quality using in-house testing software, and added updates to this software to increase ease of use and reliability.
+                                <strong>QA</strong> for various visual effects like physics simulations and asset turntables
                             </p>
                         </WorkBullet>
                     </Workplace>
