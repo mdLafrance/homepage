@@ -19,7 +19,7 @@ export function Footer() {
         border: 3px solid var(--dark);
         border-radius: 20rem;
         overflow: hidden;
-        height: 10rem;
+        height: 180px;
         aspect-ratio: 1;
 
         display: flex;
@@ -27,7 +27,7 @@ export function Footer() {
         justify-content: center;
 
         img {
-            transform: scale(1.3) translate(-3px, -1px);
+            transform: translateX(-30px);
         }
     `
 
@@ -47,7 +47,7 @@ export function Footer() {
         <footer className={style}>
             <img src="me.gif" alt="Writing" width="170px" className={meGifStyle} />
             <span className={profileStyle}>
-                <img src="profile.jpg" alt="Profile picture" width="170px" />
+                <img src="profile.jpg" alt="Profile picture" width="250px" />
             </span>
             <OpenToWork />
             <ReachOut />
