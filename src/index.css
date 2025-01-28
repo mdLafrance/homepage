@@ -6,8 +6,9 @@
 @import "animations.css";
 
 :root {
-    --font-2xl: 48px;
-    --font-xl: 34px;
+    --font-3xl: 52px;
+    --font-2xl: 32px;
+    --font-xl: 28px;
     --font-lg: 22px;
     --font-md: 16px;
     --font-sm: 14px;
@@ -30,6 +31,10 @@
     --rounded-md: 0.3rem;
 
     --content-width: 72ch;
+}
+
+html {
+    font-size: 16px;
 }
 
 main {
@@ -64,4 +69,36 @@ button {
 button,
 a {
     cursor: url("pointer.svg") 12 4, pointer;
+}
+
+
+.popout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    border-radius: var(--rounded-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+
+    font-size: var(--font-lg);
+
+    border: 2px solid var(--dark);
+
+    font-weight: bold;
+
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+
+    text-decoration: none;
+    color: var(--dark);
+
+    &:hover {
+        background: var(--primary);
+        color: var(--light);
+        transform: translate(-3px, -3px);
+        box-shadow: 1.5px 1.5px 0 1.5px var(--dark);
+    }
+
+    &:active {
+        transform: translate(-3px, -1.5px);
+    }
 }

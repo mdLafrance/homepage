@@ -1,6 +1,7 @@
 import { css } from "@emotion/css"
 import { ReachOut } from "./ReachOut"
 import { OpenToWork } from "./OpenToWork"
+import { Code, EnvelopeSimple, LinkedinLogo } from "@phosphor-icons/react"
 
 export function Footer() {
     const style = css`
@@ -27,12 +28,8 @@ export function Footer() {
         justify-content: center;
 
         img {
-            transform: translateX(-30px);
+            transform: translateX(-32px);
         }
-    `
-
-    const sourceCodeStyle = css`
-        color: var(--gray);
     `
 
     const meGifStyle = css`
@@ -51,9 +48,62 @@ export function Footer() {
             </span>
             <OpenToWork />
             <ReachOut />
-            <span>maxlafrance97@gmail.com</span>
-            <span>647-878-8700</span>
-            <a className={sourceCodeStyle}>Source code on my github</a>
+            <ContactLinks />
         </footer>
+    )
+}
+
+function ContactLinks() {
+    const style = css`
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-md);
+
+
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .dot {
+            display: none;
+            width: 5px;
+            height: 5px;
+            aspect-ratio: 1;
+            background-color: var(--primary);
+            border-radius: 100%;
+            border: 1px solid var(--dark);
+        }
+    `
+
+    return (
+        <address>
+            <ul className={style}>
+                <li>
+                    <a href="mailto:maxlafrance97@gmail.com" target="_blank">
+                        <EnvelopeSimple />maxlafrance97@gmail.com
+                    </a>
+                </li>
+                <span className="dot" />
+                <li>
+                    <a href="https://github.com/mdlafrance" target="_blank">
+                        <Code />Github
+                    </a>
+                </li>
+                <span className="dot" />
+                <li>
+                    <a href="https://linkedin.com/in/max-lafrance" target="_blank">
+                        <LinkedinLogo />Linkedin
+                    </a>
+                </li>
+            </ul>
+        </address>
     )
 }

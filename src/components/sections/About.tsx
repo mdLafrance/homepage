@@ -29,12 +29,12 @@ export function About() {
 
     return (
         <div>
-            <p>
-                I've been <strong>working in tech</strong> for the past 5 years at visual effects and animation companies, making desktop applications, websites, plugins - <strong>you name it</strong>.
-            </p>
-            <br />
-            <p>
-                <strong>These days</strong>, I'm working at a VFX <strong>startup</strong>, writing web apps, python libraries, and putting out fires.
+            <p >
+                I've been <strong>working in tech</strong> for the past 5 years
+                at visual effects and animation companies, making desktop applications,
+                websites, plugins - <strong>you name it</strong>. These days, I'm
+                working at a VFX <strong>startup</strong>, writing web apps,
+                python libraries, and putting out fires.
             </p>
             <br />
             <h4 className={techHeaderStyle}><span>I make stuff with</span><HandPointing className="hand" weight="bold" /></h4>

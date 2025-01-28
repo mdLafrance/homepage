@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 import React, { useState } from "react";
 import { Reveal } from "../Reveal";
+import { Resume } from "../ResumeButton";
 
 export function Work() {
     const style = css`
@@ -100,6 +101,7 @@ export function Work() {
                         </WorkBullet>
                     </Workplace>
                 </WorkplaceContainer>
+                    <Resume />
             </Reveal>
         </div>
     )

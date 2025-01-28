@@ -29,8 +29,6 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         color: var(--dark);
         font-size: var(--font-md);
         padding-bottom: var(--spacing-2xl);
-
-        text-wrap: balance;
     `
 
     const stickyHeaderStyle = css`
@@ -47,7 +45,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         gap: var(--spacing-sm);
         justify-content: end;
 
-        font-size: var(--font-xl);
+        font-size: var(--font-2xl);
         font-weight: bold;
         text-transform: capitalize;
 

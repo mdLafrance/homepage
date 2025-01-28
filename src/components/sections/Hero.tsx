@@ -11,6 +11,16 @@ export function Hero() {
         gap: var(--spacing-md);
         max-width: var(--content-width);
 
+        h1 {
+            font-size: var(--font-3xl);
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: var(--font-2xl);
+            font-family: Geist Mono;
+        }
+
         .hand {
             opacity: 0;
             animation: handWave 0.7s ease forwards;
@@ -23,11 +33,6 @@ export function Hero() {
 
         .profile-section {
             margin-top: 10dvh;
-
-            h2 {
-                font-size: var(--font-2xl);
-                font-weight: bold;
-            }
 
             p {
                 font-size: var(--font-lg);
@@ -56,17 +61,17 @@ export function Hero() {
     `
 
     return (
-        <div className={style} id="section-hero">
+        <div className={style}>
             <Reveal>
                 <div className="profile-section">
                     <div className="text-section">
-                        <h2>
+                        <h1>
                             Hi, I'm <strong className="blue">Max</strong> <HandWaving className="hand" />
-                        </h2>
+                        </h1>
                         <Reveal delay={0.8}>
-                            <p>
+                            <h2>
                                 Software developer, <br /> and general nerd.
-                            </p>
+                            </h2>
                         </Reveal>
                     </div>
                     <div className="image-section">
@@ -75,9 +80,6 @@ export function Hero() {
                         </Reveal>
                     </div>
                 </div>
-            </Reveal>
-            <Reveal delay={0.9}>
-                <Links />
             </Reveal>
         </div>
     )
@@ -88,6 +90,7 @@ function Links() {
         display: flex;
         padding: var(--spacing-md) 0;
         gap: var(--spacing-md);
+        justify-content: center;
     `
 
     return (
