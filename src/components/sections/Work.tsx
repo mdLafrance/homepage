@@ -1,7 +1,6 @@
 import { css } from "@emotion/css";
 import React, { useState } from "react";
 import { Reveal } from "../Reveal";
-import { Resume } from "../ResumeButton";
 
 export function Work() {
     const style = css`
@@ -101,7 +100,6 @@ export function Work() {
                         </WorkBullet>
                     </Workplace>
                 </WorkplaceContainer>
-                    <Resume />
             </Reveal>
         </div>
     )
@@ -120,10 +118,7 @@ function WorkplaceContainer({ workplaces, children }: { workplaces: string[], ch
     const selectorContainerStyle = css`
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-md);
-        max-width: 8rem;
-        min-width: 8rem;
-        border-left: 2px solid var(--gray);
+        padding: var(--spacing-sm);
     `
 
     return (
@@ -146,16 +141,33 @@ function WorkplaceContainer({ workplaces, children }: { workplaces: string[], ch
 
 function WorkplaceSelector({ company, onClick, selected }: { company: string, onClick: () => void, selected: boolean }) {
     const style = css`
-        font-weight: bold;
-        font-size: var(--font-sm);
-        text-align: start;
-        padding-bottom: var(--spacing-md);
-        color: ${selected ? "var(--primary)" : "var(--dark)"};
+        border: 2px solid var(--dark);
+        box-sizing: border-box;
+        width:  1rem;
+        aspect-ratio: 1;
+        border-radius: 100%;
+
+        ${selected && "background-color: var(--primary);"}
+    `
+
+    const outerStyle = css`
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &:not(:last-child)::after {
+            content: ""; 
+            display: inline-block;
+            width: 2.2px;
+            height: 22px;
+            background-color: var(--dark);
+        }
     `
 
     return (
-        <li>
-            <button className={style} onClick={onClick}>{company}</button>
+        <li className={outerStyle}>
+            <button className={style} onClick={onClick} />
         </li>
     )
 }
