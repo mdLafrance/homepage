@@ -1,35 +1,11 @@
 import { css } from "@emotion/css"
 
-export function Reveal({ delay, children }: { delay?: number, children: React.ReactNode }) {
+export function Reveal({ delay, noSlide, children }: { delay?: number, noSlide?: boolean, children: React.ReactNode }) {
     const style = css`
-        @keyframes revealOpacity {
-            0% {
-                opacity: 0;
-                filter: blur(2px);
-            }
-
-            70% {
-                filter: blur(0px);
-            }
-
-            100% {
-                opacity: 1;
-            }
-        } 
-
-        @keyframes revealSlide {
-            0% {
-                transform: translateY(4px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
-        } 
-
         opacity: 0;
 
-        animation: revealOpacity 0.6s ease forwards, revealSlide 0.5s ease forwards;
+        animation: revealOpacity 0.6s ease forwards ${!noSlide && ", slideY 0.5s ease forwards"};
+
         ${delay !== undefined && `animation-delay: ${delay}s;`}
     `
 

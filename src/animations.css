@@ -12,6 +12,31 @@
     }
 }
 
+@keyframes revealOpacity {
+    0% {
+        opacity: 0;
+        filter: blur(1px);
+    }
+
+    70% {
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideY {
+    0% {
+        transform: translateY(4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .hand-wave {
     transform: scaleX(-1);
 }
@@ -35,15 +60,5 @@
     100% {
         opacity: 100%;
         transform: scaleX(-1) rotate(0deg);
-    }
-}
-
-@keyframes reveal {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 100;
     }
 }

@@ -36,7 +36,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
 
         position: sticky;
         top: 0rem;
-        min-height: 5.8rem;
+        min-height: 4rem;
 
         padding-bottom: var(--spacing-md);
 

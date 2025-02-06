@@ -44,11 +44,13 @@ export default function Home() {
                             <Work />
                         </Section>
                     </Reveal>
+                    {/**
                     <Reveal delay={1.4}>
                         <Section name="more">
                             <More />
                         </Section>
                     </Reveal>
+                    **/}
                     <Reveal delay={1.5}>
                         <Footer />
                     </Reveal>

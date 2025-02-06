@@ -110,8 +110,7 @@ function WorkplaceContainer({ workplaces, children }: { workplaces: string[], ch
 
     const style = css`
         display: flex;
-        gap: var(--spacing-lg);
-        padding: var(--spacing-lg) 0;
+        gap: var(--spacing-md);
         height: 25rem;
     `
 
@@ -119,6 +118,7 @@ function WorkplaceContainer({ workplaces, children }: { workplaces: string[], ch
         display: flex;
         flex-direction: column;
         padding: var(--spacing-sm);
+        padding-left: 0;
     `
 
     return (
@@ -141,7 +141,7 @@ function WorkplaceContainer({ workplaces, children }: { workplaces: string[], ch
 
 function WorkplaceSelector({ company, onClick, selected }: { company: string, onClick: () => void, selected: boolean }) {
     const style = css`
-        border: 2px solid var(--dark);
+        border: 2px solid ${selected ? "var(--primary)" : "var(--dark)"};
         box-sizing: border-box;
         width:  1rem;
         aspect-ratio: 1;
@@ -203,14 +203,16 @@ function Workplace({ position, company, duration, children }: { position: string
     `
 
     return (
-        <article className={style}>
-            <h4>
-                <span className="position-text">{position}</span>
-                <span className="company-text">{` @ ${company}`}</span>
-            </h4>
-            <h5 className="duration-text">{duration}</h5>
-            {children}
-        </article>
+        <Reveal noSlide>
+            <article className={style}>
+                <h4>
+                    <span className="position-text">{position}</span>
+                    <span className="company-text">{` @ ${company}`}</span>
+                </h4>
+                <h5 className="duration-text">{duration}</h5>
+                {children}
+            </article>
+        </Reveal>
     )
 }
 
