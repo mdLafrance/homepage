@@ -2,6 +2,7 @@ import { css } from "@emotion/css"
 import { ReachOut } from "./ReachOut"
 import { OpenToWork } from "./OpenToWork"
 import { Code, EnvelopeSimple, LinkedinLogo } from "@phosphor-icons/react"
+import { Links } from "./Links"
 
 export function Footer() {
     const style = css`
@@ -47,8 +48,7 @@ export function Footer() {
                 <img src="profile.jpg" alt="Profile picture" width="250px" />
             </span>
             <OpenToWork />
-            <ReachOut />
-            <ContactLinks />
+            <Links />
         </footer>
     )
 }
