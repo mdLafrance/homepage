@@ -177,6 +177,7 @@ function Workplace({ position, company, duration, children }: { position: string
         display: flex;
         flex-direction: column;
         gap: var(--spacing-md);
+        padding-left: var(--spacing-sm);
 
         pre {
             text-wrap: pretty;

@@ -38,7 +38,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         top: 0rem;
         min-height: 4rem;
 
-        padding-bottom: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
 
         display: flex;
         flex-direction:column;
@@ -50,7 +50,7 @@ export function Section({ name, children, noShowTitle }: { name: string, childre
         text-transform: capitalize;
 
         background: var(--light);
-        box-shadow: 0 0 4px 4px var(--light);
+        box-shadow: 0 0 4px 6px var(--light);
 
         z-index: 500;
 
